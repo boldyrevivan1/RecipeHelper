@@ -2,7 +2,7 @@
 //  RecipeHelperApp.swift
 //  RecipeHelper
 //
-//  Created by Иван Болдырев on 29.01.2026.
+//  Created by Иван Болдырев on 30.01.2026.
 //
 
 import SwiftUI
@@ -12,7 +12,13 @@ import SwiftData
 struct RecipeHelperApp: App {
     var sharedModelContainer: ModelContainer = {
         let schema = Schema([
-            Item.self,
+            User.self,
+            Profile.self,
+            Product.self,
+            Recipe.self,
+            RecipeIngredient.self,
+            Ingredient.self,
+            ShoppingListItem.self
         ])
         let modelConfiguration = ModelConfiguration(schema: schema, isStoredInMemoryOnly: false)
 
