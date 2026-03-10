@@ -15,19 +15,24 @@ struct MainTabView: View {
                     Label("Inventory", systemImage: "refrigerator")
                 }
             
+            RecommendedRecipesView()
+                .tabItem {
+                    Label("Recommended", systemImage: "star.fill")
+                }
+            
             RecipesView()
                 .tabItem {
-                    Label("Recipes", systemImage: "book.fill")
+                    Label("Recipes", systemImage: "book")
                 }
             
             ShoppingListView()
                 .tabItem {
-                    Label("Shopping", systemImage: "cart.fill")
+                    Label("Shopping", systemImage: "cart")
                 }
             
             ProfileView()
                 .tabItem {
-                    Label("Profile", systemImage: "person.fill")
+                    Label("Profile", systemImage: "person")
                 }
         }
     }

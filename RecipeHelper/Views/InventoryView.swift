@@ -64,9 +64,12 @@ struct ProductRow: View {
                     .font(.headline)
                 
                 HStack {
-                    Text("\(product.quantity, specifier: "%.1f") \(product.unit)")
+                    // Статус количества с иконкой и цветом
+                    Image(systemName: product.quantityStatus.icon)
+                        .foregroundStyle(product.quantityStatus.color)
+                    Text(product.quantityStatus.rawValue)
                         .font(.subheadline)
-                        .foregroundStyle(.secondary)
+                        .foregroundStyle(product.quantityStatus.color)
                     
                     if let category = product.category {
                         Text("•")
@@ -90,13 +93,10 @@ struct ProductRow: View {
             
             Spacer()
             
-            if product.isExpired {
-                Image(systemName: "exclamationmark.circle.fill")
-                    .foregroundStyle(.red)
-            } else if product.isExpiringSoon {
-                Image(systemName: "clock.fill")
-                    .foregroundStyle(.orange)
-            }
+            // Большая иконка статуса справа
+            Image(systemName: product.quantityStatus.icon)
+                .font(.title2)
+                .foregroundStyle(product.quantityStatus.color)
         }
         .padding(.vertical, 4)
     }

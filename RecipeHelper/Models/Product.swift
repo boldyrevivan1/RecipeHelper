@@ -7,13 +7,36 @@
 
 import Foundation
 import SwiftData
+import SwiftUI
+
+enum ProductQuantityStatus: String, Codable {
+    case plenty = "Plenty"
+    case medium = "Medium"
+    case runningOut = "Running Out"
+    
+    
+    var icon: String {
+        switch self {
+        case .plenty: return "checkmark.circle.fill"
+        case .medium: return "minus.circle.fill"
+        case .runningOut: return "exclamationmark.circle.fill"
+        }
+    }
+    
+    var color: Color {
+        switch self {
+        case .plenty: return .green
+        case .medium: return .orange
+        case .runningOut: return .red
+        }
+    }
+}
 
 @Model
 class Product {
     @Attribute(.unique) var id: UUID
     var name: String
-    var quantity: Double
-    var unit: String // например: "kg", "l", "шт"
+    var quantityStatus: ProductQuantityStatus
     var expirationDate: Date?
     var addedDate: Date
     var category: String? // например: "Овощи", "Мясо", "Молочное"
@@ -21,11 +44,10 @@ class Product {
     // Связь с пользователем
     var user: User?
     
-    init(name: String, quantity: Double, unit: String, expirationDate: Date? = nil, category: String? = nil) {
+    init(name: String, quantityStatus: ProductQuantityStatus, expirationDate: Date? = nil, category: String? = nil) {
         self.id = UUID()
         self.name = name
-        self.quantity = quantity
-        self.unit = unit
+        self.quantityStatus = quantityStatus
         self.expirationDate = expirationDate
         self.addedDate = Date()
         self.category = category

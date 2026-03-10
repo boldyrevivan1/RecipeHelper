@@ -99,6 +99,17 @@ struct ProfileView: View {
                                 .foregroundStyle(.secondary)
                         }
                     }
+                    Section {
+                        Button(role: .destructive) {
+                            AppleAuthService.shared.signOut()
+                        } label: {
+                            HStack {
+                                Image(systemName: "rectangle.portrait.and.arrow.right")
+                                Text("Sign Out")
+                            }
+                            .frame(maxWidth: .infinity)
+                        }
+                    }
                 }
                 .navigationTitle("Profile")
                 .toolbar {

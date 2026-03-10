@@ -8,12 +8,22 @@
 import SwiftUI
 
 struct ContentView: View {
+    @State private var authService = AppleAuthService.shared
+    
     var body: some View {
-        MainTabView()
+        Group {
+            if authService.isAuthenticated {
+                MainTabView()
+                    .transition(.opacity)
+            } else {
+                AppleSignInView()
+                    .transition(.opacity)
+            }
+        }
+        .animation(.easeInOut, value: authService.isAuthenticated)
     }
 }
 
 #Preview {
     ContentView()
-        .modelContainer(for: [Product.self, User.self, Recipe.self], inMemory: true)
 }

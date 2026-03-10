@@ -2,13 +2,14 @@
 //  RecipeConverter.swift
 //  RecipeHelper
 //
-//  Created by Иван Болдырев on 30.01.2026.
+//  Created by Иван Болдырев on 08.02.2026.
 //
 
 import Foundation
 import SwiftData
 
 class RecipeConverter {
+    @MainActor
     static func convertMealDTOToRecipe(meal: MealDTO, modelContext: ModelContext) -> Recipe {
         // Разбиваем инструкции на шаги
         let instructions = meal.strInstructions?
@@ -30,11 +31,11 @@ class RecipeConverter {
         // Создаем рецепт
         let recipe = Recipe(
             title: meal.strMeal,
-            description: meal.strCategory ?? "Без описания",
+            description: meal.strCategory ?? "No description",
             preparationTime: 30, // По умолчанию, так как API не предоставляет
             difficulty: difficulty,
             servings: 4, // По умолчанию
-            instructions: instructions.isEmpty ? ["Инструкции не доступны"] : instructions,
+            instructions: instructions.isEmpty ? ["Instructions not available"] : instructions,
             imageURL: meal.strMealThumb,
             dietaryTags: meal.strTags?.components(separatedBy: ",").map { $0.trimmingCharacters(in: .whitespaces) } ?? [],
             allergens: []

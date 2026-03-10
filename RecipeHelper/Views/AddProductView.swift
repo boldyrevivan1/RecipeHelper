@@ -13,13 +13,11 @@ struct AddProductView: View {
     @Environment(\.dismiss) private var dismiss
     
     @State private var name = ""
-    @State private var quantity = 1.0
-    @State private var unit = "pcs"
+    @State private var quantityStatus: ProductQuantityStatus = .medium
     @State private var hasExpirationDate = false
     @State private var expirationDate = Date()
     @State private var category = "Other"
     
-    let units = ["pcs", "kg", "g", "l", "ml", "pack"]
     let categories = ["Vegetables", "Fruits", "Meat", "Fish", "Dairy", "Bread", "Grains", "Spices", "Other"]
     
     var body: some View {
@@ -28,23 +26,51 @@ struct AddProductView: View {
                 Section("Product Information") {
                     TextField("Name", text: $name)
                     
-                    HStack {
-                        TextField("Quantity", value: $quantity, format: .number)
-                            .keyboardType(.decimalPad)
-                        
-                        Picker("Unit", selection: $unit) {
-                            ForEach(units, id: \.self) { unit in
-                                Text(unit).tag(unit)
-                            }
-                        }
-                        .pickerStyle(.menu)
-                    }
-                    
                     Picker("Category", selection: $category) {
                         ForEach(categories, id: \.self) { category in
                             Text(category).tag(category)
                         }
                     }
+                }
+                
+                Section("Quantity Status") {
+                    Picker("Status", selection: $quantityStatus) {
+                        HStack {
+                            Image(systemName: ProductQuantityStatus.plenty.icon)
+                                .foregroundStyle(ProductQuantityStatus.plenty.color)
+                            Text(ProductQuantityStatus.plenty.rawValue)
+                        }
+                        .tag(ProductQuantityStatus.plenty)
+                        
+                        HStack {
+                            Image(systemName: ProductQuantityStatus.medium.icon)
+                                .foregroundStyle(ProductQuantityStatus.medium.color)
+                            Text(ProductQuantityStatus.medium.rawValue)
+                        }
+                        .tag(ProductQuantityStatus.medium)
+                        
+                        HStack {
+                            Image(systemName: ProductQuantityStatus.runningOut.icon)
+                                .foregroundStyle(ProductQuantityStatus.runningOut.color)
+                            Text(ProductQuantityStatus.runningOut.rawValue)
+                        }
+                        .tag(ProductQuantityStatus.runningOut)
+                        
+                       
+                    }
+                    .pickerStyle(.navigationLink)
+                    
+                    // Preview выбранного статуса
+                    HStack {
+                        Image(systemName: quantityStatus.icon)
+                            .foregroundStyle(quantityStatus.color)
+                            .font(.title2)
+                        Text(quantityStatus.rawValue)
+                            .foregroundStyle(quantityStatus.color)
+                            .fontWeight(.semibold)
+                    }
+                    .frame(maxWidth: .infinity)
+                    .padding(.vertical, 8)
                 }
                 
                 Section {
@@ -82,8 +108,7 @@ struct AddProductView: View {
     private func addProduct() {
         let newProduct = Product(
             name: name,
-            quantity: quantity,
-            unit: unit,
+            quantityStatus: quantityStatus,
             expirationDate: hasExpirationDate ? expirationDate : nil,
             category: category
         )

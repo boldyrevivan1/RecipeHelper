@@ -1,10 +1,3 @@
-//
-//  RecipeHelperApp.swift
-//  RecipeHelper
-//
-//  Created by Иван Болдырев on 30.01.2026.
-//
-
 import SwiftUI
 import SwiftData
 
@@ -20,10 +13,17 @@ struct RecipeHelperApp: App {
             Ingredient.self,
             ShoppingListItem.self
         ])
-        let modelConfiguration = ModelConfiguration(schema: schema, isStoredInMemoryOnly: false)
+        
+        // ВАЖНО: Изменим конфигурацию - добавим версию
+        let modelConfiguration = ModelConfiguration(
+            schema: schema,
+            isStoredInMemoryOnly: false,
+            cloudKitDatabase: .none
+        )
 
         do {
-            return try ModelContainer(for: schema, configurations: [modelConfiguration])
+            let container = try ModelContainer(for: schema, configurations: [modelConfiguration])
+            return container
         } catch {
             fatalError("Could not create ModelContainer: \(error)")
         }
