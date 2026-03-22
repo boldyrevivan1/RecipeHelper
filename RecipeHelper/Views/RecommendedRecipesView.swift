@@ -326,6 +326,11 @@ struct RecommendedRecipeRow: View {
                         .foregroundStyle(.orange)
                         .lineLimit(1)
                 }
+                if match.recipe.isFavorite {
+                    Image(systemName: "heart.fill")
+                        .foregroundStyle(.red)
+                        .font(.caption)
+                }
             }
             
             Spacer()

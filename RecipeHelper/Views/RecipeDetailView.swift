@@ -139,6 +139,17 @@ struct RecipeDetailView: View {
                 .padding()
             }
         }
+        .toolbar {
+            ToolbarItem(placement: .navigationBarTrailing) {
+                Button {
+                    toggleFavorite()
+                } label: {
+                    Image(systemName: recipe.isFavorite ? "heart.fill" : "heart")
+                        .foregroundStyle(recipe.isFavorite ? .red : .gray)
+                        .font(.title2)
+                }
+            }
+        }
         .navigationBarTitleDisplayMode(.inline)
         .alert("Added to Shopping List", isPresented: $showAddedAlert) {
             Button("OK", role: .cancel) { }
@@ -243,6 +254,9 @@ struct RecipeDetailView: View {
             showAddedAlert = true
         }
     }
+    private func toggleFavorite() {
+        recipe.isFavorite.toggle()
+    }
 }
 
 // MARK: - Ingredient Row
@@ -292,7 +306,7 @@ struct IngredientRowView: View {
     NavigationStack {
         RecipeDetailView(recipe: Recipe(
             title: "Spaghetti Carbonara",
-            description: "Classic Italian pasta",
+            recipeDescription: "Classic Italian pasta",
             preparationTime: 30,
             difficulty: .medium,
             servings: 4,

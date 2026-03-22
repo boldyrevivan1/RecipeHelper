@@ -9,7 +9,7 @@ import Foundation
 import SwiftData
 
 @Model
-class Ingredient {
+final class Ingredient {
     @Attribute(.unique) var id: UUID
     var name: String
     var category: String? // например: "Овощи", "Специи"
@@ -22,7 +22,7 @@ class Ingredient {
 }
 
 @Model
-class RecipeIngredient {
+final class RecipeIngredient {
     @Attribute(.unique) var id: UUID
     var ingredientName: String
     var quantity: Double

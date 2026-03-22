@@ -3,6 +3,7 @@ import SwiftData
 
 @main
 struct RecipeHelperApp: App {
+    
     var sharedModelContainer: ModelContainer = {
         let schema = Schema([
             User.self,
@@ -14,13 +15,8 @@ struct RecipeHelperApp: App {
             ShoppingListItem.self
         ])
         
-        // ВАЖНО: Изменим конфигурацию - добавим версию
-        let modelConfiguration = ModelConfiguration(
-            schema: schema,
-            isStoredInMemoryOnly: false,
-            cloudKitDatabase: .none
-        )
-
+        let modelConfiguration = ModelConfiguration(schema: schema, isStoredInMemoryOnly: false)
+        
         do {
             let container = try ModelContainer(for: schema, configurations: [modelConfiguration])
             return container
@@ -28,7 +24,7 @@ struct RecipeHelperApp: App {
             fatalError("Could not create ModelContainer: \(error)")
         }
     }()
-
+    
     var body: some Scene {
         WindowGroup {
             ContentView()

@@ -8,19 +8,8 @@
 import SwiftUI
 
 struct ContentView: View {
-    @State private var authService = AppleAuthService.shared
-    
     var body: some View {
-        Group {
-            if authService.isAuthenticated {
-                MainTabView()
-                    .transition(.opacity)
-            } else {
-                AppleSignInView()
-                    .transition(.opacity)
-            }
-        }
-        .animation(.easeInOut, value: authService.isAuthenticated)
+        MainTabView()
     }
 }
 

@@ -9,7 +9,7 @@ import Foundation
 import SwiftData
 
 @Model
-class User {
+final class User {
     @Attribute(.unique) var id: UUID
     var username: String
     var email: String
@@ -33,7 +33,7 @@ class User {
 }
 
 @Model
-class Profile {
+final class Profile {
     @Attribute(.unique) var id: UUID
     
     // Диетические предпочтения

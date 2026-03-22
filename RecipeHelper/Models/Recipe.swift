@@ -9,47 +9,26 @@ import Foundation
 import SwiftData
 
 @Model
-class Recipe {
+final class Recipe {
     @Attribute(.unique) var id: UUID
     var title: String
-    var recipeDescription: String
-    var preparationTime: Int // в минутах
+    var recipeDescription: String  // ← ПЕРЕИМЕНОВАЛИ
+    var preparationTime: Int
     var difficulty: DifficultyLevel
     var servings: Int
+    var instructions: [String]
     var imageURL: String?
+    var cuisineType: String?
+    var dietaryTags: [String]?
+    var allergens: [String]?
+    var isFavorite: Bool = false
     
-    // Пищевая информация
-    var calories: Int?
-    var protein: Double?
-    var carbs: Double?
-    var fat: Double?
+    @Relationship(deleteRule: .cascade) var ingredients: [RecipeIngredient]?
     
-    // Категории и диеты
-    var cuisineType: String? // например: "Итальянская", "Азиатская"
-    var dietaryTags: [String] // например: ["vegetarian", "gluten-free"]
-    var allergens: [String] // список аллергенов в рецепте
-    
-    // Связь с ингредиентами
-    @Relationship(deleteRule: .cascade)
-    var ingredients: [RecipeIngredient]?
-    
-    // Инструкции по приготовлению
-    var instructions: [String] // массив шагов приготовления
-    
-    init(
-        title: String,
-        description: String,
-        preparationTime: Int,
-        difficulty: DifficultyLevel,
-        servings: Int,
-        instructions: [String],
-        imageURL: String? = nil,
-        dietaryTags: [String] = [],
-        allergens: [String] = []
-    ) {
+    init(title: String, recipeDescription: String, preparationTime: Int, difficulty: DifficultyLevel, servings: Int, instructions: [String], imageURL: String? = nil, dietaryTags: [String]? = nil, allergens: [String]? = nil) {
         self.id = UUID()
         self.title = title
-        self.recipeDescription = description
+        self.recipeDescription = recipeDescription  // ← ПЕРЕИМЕНОВАЛИ
         self.preparationTime = preparationTime
         self.difficulty = difficulty
         self.servings = servings
@@ -57,7 +36,7 @@ class Recipe {
         self.imageURL = imageURL
         self.dietaryTags = dietaryTags
         self.allergens = allergens
-        self.ingredients = []
+        self.isFavorite = false
     }
 }
 

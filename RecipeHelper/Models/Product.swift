@@ -33,7 +33,7 @@ enum ProductQuantityStatus: String, Codable {
 }
 
 @Model
-class Product {
+final class Product {
     @Attribute(.unique) var id: UUID
     var name: String
     var quantityStatus: ProductQuantityStatus

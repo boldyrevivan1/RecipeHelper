@@ -1,82 +1,60 @@
 //
-//  RecipesView.swift
+//  FavoritesView.swift
 //  RecipeHelper
 //
-//  Created by Иван Болдырев on 30.01.2026.
+//  Created by Иван Болдырев on 18.03.2026.
 //
 
 import SwiftUI
 import SwiftData
 
-struct RecipesView: View {
+struct FavoritesView: View {
     @Environment(\.modelContext) private var modelContext
-    @Query(sort: \Recipe.title) private var allRecipes: [Recipe]
-    
-    @State private var selectedTab = 0
-    @State private var searchText = ""
-    
-    var favoriteRecipes: [Recipe] {
-        allRecipes.filter { $0.isFavorite }
-    }
-    
-    var displayedRecipes: [Recipe] {
-        let recipes = selectedTab == 0 ? allRecipes : favoriteRecipes
-        
-        if searchText.isEmpty {
-            return recipes
-        } else {
-            return recipes.filter { recipe in
-                recipe.title.localizedCaseInsensitiveContains(searchText)
-            }
-        }
-    }
+    @Query(filter: #Predicate<Recipe> { $0.isFavorite == true }, sort: \Recipe.title)
+    private var favoriteRecipes: [Recipe]
     
     var body: some View {
         NavigationStack {
-            VStack(spacing: 0) {
-                // Segmented Control
-                Picker("Recipes", selection: $selectedTab) {
-                    Text("All Recipes").tag(0)
-                    Text("Favorites").tag(1)
-                }
-                .pickerStyle(.segmented)
-                .padding()
-                
-                // Recipes List
-                if displayedRecipes.isEmpty {
+            Group {
+                if favoriteRecipes.isEmpty {
                     emptyStateView
                 } else {
                     recipesList
                 }
             }
-            .navigationTitle("Recipes")
-            .searchable(text: $searchText, prompt: "Search recipes")
+            .navigationTitle("Favorites")
         }
     }
     
     private var emptyStateView: some View {
         ContentUnavailableView(
-            selectedTab == 0 ? "No Recipes" : "No Favorite Recipes",
-            systemImage: selectedTab == 0 ? "book" : "heart.slash",
-            description: Text(selectedTab == 0 ? "Recipes will appear here" : "Tap the heart icon on any recipe to add it to favorites")
+            "No Favorite Recipes",
+            systemImage: "heart.slash",
+            description: Text("Tap the heart icon on any recipe to add it to favorites")
         )
     }
     
     private var recipesList: some View {
         List {
-            ForEach(displayedRecipes) { recipe in
+            ForEach(favoriteRecipes) { recipe in
                 NavigationLink(destination: RecipeDetailView(recipe: recipe)) {
-                    RecipeRowView(recipe: recipe)
+                    FavoriteRecipeRow(recipe: recipe)
                 }
             }
+            .onDelete(perform: removeFromFavorites)
         }
-        .listStyle(.plain)
+    }
+    
+    private func removeFromFavorites(at offsets: IndexSet) {
+        for index in offsets {
+            favoriteRecipes[index].isFavorite = false
+        }
     }
 }
 
 // MARK: - Recipe Row
 
-struct RecipeRowView: View {
+struct FavoriteRecipeRow: View {
     let recipe: Recipe
     
     var body: some View {
@@ -94,19 +72,9 @@ struct RecipeRowView: View {
             
             // Info
             VStack(alignment: .leading, spacing: 6) {
-                HStack {
-                    Text(recipe.title)
-                        .font(.headline)
-                        .lineLimit(2)
-                    
-                    Spacer()
-                    
-                    if recipe.isFavorite {
-                        Image(systemName: "heart.fill")
-                            .foregroundStyle(.red)
-                            .font(.caption)
-                    }
-                }
+                Text(recipe.title)
+                    .font(.headline)
+                    .lineLimit(2)
                 
                 HStack(spacing: 12) {
                     Label("\(recipe.preparationTime) min", systemImage: "clock")
@@ -128,12 +96,18 @@ struct RecipeRowView: View {
                         .clipShape(Capsule())
                 }
             }
+            
+            Spacer()
+            
+            Image(systemName: "heart.fill")
+                .foregroundStyle(.red)
+                .font(.title3)
         }
         .padding(.vertical, 4)
     }
 }
 
 #Preview {
-    RecipesView()
+    FavoritesView()
         .modelContainer(for: Recipe.self, inMemory: true)
 }

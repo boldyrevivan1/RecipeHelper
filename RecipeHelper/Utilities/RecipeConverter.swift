@@ -31,7 +31,7 @@ class RecipeConverter {
         // Создаем рецепт
         let recipe = Recipe(
             title: meal.strMeal,
-            description: meal.strCategory ?? "No description",
+            recipeDescription: meal.strCategory ?? "No description",
             preparationTime: 30, // По умолчанию, так как API не предоставляет
             difficulty: difficulty,
             servings: 4, // По умолчанию

@@ -10,129 +10,90 @@ import SwiftData
 
 struct ProfileView: View {
     @Environment(\.modelContext) private var modelContext
-    @Query private var users: [User]
+    @Query private var profiles: [Profile]
     
-    @State private var showingEditProfile = false
+    @State private var showEditProfile = false
     
-    var currentUser: User? {
-        users.first
+    var currentProfile: Profile? {
+        profiles.first
     }
     
     var body: some View {
         NavigationStack {
-            if let user = currentUser, let profile = user.profile {
-                // Profile exists
-                List {
-                    // User information section
-                    Section {
-                        HStack {
-                            Image(systemName: "person.circle.fill")
-                                .font(.system(size: 60))
-                                .foregroundStyle(.blue)
-                            
-                            VStack(alignment: .leading, spacing: 4) {
-                                Text(user.username)
-                                    .font(.title2)
-                                    .fontWeight(.bold)
-                                
-                                Text(user.email)
-                                    .font(.subheadline)
-                                    .foregroundStyle(.secondary)
-                            }
-                            .padding(.leading, 8)
-                        }
-                        .padding(.vertical, 8)
-                    }
-                    
-                    // Dietary preferences
-                    Section("Dietary Preferences") {
-                        if profile.dietaryPreferences.isEmpty {
-                            Text("Not specified")
-                                .foregroundStyle(.secondary)
-                        } else {
-                            ForEach(profile.dietaryPreferences, id: \.self) { preference in
-                                Label(preference, systemImage: "leaf.fill")
-                            }
-                        }
-                    }
-                    
-                    // Allergies
-                    Section("Allergies & Restrictions") {
-                        if profile.allergies.isEmpty {
-                            Text("Not specified")
-                                .foregroundStyle(.secondary)
-                        } else {
-                            ForEach(profile.allergies, id: \.self) { allergy in
-                                Label(allergy, systemImage: "exclamationmark.triangle.fill")
-                                    .foregroundStyle(.orange)
-                            }
-                        }
-                    }
-                    
-                    // Calories
-                    Section("Daily Calorie Limit") {
-                        if let calorieLimit = profile.calorieLimit {
-                            HStack {
-                                Image(systemName: "flame.fill")
-                                    .foregroundStyle(.orange)
-                                Text("\(calorieLimit) kcal")
-                            }
-                        } else {
-                            Text("Not set")
-                                .foregroundStyle(.secondary)
-                        }
-                    }
-                    
-                    // Statistics
-                    Section("Statistics") {
-                        HStack {
-                            Label("Products in inventory", systemImage: "refrigerator")
-                            Spacer()
-                            Text("\(user.products?.count ?? 0)")
-                                .foregroundStyle(.secondary)
-                        }
-                        
-                        HStack {
-                            Label("Registration date", systemImage: "calendar")
-                            Spacer()
-                            Text(user.createdAt, style: .date)
-                                .foregroundStyle(.secondary)
-                        }
-                    }
-                    Section {
-                        Button(role: .destructive) {
-                            AppleAuthService.shared.signOut()
-                        } label: {
-                            HStack {
-                                Image(systemName: "rectangle.portrait.and.arrow.right")
-                                Text("Sign Out")
-                            }
-                            .frame(maxWidth: .infinity)
-                        }
-                    }
-                }
-                .navigationTitle("Profile")
-                .toolbar {
-                    ToolbarItem(placement: .navigationBarTrailing) {
-                        Button {
-                            showingEditProfile = true
-                        } label: {
-                            Text("Edit")
-                        }
-                    }
-                }
-                .sheet(isPresented: $showingEditProfile) {
-                    EditProfileView(user: user, profile: profile)
-                }
+            if let profile = currentProfile {
+                profileContent(profile: profile)
             } else {
-                // Profile not created
                 CreateProfileView()
             }
+        }
+    }
+    
+    private func profileContent(profile: Profile) -> some View {
+        List {
+            // Profile Header
+            Section {
+                VStack(spacing: 12) {
+                    Image(systemName: "person.circle.fill")
+                        .font(.system(size: 80))
+                        .foregroundStyle(.blue)
+                    
+                    Text("My Profile")
+                        .font(.title2)
+                        .fontWeight(.semibold)
+                }
+                .frame(maxWidth: .infinity)
+                .padding(.vertical, 20)
+            }
+            
+            // Dietary Preferences
+            Section {
+                Text("Vegetarian, Vegan, Gluten-Free")
+                    .foregroundStyle(.secondary)
+                    .font(.callout)
+            } header: {
+                Text("Dietary Preferences")
+            }
+            
+            // Allergies
+            Section {
+                Text("Peanuts, Shellfish")
+                    .foregroundStyle(.secondary)
+                    .font(.callout)
+            } header: {
+                Text("Allergies")
+            }
+            
+            // Calorie Limit
+            Section {
+                HStack {
+                    Image(systemName: "flame.fill")
+                        .foregroundStyle(.orange)
+                    Text("Daily Calorie Goal")
+                    Spacer()
+                    Text("2000 kcal")
+                        .foregroundStyle(.secondary)
+                }
+            } header: {
+                Text("Nutrition Goals")
+            }
+        }
+        .navigationTitle("Profile")
+        .toolbar {
+            ToolbarItem(placement: .navigationBarTrailing) {
+                Button {
+                    showEditProfile = true
+                } label: {
+                    Text("Edit")
+                }
+            }
+        }
+        .sheet(isPresented: $showEditProfile) {
+            EditProfileView(profile: profile)
         }
     }
 }
 
 #Preview {
     ProfileView()
-        .modelContainer(for: [User.self, Profile.self], inMemory: true)
+        .modelContainer(for: Profile.self, inMemory: true)
 }
