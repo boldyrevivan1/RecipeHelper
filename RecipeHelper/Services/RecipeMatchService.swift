@@ -2,155 +2,132 @@
 //  RecipeMatchService.swift
 //  RecipeHelper
 //
-//  Created by Иван Болдырев on 10.03.2026.
-//
-
-
 
 import Foundation
-import SwiftData
 
 struct RecipeMatch {
-    let recipe: Recipe
-    let matchPercentage: Double
-    let availableIngredients: [RecipeIngredient]
-    let missingIngredients: [RecipeIngredient]
-    
-    var matchCount: Int {
-        availableIngredients.count
-    }
-    
-    var totalCount: Int {
-        availableIngredients.count + missingIngredients.count
-    }
-    
-    var canCook: Bool {
-        matchPercentage >= 70.0 // Можно готовить если есть 70%+ ингредиентов
-    }
+    let recipe:             Recipe
+    let matchPercentage:    Double
+    let availableCount:     Int
+    let totalCount:         Int
+    let missingIngredients: [String]
+
+    var canCook:    Bool { matchPercentage >= 100 }
+    var matchCount: Int  { availableCount }
 }
 
 class RecipeMatchService {
-    
-    // MARK: - Main Method
-    
-    /// Находит рецепты которые можно приготовить на основе инвентаря
-    static func findMatchingRecipes(
-        recipes: [Recipe],
-        inventory: [Product]
-    ) -> [RecipeMatch] {
-        
-        var matches: [RecipeMatch] = []
-        
-        for recipe in recipes {
-            let match = calculateMatch(recipe: recipe, inventory: inventory)
-            matches.append(match)
-        }
-        
-        // Сортируем по проценту совпадения (от большего к меньшему)
-        return matches.sorted { $0.matchPercentage > $1.matchPercentage }
+
+    // Ingredients we always consider «available» regardless of inventory.
+    // Water is on tap, we don't track it; salt/sugar/pepper live in Pantry.
+    private static let ignoredIngredients: Set<String> = [
+        "water", "hot water", "cold water", "warm water", "boiling water",
+        "ice water", "tap water", "вода"
+    ]
+
+    /// Ингредиент, который не нужно ни проверять в инвентаре, ни добавлять в shopping list,
+    /// ни списывать при готовке (например, вода).
+    static func isIgnored(_ ingredientName: String) -> Bool {
+        let n = ingredientName.lowercased().trimmingCharacters(in: .whitespaces)
+        return ignoredIngredients.contains(n)
     }
-    
-    // MARK: - Private Methods
-    
-    private static func calculateMatch(
-        recipe: Recipe,
-        inventory: [Product]
-    ) -> RecipeMatch {
-        
-        guard let recipeIngredients = recipe.ingredients, !recipeIngredients.isEmpty else {
-            return RecipeMatch(
-                recipe: recipe,
-                matchPercentage: 0,
-                availableIngredients: [],
-                missingIngredients: []
-            )
+
+    /// Ингредиент есть в специях (Pantry) и тогглер включён.
+    static func isInPantry(_ ingredientName: String, pantry: [FSPantryItem]) -> Bool {
+        let target = ingredientName.lowercased().trimmingCharacters(in: .whitespaces)
+        return pantry.contains { item in
+            guard item.isAvailable else { return false }
+            let n = item.name.lowercased().trimmingCharacters(in: .whitespaces)
+            return n == target || n.contains(target) || target.contains(n)
         }
-        
-        var available: [RecipeIngredient] = []
-        var missing: [RecipeIngredient] = []
-        
-        for recipeIngredient in recipeIngredients {
-            if isIngredientAvailable(recipeIngredient, in: inventory) {
-                available.append(recipeIngredient)
+    }
+
+    static func findMatchingRecipes(
+        recipes:   [Recipe],
+        inventory: [FSProduct],
+        pantry:    [FSPantryItem] = []
+    ) -> [RecipeMatch] {
+        recipes.map { recipe in
+            calculateMatch(recipe: recipe, inventory: inventory, pantry: pantry)
+        }
+        .sorted { $0.matchPercentage > $1.matchPercentage }
+    }
+
+    static func calculateMatch(
+        recipe:    Recipe,
+        inventory: [FSProduct],
+        pantry:    [FSPantryItem] = []
+    ) -> RecipeMatch {
+        guard let allIngredients = recipe.ingredients, !allIngredients.isEmpty else {
+            return RecipeMatch(recipe: recipe, matchPercentage: 0,
+                               availableCount: 0, totalCount: 0, missingIngredients: [])
+        }
+
+        // Исключаем и воду, и специи из pantry — это ингредиенты, которые
+        // у пользователя заведомо есть, в процент совпадения их включать
+        // не нужно (иначе любой рецепт с большим количеством базовых специй
+        // автоматически «доступен» даже при пустом холодильнике).
+        let ingredients = allIngredients.filter {
+            !isIgnored($0.ingredientName)
+            && !isInPantry($0.ingredientName, pantry: pantry)
+        }
+
+        guard !ingredients.isEmpty else {
+            return RecipeMatch(recipe: recipe, matchPercentage: 100,
+                               availableCount: 0, totalCount: 0, missingIngredients: [])
+        }
+
+        var available = 0
+        var missing:   [String] = []
+
+        for ingredient in ingredients {
+            if isAvailable(ingredient.ingredientName, in: inventory) {
+                available += 1
             } else {
-                missing.append(recipeIngredient)
+                missing.append(ingredient.ingredientName)
             }
         }
-        
-        let totalIngredients = recipeIngredients.count
-        let matchPercentage = totalIngredients > 0
-            ? (Double(available.count) / Double(totalIngredients)) * 100.0
-            : 0.0
-        
+
+        let total      = ingredients.count
+        let percentage = total > 0 ? Double(available) / Double(total) * 100 : 0
+
         return RecipeMatch(
-            recipe: recipe,
-            matchPercentage: matchPercentage,
-            availableIngredients: available,
+            recipe:             recipe,
+            matchPercentage:    percentage,
+            availableCount:     available,
+            totalCount:         total,
             missingIngredients: missing
         )
     }
-    
-    private static func isIngredientAvailable(
-        _ recipeIngredient: RecipeIngredient,
-        in inventory: [Product]
-    ) -> Bool {
-        
-        // Используем название ингредиента напрямую
-        let ingredientName = recipeIngredient.ingredientName.lowercased().trimmingCharacters(in: .whitespaces)
-        
-        // Ищем точное совпадение или частичное
-        for product in inventory {
-            let productName = product.name.lowercased().trimmingCharacters(in: .whitespaces)
-            
-            // Точное совпадение
-            if productName == ingredientName {
-                return true
-            }
-            
-            // Частичное совпадение (например: "chicken breast" содержит "chicken")
-            if productName.contains(ingredientName) || ingredientName.contains(productName) {
-                return true
-            }
-            
-            // Проверка синонимов
-            if areSynonyms(ingredientName, productName) {
-                return true
-            }
+
+    private static func isAvailable(_ ingredientName: String, in inventory: [FSProduct]) -> Bool {
+        let lower = ingredientName.lowercased().trimmingCharacters(in: .whitespaces)
+        return inventory.contains { product in
+            let name = product.name.lowercased().trimmingCharacters(in: .whitespaces)
+            if name == lower || name.contains(lower) || lower.contains(name) { return true }
+            if areSynonyms(lower, name) { return true }
+            return false
         }
-        
-        return false
     }
-    
-    private static func areSynonyms(_ word1: String, _ word2: String) -> Bool {
-        // Словарь синонимов (можно расширить)
-        let synonyms: [String: [String]] = [
-            "tomato": ["tomatoes", "tomato sauce"],
-            "onion": ["onions", "shallot", "shallots"],
-            "garlic": ["garlic clove", "garlic cloves"],
-            "chicken": ["chicken breast", "chicken thigh", "chicken drumstick"],
-            "beef": ["beef steak", "ground beef", "beef mince"],
-            "pasta": ["spaghetti", "penne", "fusilli", "macaroni"],
-            "rice": ["white rice", "brown rice", "basmati rice"],
-            "milk": ["whole milk", "skim milk", "2% milk"],
-            "cheese": ["cheddar", "mozzarella", "parmesan"],
-            "butter": ["margarine", "unsalted butter"],
-            "oil": ["olive oil", "vegetable oil", "cooking oil"],
-            "salt": ["sea salt", "table salt", "kosher salt"],
-            "pepper": ["black pepper", "white pepper", "ground pepper"]
+
+    /// Small built-in synonym list so that e.g. "pasta" matches "spaghetti"
+    /// in the inventory, and "tomatoes" in a recipe matches "tomato" in stock.
+    /// This list is intentionally tiny — for anything bigger we'd need a real
+    /// ingredient ontology. Kept static so it can be reused across the app.
+    static func areSynonyms(_ a: String, _ b: String) -> Bool {
+        let groups: [Set<String>] = [
+            ["tomato", "tomatoes"],
+            ["onion", "onions"],
+            ["potato", "potatoes"],
+            ["chicken", "chicken breast", "chicken thigh", "chicken thighs"],
+            ["pasta", "spaghetti", "penne", "fettuccine", "linguine", "tagliatelle"],
+            ["cheese", "cheddar", "mozzarella", "parmesan", "pecorino"],
+            ["egg", "eggs"],
+            ["lemon", "lemons"],
+            ["pepper", "bell pepper", "bell peppers"],
+            ["bacon", "pancetta"],
         ]
-        
-        // Проверяем в обе стороны
-        for (key, values) in synonyms {
-            if (word1 == key && values.contains(word2)) ||
-               (word2 == key && values.contains(word1)) {
-                return true
-            }
-            
-            if values.contains(word1) && values.contains(word2) {
-                return true
-            }
-        }
-        
+        for g in groups where g.contains(a) && g.contains(b) { return true }
         return false
     }
 }

@@ -1,0 +1,7610 @@
+[
+  {
+    "id": "1",
+    "title": "Spaghetti Carbonara",
+    "description": "Classic Italian pasta",
+    "prepTime": 25,
+    "difficulty": "Medium",
+    "servings": 4,
+    "cuisine": "Italian",
+    "imageURL": "recipe_1",
+    "tags": [],
+    "instructions": [
+      "Boil salted water and cook spaghetti until al dente.",
+      "Fry pancetta or bacon in a pan until crispy.",
+      "Whisk eggs with grated Parmesan and black pepper.",
+      "Drain pasta, reserve some pasta water.",
+      "Off the heat, mix pasta with egg mixture and pancetta.",
+      "Add pasta water to loosen if needed. Serve immediately."
+    ],
+    "ingredients": [
+      {
+        "name": "Spaghetti",
+        "measure": "400g"
+      },
+      {
+        "name": "Eggs",
+        "measure": "4"
+      },
+      {
+        "name": "Parmesan",
+        "measure": "100g"
+      },
+      {
+        "name": "Bacon",
+        "measure": "200g"
+      },
+      {
+        "name": "Black Pepper",
+        "measure": "to taste"
+      },
+      {
+        "name": "Salt",
+        "measure": "to taste"
+      }
+    ],
+    "dietaryTags": [],
+    "allergens": [
+      "Dairy",
+      "Eggs",
+      "Gluten"
+    ]
+  },
+  {
+    "id": "2",
+    "title": "Margherita Pizza",
+    "description": "Simple classic pizza",
+    "prepTime": 30,
+    "difficulty": "Medium",
+    "servings": 4,
+    "cuisine": "Italian",
+    "imageURL": "recipe_2",
+    "tags": [],
+    "instructions": [
+      "Make dough with flour, yeast, water, salt.",
+      "Let dough rise for 1 hour.",
+      "Spread tomato sauce on rolled dough.",
+      "Add mozzarella and basil.",
+      "Bake at 250°C for 10-12 minutes."
+    ],
+    "ingredients": [
+      {
+        "name": "Flour",
+        "measure": "500g"
+      },
+      {
+        "name": "Tomato Sauce",
+        "measure": "200ml"
+      },
+      {
+        "name": "Mozzarella",
+        "measure": "250g"
+      },
+      {
+        "name": "Basil",
+        "measure": "handful"
+      },
+      {
+        "name": "Olive Oil",
+        "measure": "2 tbsp"
+      },
+      {
+        "name": "Salt",
+        "measure": "1 tsp"
+      }
+    ],
+    "dietaryTags": [
+      "Vegetarian"
+    ],
+    "allergens": [
+      "Dairy",
+      "Gluten"
+    ]
+  },
+  {
+    "id": "3",
+    "title": "Risotto ai Funghi",
+    "description": "Creamy mushroom risotto",
+    "prepTime": 35,
+    "difficulty": "Medium",
+    "servings": 4,
+    "cuisine": "Italian",
+    "imageURL": "recipe_3",
+    "tags": [],
+    "instructions": [
+      "Sauté onion in butter until soft.",
+      "Add rice, toast for 2 minutes.",
+      "Add white wine, stir until absorbed.",
+      "Add hot stock ladle by ladle, stirring constantly.",
+      "Stir in mushrooms, Parmesan and butter. Season and serve."
+    ],
+    "ingredients": [
+      {
+        "name": "Rice",
+        "measure": "320g"
+      },
+      {
+        "name": "Mushrooms",
+        "measure": "300g"
+      },
+      {
+        "name": "Onion",
+        "measure": "1"
+      },
+      {
+        "name": "Parmesan",
+        "measure": "80g"
+      },
+      {
+        "name": "Butter",
+        "measure": "50g"
+      },
+      {
+        "name": "White Wine",
+        "measure": "100ml"
+      }
+    ],
+    "dietaryTags": [
+      "Vegetarian",
+      "Gluten-Free"
+    ],
+    "allergens": [
+      "Dairy"
+    ]
+  },
+  {
+    "id": "4",
+    "title": "Pasta Bolognese",
+    "description": "Rich meat sauce pasta",
+    "prepTime": 60,
+    "difficulty": "Medium",
+    "servings": 4,
+    "cuisine": "Italian",
+    "imageURL": "recipe_4",
+    "tags": [],
+    "instructions": [
+      "Brown minced beef in olive oil.",
+      "Add chopped onion, carrot, celery and cook 5 min.",
+      "Add tomatoes, wine and simmer 40 minutes.",
+      "Cook pasta, toss with sauce. Top with Parmesan."
+    ],
+    "ingredients": [
+      {
+        "name": "Ground Beef",
+        "measure": "500g"
+      },
+      {
+        "name": "Pasta",
+        "measure": "400g"
+      },
+      {
+        "name": "Tomato Sauce",
+        "measure": "400ml"
+      },
+      {
+        "name": "Onion",
+        "measure": "1"
+      },
+      {
+        "name": "Carrots",
+        "measure": "1"
+      },
+      {
+        "name": "Parmesan",
+        "measure": "50g"
+      }
+    ],
+    "dietaryTags": [],
+    "allergens": [
+      "Gluten",
+      "Dairy"
+    ]
+  },
+  {
+    "id": "5",
+    "title": "Tiramisu",
+    "description": "Classic Italian dessert",
+    "prepTime": 20,
+    "difficulty": "Easy",
+    "servings": 6,
+    "cuisine": "Italian",
+    "imageURL": "recipe_5",
+    "tags": [
+      "Vegetarian"
+    ],
+    "instructions": [
+      "Whisk egg yolks with sugar until pale.",
+      "Fold in mascarpone.",
+      "Whip cream and fold in.",
+      "Dip ladyfingers in espresso, layer with cream mixture.",
+      "Dust with cocoa powder. Refrigerate 4 hours."
+    ],
+    "ingredients": [
+      {
+        "name": "Eggs",
+        "measure": "4"
+      },
+      {
+        "name": "Sugar",
+        "measure": "100g"
+      },
+      {
+        "name": "Cream",
+        "measure": "200ml"
+      },
+      {
+        "name": "Cocoa Powder",
+        "measure": "2 tbsp"
+      }
+    ],
+    "dietaryTags": [
+      "Vegetarian",
+      "Gluten-Free"
+    ],
+    "allergens": [
+      "Dairy",
+      "Eggs"
+    ]
+  },
+  {
+    "id": "6",
+    "title": "Beef Stew",
+    "description": "Hearty British stew",
+    "prepTime": 120,
+    "difficulty": "Easy",
+    "servings": 4,
+    "cuisine": "British",
+    "imageURL": "recipe_6",
+    "tags": [],
+    "instructions": [
+      "Brown beef in batches in a large pot.",
+      "Add onion, carrots, celery and cook 5 min.",
+      "Add flour, stock and potatoes.",
+      "Simmer covered for 1.5 hours until beef is tender.",
+      "Season and serve with crusty bread."
+    ],
+    "ingredients": [
+      {
+        "name": "Beef",
+        "measure": "800g"
+      },
+      {
+        "name": "Carrots",
+        "measure": "3"
+      },
+      {
+        "name": "Potato",
+        "measure": "4"
+      },
+      {
+        "name": "Onion",
+        "measure": "2"
+      },
+      {
+        "name": "Celery",
+        "measure": "2 stalks"
+      },
+      {
+        "name": "Beef Stock",
+        "measure": "500ml"
+      }
+    ],
+    "dietaryTags": [
+      "Gluten-Free",
+      "Lactose-Free"
+    ],
+    "allergens": []
+  },
+  {
+    "id": "7",
+    "title": "Fish and Chips",
+    "description": "British classic",
+    "prepTime": 30,
+    "difficulty": "Medium",
+    "servings": 4,
+    "cuisine": "British",
+    "imageURL": "recipe_7",
+    "tags": [],
+    "instructions": [
+      "Make batter with flour, beer and salt.",
+      "Peel and cut potatoes into chips.",
+      "Fry chips at 160°C until soft, then at 190°C until golden.",
+      "Dip fish in batter and fry until golden brown.",
+      "Drain on paper towels and serve with malt vinegar."
+    ],
+    "ingredients": [
+      {
+        "name": "Cod",
+        "measure": "4 fillets"
+      },
+      {
+        "name": "Potato",
+        "measure": "6"
+      },
+      {
+        "name": "Flour",
+        "measure": "200g"
+      },
+      {
+        "name": "Vegetable Oil",
+        "measure": "for frying"
+      },
+      {
+        "name": "Salt",
+        "measure": "to taste"
+      }
+    ],
+    "dietaryTags": [],
+    "allergens": [
+      "Fish",
+      "Gluten"
+    ]
+  },
+  {
+    "id": "8",
+    "title": "Shepherd's Pie",
+    "description": "Classic minced lamb pie",
+    "prepTime": 60,
+    "difficulty": "Easy",
+    "servings": 4,
+    "cuisine": "British",
+    "imageURL": "recipe_8",
+    "tags": [],
+    "instructions": [
+      "Brown minced lamb with onion and carrots.",
+      "Add stock and simmer 20 minutes.",
+      "Boil and mash potatoes with butter and milk.",
+      "Top lamb with mash and bake at 200°C for 25 minutes."
+    ],
+    "ingredients": [
+      {
+        "name": "Lamb",
+        "measure": "500g"
+      },
+      {
+        "name": "Potato",
+        "measure": "800g"
+      },
+      {
+        "name": "Onion",
+        "measure": "2"
+      },
+      {
+        "name": "Carrots",
+        "measure": "2"
+      },
+      {
+        "name": "Butter",
+        "measure": "50g"
+      },
+      {
+        "name": "Milk",
+        "measure": "100ml"
+      }
+    ],
+    "dietaryTags": [],
+    "allergens": []
+  },
+  {
+    "id": "9",
+    "title": "BBQ Ribs",
+    "description": "Slow cooked BBQ ribs",
+    "prepTime": 180,
+    "difficulty": "Medium",
+    "servings": 4,
+    "cuisine": "American",
+    "imageURL": "recipe_9",
+    "tags": [],
+    "instructions": [
+      "Rub ribs with spice mix.",
+      "Wrap in foil and bake at 150°C for 2.5 hours.",
+      "Brush with BBQ sauce and grill for 10 minutes.",
+      "Let rest 5 minutes before serving."
+    ],
+    "ingredients": [
+      {
+        "name": "Pork",
+        "measure": "1.5kg ribs"
+      },
+      {
+        "name": "BBQ Sauce",
+        "measure": "200ml"
+      },
+      {
+        "name": "Paprika",
+        "measure": "2 tsp"
+      },
+      {
+        "name": "Cumin",
+        "measure": "1 tsp"
+      },
+      {
+        "name": "Black Pepper",
+        "measure": "1 tsp"
+      },
+      {
+        "name": "Salt",
+        "measure": "1 tsp"
+      }
+    ],
+    "dietaryTags": [
+      "Gluten-Free",
+      "Lactose-Free"
+    ],
+    "allergens": []
+  },
+  {
+    "id": "10",
+    "title": "Classic Burger",
+    "description": "Juicy homemade burger",
+    "prepTime": 20,
+    "difficulty": "Easy",
+    "servings": 4,
+    "cuisine": "American",
+    "imageURL": "recipe_10",
+    "tags": [],
+    "instructions": [
+      "Mix minced beef with salt and pepper, form patties.",
+      "Grill or fry 4 minutes each side.",
+      "Toast buns on the grill.",
+      "Assemble with lettuce, tomatoes, cheese and sauces."
+    ],
+    "ingredients": [
+      {
+        "name": "Ground Beef",
+        "measure": "500g"
+      },
+      {
+        "name": "Tomatoes",
+        "measure": "2"
+      },
+      {
+        "name": "Lettuce",
+        "measure": "handful"
+      },
+      {
+        "name": "Cheese",
+        "measure": "4 slices"
+      },
+      {
+        "name": "Onion",
+        "measure": "1"
+      },
+      {
+        "name": "Mayonnaise",
+        "measure": "3 tbsp"
+      }
+    ],
+    "dietaryTags": [],
+    "allergens": [
+      "Gluten",
+      "Dairy",
+      "Eggs"
+    ]
+  },
+  {
+    "id": "11",
+    "title": "Mac and Cheese",
+    "description": "Creamy macaroni cheese",
+    "prepTime": 30,
+    "difficulty": "Easy",
+    "servings": 4,
+    "cuisine": "American",
+    "imageURL": "recipe_11",
+    "tags": [
+      "Vegetarian"
+    ],
+    "instructions": [
+      "Cook macaroni until al dente.",
+      "Make roux with butter and flour.",
+      "Add milk and stir until thick.",
+      "Melt in cheese and season.",
+      "Mix with pasta and bake at 180°C for 20 minutes."
+    ],
+    "ingredients": [
+      {
+        "name": "Pasta",
+        "measure": "400g"
+      },
+      {
+        "name": "Cheddar",
+        "measure": "300g"
+      },
+      {
+        "name": "Milk",
+        "measure": "500ml"
+      },
+      {
+        "name": "Butter",
+        "measure": "50g"
+      },
+      {
+        "name": "Flour",
+        "measure": "50g"
+      },
+      {
+        "name": "Black Pepper",
+        "measure": "to taste"
+      }
+    ],
+    "dietaryTags": [
+      "Vegetarian"
+    ],
+    "allergens": [
+      "Dairy",
+      "Gluten",
+      "Eggs"
+    ]
+  },
+  {
+    "id": "12",
+    "title": "Pancakes",
+    "description": "Fluffy American pancakes",
+    "prepTime": 20,
+    "difficulty": "Easy",
+    "servings": 4,
+    "cuisine": "American",
+    "imageURL": "recipe_12",
+    "tags": [
+      "Vegetarian"
+    ],
+    "instructions": [
+      "Mix flour, baking powder, sugar and salt.",
+      "Whisk eggs with milk and melted butter.",
+      "Combine wet and dry ingredients.",
+      "Cook on buttered pan until bubbles form, flip.",
+      "Serve with maple syrup and butter."
+    ],
+    "ingredients": [
+      {
+        "name": "Flour",
+        "measure": "200g"
+      },
+      {
+        "name": "Eggs",
+        "measure": "2"
+      },
+      {
+        "name": "Milk",
+        "measure": "300ml"
+      },
+      {
+        "name": "Butter",
+        "measure": "30g"
+      },
+      {
+        "name": "Sugar",
+        "measure": "2 tbsp"
+      },
+      {
+        "name": "Baking Powder",
+        "measure": "2 tsp"
+      }
+    ],
+    "dietaryTags": [
+      "Vegetarian"
+    ],
+    "allergens": [
+      "Dairy",
+      "Eggs",
+      "Gluten"
+    ]
+  },
+  {
+    "id": "13",
+    "title": "Chicken Stir Fry",
+    "description": "Quick Asian stir fry",
+    "prepTime": 20,
+    "difficulty": "Easy",
+    "servings": 4,
+    "cuisine": "Chinese",
+    "imageURL": "recipe_13",
+    "tags": [],
+    "instructions": [
+      "Slice chicken breast thinly.",
+      "Stir fry in hot wok with oil for 5 minutes.",
+      "Add vegetables and stir fry 3 more minutes.",
+      "Add soy sauce, oyster sauce and cornstarch mixture.",
+      "Serve over steamed rice."
+    ],
+    "ingredients": [
+      {
+        "name": "Chicken Breast",
+        "measure": "500g"
+      },
+      {
+        "name": "Bell Pepper",
+        "measure": "2"
+      },
+      {
+        "name": "Onion",
+        "measure": "1"
+      },
+      {
+        "name": "Soy Sauce",
+        "measure": "3 tbsp"
+      },
+      {
+        "name": "Garlic",
+        "measure": "3 cloves"
+      },
+      {
+        "name": "Rice",
+        "measure": "300g"
+      }
+    ],
+    "dietaryTags": [
+      "Lactose-Free"
+    ],
+    "allergens": [
+      "Soy",
+      "Gluten"
+    ]
+  },
+  {
+    "id": "14",
+    "title": "Fried Rice",
+    "description": "Classic egg fried rice",
+    "prepTime": 15,
+    "difficulty": "Easy",
+    "servings": 4,
+    "cuisine": "Chinese",
+    "imageURL": "recipe_14",
+    "tags": [],
+    "instructions": [
+      "Use cold cooked rice.",
+      "Fry eggs in wok and scramble.",
+      "Add rice and stir fry on high heat.",
+      "Season with soy sauce and sesame oil.",
+      "Add spring onions and serve."
+    ],
+    "ingredients": [
+      {
+        "name": "Rice",
+        "measure": "400g cooked"
+      },
+      {
+        "name": "Eggs",
+        "measure": "3"
+      },
+      {
+        "name": "Soy Sauce",
+        "measure": "3 tbsp"
+      },
+      {
+        "name": "Sesame Oil",
+        "measure": "1 tbsp"
+      },
+      {
+        "name": "Onion",
+        "measure": "1"
+      },
+      {
+        "name": "Vegetable Oil",
+        "measure": "2 tbsp"
+      }
+    ],
+    "dietaryTags": [],
+    "allergens": [
+      "Eggs",
+      "Soy"
+    ]
+  },
+  {
+    "id": "15",
+    "title": "Sweet and Sour Pork",
+    "description": "Chinese takeaway classic",
+    "prepTime": 35,
+    "difficulty": "Medium",
+    "servings": 4,
+    "cuisine": "Chinese",
+    "imageURL": "recipe_15",
+    "tags": [],
+    "instructions": [
+      "Cut pork into chunks, coat in batter and deep fry.",
+      "Make sauce with vinegar, sugar, soy sauce, ketchup.",
+      "Stir fry peppers and pineapple.",
+      "Add sauce and bring to boil.",
+      "Toss pork in sauce and serve with rice."
+    ],
+    "ingredients": [
+      {
+        "name": "Pork",
+        "measure": "500g"
+      },
+      {
+        "name": "Bell Pepper",
+        "measure": "2"
+      },
+      {
+        "name": "Vinegar",
+        "measure": "3 tbsp"
+      },
+      {
+        "name": "Sugar",
+        "measure": "3 tbsp"
+      },
+      {
+        "name": "Ketchup",
+        "measure": "3 tbsp"
+      },
+      {
+        "name": "Soy Sauce",
+        "measure": "2 tbsp"
+      }
+    ],
+    "dietaryTags": [],
+    "allergens": [
+      "Soy",
+      "Gluten"
+    ]
+  },
+  {
+    "id": "16",
+    "title": "Ramen",
+    "description": "Japanese noodle soup",
+    "prepTime": 45,
+    "difficulty": "Medium",
+    "servings": 4,
+    "cuisine": "Japanese",
+    "imageURL": "recipe_16",
+    "tags": [],
+    "instructions": [
+      "Simmer chicken stock with soy sauce and mirin.",
+      "Cook noodles separately.",
+      "Soft boil eggs for 7 minutes.",
+      "Arrange noodles in bowls, ladle hot broth over.",
+      "Top with chicken, egg, spring onions and nori."
+    ],
+    "ingredients": [
+      {
+        "name": "Noodles",
+        "measure": "400g"
+      },
+      {
+        "name": "Chicken Stock",
+        "measure": "1.5L"
+      },
+      {
+        "name": "Soy Sauce",
+        "measure": "4 tbsp"
+      },
+      {
+        "name": "Eggs",
+        "measure": "4"
+      },
+      {
+        "name": "Chicken",
+        "measure": "300g"
+      },
+      {
+        "name": "Onion",
+        "measure": "2"
+      }
+    ],
+    "dietaryTags": [],
+    "allergens": [
+      "Gluten",
+      "Eggs",
+      "Soy"
+    ]
+  },
+  {
+    "id": "17",
+    "title": "Pad Thai",
+    "description": "Thai rice noodle stir fry",
+    "prepTime": 25,
+    "difficulty": "Medium",
+    "servings": 4,
+    "cuisine": "Thai",
+    "imageURL": "recipe_17",
+    "tags": [],
+    "instructions": [
+      "Soak rice noodles in warm water 30 min.",
+      "Stir fry shrimp in hot oil.",
+      "Add eggs and scramble.",
+      "Add noodles and sauce (fish sauce, sugar, lime).",
+      "Top with peanuts, bean sprouts and lime."
+    ],
+    "ingredients": [
+      {
+        "name": "Noodles",
+        "measure": "300g"
+      },
+      {
+        "name": "Shrimp",
+        "measure": "300g"
+      },
+      {
+        "name": "Eggs",
+        "measure": "2"
+      },
+      {
+        "name": "Peanuts",
+        "measure": "50g"
+      },
+      {
+        "name": "Lime",
+        "measure": "2"
+      },
+      {
+        "name": "Sugar",
+        "measure": "2 tbsp"
+      }
+    ],
+    "dietaryTags": [],
+    "allergens": [
+      "Gluten",
+      "Eggs",
+      "Sesame",
+      "Soy",
+      "Shellfish"
+    ]
+  },
+  {
+    "id": "18",
+    "title": "Green Curry",
+    "description": "Thai green curry",
+    "prepTime": 30,
+    "difficulty": "Medium",
+    "servings": 4,
+    "cuisine": "Thai",
+    "imageURL": "recipe_18",
+    "tags": [],
+    "instructions": [
+      "Fry green curry paste in oil.",
+      "Add coconut milk and bring to simmer.",
+      "Add chicken and vegetables.",
+      "Season with fish sauce and sugar.",
+      "Serve with jasmine rice and basil."
+    ],
+    "ingredients": [
+      {
+        "name": "Chicken",
+        "measure": "500g"
+      },
+      {
+        "name": "Coconut Oil",
+        "measure": "400ml"
+      },
+      {
+        "name": "Bell Pepper",
+        "measure": "2"
+      },
+      {
+        "name": "Basil",
+        "measure": "handful"
+      },
+      {
+        "name": "Rice",
+        "measure": "300g"
+      }
+    ],
+    "dietaryTags": [
+      "Vegetarian",
+      "Vegan",
+      "Gluten-Free",
+      "Lactose-Free"
+    ],
+    "allergens": []
+  },
+  {
+    "id": "19",
+    "title": "Beef Bulgogi",
+    "description": "Korean BBQ beef",
+    "prepTime": 30,
+    "difficulty": "Easy",
+    "servings": 4,
+    "cuisine": "Korean",
+    "imageURL": "recipe_19",
+    "tags": [],
+    "instructions": [
+      "Slice beef thinly and marinate in soy, sugar, garlic, sesame oil for 30 min.",
+      "Grill or pan fry in batches on high heat.",
+      "Serve with steamed rice and kimchi."
+    ],
+    "ingredients": [
+      {
+        "name": "Beef",
+        "measure": "500g"
+      },
+      {
+        "name": "Soy Sauce",
+        "measure": "4 tbsp"
+      },
+      {
+        "name": "Sugar",
+        "measure": "2 tbsp"
+      },
+      {
+        "name": "Garlic",
+        "measure": "4 cloves"
+      },
+      {
+        "name": "Sesame Oil",
+        "measure": "2 tbsp"
+      },
+      {
+        "name": "Rice",
+        "measure": "300g"
+      }
+    ],
+    "dietaryTags": [
+      "Gluten-Free"
+    ],
+    "allergens": [
+      "Soy"
+    ]
+  },
+  {
+    "id": "20",
+    "title": "Chicken Tikka Masala",
+    "description": "Creamy tomato curry",
+    "prepTime": 45,
+    "difficulty": "Medium",
+    "servings": 4,
+    "cuisine": "Indian",
+    "imageURL": "recipe_20",
+    "tags": [],
+    "instructions": [
+      "Marinate chicken in yogurt and spices overnight.",
+      "Grill chicken until slightly charred.",
+      "Make sauce with onions, tomatoes, cream and spices.",
+      "Add grilled chicken to sauce and simmer 15 min.",
+      "Serve with naan and rice."
+    ],
+    "ingredients": [
+      {
+        "name": "Chicken",
+        "measure": "700g"
+      },
+      {
+        "name": "Yogurt",
+        "measure": "200ml"
+      },
+      {
+        "name": "Tomatoes",
+        "measure": "4"
+      },
+      {
+        "name": "Cream",
+        "measure": "150ml"
+      },
+      {
+        "name": "Onion",
+        "measure": "2"
+      },
+      {
+        "name": "Cumin",
+        "measure": "2 tsp"
+      }
+    ],
+    "dietaryTags": [
+      "Gluten-Free"
+    ],
+    "allergens": [
+      "Dairy"
+    ]
+  },
+  {
+    "id": "21",
+    "title": "Dal Makhani",
+    "description": "Creamy black lentil curry",
+    "prepTime": 60,
+    "difficulty": "Easy",
+    "servings": 4,
+    "cuisine": "Indian",
+    "imageURL": "recipe_21",
+    "tags": [
+      "Vegetarian"
+    ],
+    "instructions": [
+      "Soak black lentils overnight, then pressure cook.",
+      "Fry onion, garlic, ginger with spices.",
+      "Add tomatoes and cook until mushy.",
+      "Add lentils and cream, simmer 30 minutes.",
+      "Serve with butter and naan."
+    ],
+    "ingredients": [
+      {
+        "name": "Lentils",
+        "measure": "300g"
+      },
+      {
+        "name": "Tomatoes",
+        "measure": "3"
+      },
+      {
+        "name": "Onion",
+        "measure": "2"
+      },
+      {
+        "name": "Cream",
+        "measure": "100ml"
+      },
+      {
+        "name": "Butter",
+        "measure": "50g"
+      },
+      {
+        "name": "Cumin",
+        "measure": "1 tsp"
+      }
+    ],
+    "dietaryTags": [
+      "Vegetarian",
+      "Vegan",
+      "Gluten-Free",
+      "Lactose-Free"
+    ],
+    "allergens": []
+  },
+  {
+    "id": "22",
+    "title": "Palak Paneer",
+    "description": "Spinach and cheese curry",
+    "prepTime": 30,
+    "difficulty": "Easy",
+    "servings": 4,
+    "cuisine": "Indian",
+    "imageURL": "recipe_22",
+    "tags": [
+      "Vegetarian"
+    ],
+    "instructions": [
+      "Blanch spinach and blend to puree.",
+      "Fry paneer until golden.",
+      "Saute onion, garlic, spices.",
+      "Add spinach puree and cream.",
+      "Add paneer and simmer 10 minutes."
+    ],
+    "ingredients": [
+      {
+        "name": "Spinach",
+        "measure": "500g"
+      },
+      {
+        "name": "Cottage Cheese",
+        "measure": "250g"
+      },
+      {
+        "name": "Onion",
+        "measure": "2"
+      },
+      {
+        "name": "Cream",
+        "measure": "100ml"
+      },
+      {
+        "name": "Garlic",
+        "measure": "3 cloves"
+      },
+      {
+        "name": "Cumin",
+        "measure": "1 tsp"
+      }
+    ],
+    "dietaryTags": [
+      "Vegetarian",
+      "Gluten-Free"
+    ],
+    "allergens": [
+      "Dairy"
+    ]
+  },
+  {
+    "id": "23",
+    "title": "Biryani",
+    "description": "Aromatic rice dish",
+    "prepTime": 60,
+    "difficulty": "Hard",
+    "servings": 6,
+    "cuisine": "Indian",
+    "imageURL": "recipe_23",
+    "tags": [],
+    "instructions": [
+      "Marinate chicken in yogurt and biryani spices.",
+      "Parboil basmati rice.",
+      "Layer chicken and rice in heavy pot.",
+      "Cook on low heat (dum) for 30 minutes.",
+      "Garnish with fried onions and serve."
+    ],
+    "ingredients": [
+      {
+        "name": "Chicken",
+        "measure": "800g"
+      },
+      {
+        "name": "Basmati Rice",
+        "measure": "400g"
+      },
+      {
+        "name": "Yogurt",
+        "measure": "200ml"
+      },
+      {
+        "name": "Onion",
+        "measure": "3"
+      },
+      {
+        "name": "Cumin",
+        "measure": "2 tsp"
+      },
+      {
+        "name": "Coriander",
+        "measure": "2 tsp"
+      }
+    ],
+    "dietaryTags": [
+      "Gluten-Free"
+    ],
+    "allergens": [
+      "Dairy"
+    ]
+  },
+  {
+    "id": "24",
+    "title": "Tacos",
+    "description": "Classic Mexican tacos",
+    "prepTime": 30,
+    "difficulty": "Easy",
+    "servings": 4,
+    "cuisine": "Mexican",
+    "imageURL": "recipe_24",
+    "tags": [],
+    "instructions": [
+      "Season and cook minced beef with onion and cumin.",
+      "Warm tortillas in dry pan.",
+      "Fill with beef, cheese, salsa and sour cream.",
+      "Top with lettuce and lime juice."
+    ],
+    "ingredients": [
+      {
+        "name": "Ground Beef",
+        "measure": "500g"
+      },
+      {
+        "name": "Onion",
+        "measure": "1"
+      },
+      {
+        "name": "Cumin",
+        "measure": "2 tsp"
+      },
+      {
+        "name": "Cheddar",
+        "measure": "150g"
+      },
+      {
+        "name": "Sour Cream",
+        "measure": "100ml"
+      },
+      {
+        "name": "Lettuce",
+        "measure": "handful"
+      }
+    ],
+    "dietaryTags": [
+      "Gluten-Free"
+    ],
+    "allergens": [
+      "Dairy"
+    ]
+  },
+  {
+    "id": "25",
+    "title": "Guacamole",
+    "description": "Fresh avocado dip",
+    "prepTime": 10,
+    "difficulty": "Easy",
+    "servings": 4,
+    "cuisine": "Mexican",
+    "imageURL": "recipe_25",
+    "tags": [
+      "Vegan",
+      "Vegetarian"
+    ],
+    "instructions": [
+      "Mash ripe avocados with a fork.",
+      "Add lime juice, salt, and diced onion.",
+      "Mix in chopped tomatoes and coriander.",
+      "Serve immediately with tortilla chips."
+    ],
+    "ingredients": [
+      {
+        "name": "Avocado",
+        "measure": "3"
+      },
+      {
+        "name": "Lime",
+        "measure": "1"
+      },
+      {
+        "name": "Onion",
+        "measure": "1/2"
+      },
+      {
+        "name": "Tomatoes",
+        "measure": "1"
+      },
+      {
+        "name": "Coriander",
+        "measure": "handful"
+      },
+      {
+        "name": "Salt",
+        "measure": "to taste"
+      }
+    ],
+    "dietaryTags": [
+      "Vegetarian",
+      "Vegan",
+      "Gluten-Free",
+      "Lactose-Free"
+    ],
+    "allergens": []
+  },
+  {
+    "id": "26",
+    "title": "Beef Burrito",
+    "description": "Loaded Mexican burrito",
+    "prepTime": 30,
+    "difficulty": "Easy",
+    "servings": 4,
+    "cuisine": "Mexican",
+    "imageURL": "recipe_26",
+    "tags": [],
+    "instructions": [
+      "Cook rice and season with cumin and lime.",
+      "Fry beef with taco seasoning.",
+      "Warm tortillas.",
+      "Layer rice, beef, beans, cheese and sour cream.",
+      "Roll tightly and grill briefly."
+    ],
+    "ingredients": [
+      {
+        "name": "Ground Beef",
+        "measure": "400g"
+      },
+      {
+        "name": "Rice",
+        "measure": "200g"
+      },
+      {
+        "name": "Black Beans",
+        "measure": "400g"
+      },
+      {
+        "name": "Cheddar",
+        "measure": "150g"
+      },
+      {
+        "name": "Sour Cream",
+        "measure": "100ml"
+      },
+      {
+        "name": "Cumin",
+        "measure": "2 tsp"
+      }
+    ],
+    "dietaryTags": [
+      "Gluten-Free"
+    ],
+    "allergens": [
+      "Dairy",
+      "Gluten"
+    ]
+  },
+  {
+    "id": "27",
+    "title": "French Onion Soup",
+    "description": "Classic bistro soup",
+    "prepTime": 60,
+    "difficulty": "Medium",
+    "servings": 4,
+    "cuisine": "French",
+    "imageURL": "recipe_27",
+    "tags": [
+      "Vegetarian"
+    ],
+    "instructions": [
+      "Slowly caramelize onions in butter for 40 minutes.",
+      "Add wine and beef stock, simmer 20 minutes.",
+      "Pour into oven-safe bowls.",
+      "Top with baguette slices and gruyere.",
+      "Grill until cheese is bubbling."
+    ],
+    "ingredients": [
+      {
+        "name": "Onion",
+        "measure": "6"
+      },
+      {
+        "name": "Butter",
+        "measure": "50g"
+      },
+      {
+        "name": "Beef Stock",
+        "measure": "1L"
+      },
+      {
+        "name": "White Wine",
+        "measure": "150ml"
+      },
+      {
+        "name": "Cheese",
+        "measure": "200g"
+      }
+    ],
+    "dietaryTags": [
+      "Vegetarian"
+    ],
+    "allergens": [
+      "Dairy",
+      "Gluten"
+    ]
+  },
+  {
+    "id": "28",
+    "title": "Quiche Lorraine",
+    "description": "Classic French tart",
+    "prepTime": 60,
+    "difficulty": "Medium",
+    "servings": 6,
+    "cuisine": "French",
+    "imageURL": "recipe_28",
+    "tags": [],
+    "instructions": [
+      "Blind bake shortcrust pastry.",
+      "Fry bacon until crispy.",
+      "Whisk eggs with cream, season.",
+      "Add bacon to pastry case, pour egg mixture over.",
+      "Bake at 180°C for 30-35 minutes."
+    ],
+    "ingredients": [
+      {
+        "name": "Eggs",
+        "measure": "4"
+      },
+      {
+        "name": "Cream",
+        "measure": "300ml"
+      },
+      {
+        "name": "Bacon",
+        "measure": "150g"
+      },
+      {
+        "name": "Cheese",
+        "measure": "100g"
+      },
+      {
+        "name": "Flour",
+        "measure": "200g"
+      },
+      {
+        "name": "Butter",
+        "measure": "100g"
+      }
+    ],
+    "dietaryTags": [
+      "Vegetarian"
+    ],
+    "allergens": [
+      "Dairy",
+      "Eggs",
+      "Gluten"
+    ]
+  },
+  {
+    "id": "29",
+    "title": "Crêpes",
+    "description": "Thin French pancakes",
+    "prepTime": 30,
+    "difficulty": "Easy",
+    "servings": 4,
+    "cuisine": "French",
+    "imageURL": "recipe_29",
+    "tags": [
+      "Vegetarian"
+    ],
+    "instructions": [
+      "Blend flour, eggs, milk and melted butter.",
+      "Rest batter 30 minutes.",
+      "Cook in lightly buttered pan, swirling to coat.",
+      "Fill with your choice of sweet or savoury fillings."
+    ],
+    "ingredients": [
+      {
+        "name": "Flour",
+        "measure": "125g"
+      },
+      {
+        "name": "Eggs",
+        "measure": "2"
+      },
+      {
+        "name": "Milk",
+        "measure": "300ml"
+      },
+      {
+        "name": "Butter",
+        "measure": "30g"
+      },
+      {
+        "name": "Sugar",
+        "measure": "1 tbsp"
+      }
+    ],
+    "dietaryTags": [
+      "Vegetarian"
+    ],
+    "allergens": [
+      "Dairy",
+      "Eggs",
+      "Gluten"
+    ]
+  },
+  {
+    "id": "30",
+    "title": "Beef Bourguignon",
+    "description": "Classic French beef stew",
+    "prepTime": 180,
+    "difficulty": "Hard",
+    "servings": 6,
+    "cuisine": "French",
+    "imageURL": "recipe_30",
+    "tags": [],
+    "instructions": [
+      "Brown beef in batches.",
+      "Sauté bacon, onion and carrots.",
+      "Add red wine, stock, tomato and herbs.",
+      "Simmer 2-3 hours until beef is tender.",
+      "Add mushrooms last 30 minutes."
+    ],
+    "ingredients": [
+      {
+        "name": "Beef",
+        "measure": "1kg"
+      },
+      {
+        "name": "Red Wine",
+        "measure": "750ml"
+      },
+      {
+        "name": "Bacon",
+        "measure": "150g"
+      },
+      {
+        "name": "Carrots",
+        "measure": "3"
+      },
+      {
+        "name": "Mushrooms",
+        "measure": "300g"
+      },
+      {
+        "name": "Onion",
+        "measure": "2"
+      }
+    ],
+    "dietaryTags": [
+      "Gluten-Free",
+      "Lactose-Free"
+    ],
+    "allergens": []
+  },
+  {
+    "id": "31",
+    "title": "Greek Salad",
+    "description": "Fresh summer salad",
+    "prepTime": 10,
+    "difficulty": "Easy",
+    "servings": 4,
+    "cuisine": "Greek",
+    "imageURL": "recipe_31",
+    "tags": [
+      "Vegetarian",
+      "Vegan"
+    ],
+    "instructions": [
+      "Chop tomatoes, cucumber, and onion.",
+      "Add olives and feta cheese.",
+      "Dress with olive oil, oregano and salt.",
+      "Serve with crusty bread."
+    ],
+    "ingredients": [
+      {
+        "name": "Tomatoes",
+        "measure": "4"
+      },
+      {
+        "name": "Cucumber",
+        "measure": "1"
+      },
+      {
+        "name": "Onion",
+        "measure": "1"
+      },
+      {
+        "name": "Cheese",
+        "measure": "200g feta"
+      },
+      {
+        "name": "Olive Oil",
+        "measure": "4 tbsp"
+      },
+      {
+        "name": "Oregano",
+        "measure": "1 tsp"
+      }
+    ],
+    "dietaryTags": [
+      "Vegetarian",
+      "Vegan",
+      "Gluten-Free",
+      "Lactose-Free"
+    ],
+    "allergens": []
+  },
+  {
+    "id": "32",
+    "title": "Moussaka",
+    "description": "Greek baked dish",
+    "prepTime": 90,
+    "difficulty": "Hard",
+    "servings": 6,
+    "cuisine": "Greek",
+    "imageURL": "recipe_32",
+    "tags": [],
+    "instructions": [
+      "Fry eggplant slices until golden.",
+      "Make meat sauce with minced lamb and tomatoes.",
+      "Make béchamel sauce.",
+      "Layer eggplant, meat sauce, and béchamel.",
+      "Bake at 180°C for 45 minutes."
+    ],
+    "ingredients": [
+      {
+        "name": "Eggplant",
+        "measure": "2"
+      },
+      {
+        "name": "Lamb",
+        "measure": "500g"
+      },
+      {
+        "name": "Tomatoes",
+        "measure": "3"
+      },
+      {
+        "name": "Milk",
+        "measure": "500ml"
+      },
+      {
+        "name": "Butter",
+        "measure": "50g"
+      },
+      {
+        "name": "Flour",
+        "measure": "50g"
+      }
+    ],
+    "dietaryTags": [],
+    "allergens": [
+      "Dairy",
+      "Eggs",
+      "Gluten"
+    ]
+  },
+  {
+    "id": "33",
+    "title": "Hummus",
+    "description": "Classic chickpea dip",
+    "prepTime": 10,
+    "difficulty": "Easy",
+    "servings": 6,
+    "cuisine": "Turkish",
+    "imageURL": "recipe_33",
+    "tags": [
+      "Vegan",
+      "Vegetarian"
+    ],
+    "instructions": [
+      "Blend chickpeas with tahini, lemon juice, garlic and olive oil.",
+      "Season with salt and cumin.",
+      "Add cold water to achieve smooth consistency.",
+      "Serve drizzled with olive oil and paprika."
+    ],
+    "ingredients": [
+      {
+        "name": "Chickpeas",
+        "measure": "400g"
+      },
+      {
+        "name": "Olive Oil",
+        "measure": "4 tbsp"
+      },
+      {
+        "name": "Garlic",
+        "measure": "2 cloves"
+      },
+      {
+        "name": "Cumin",
+        "measure": "1 tsp"
+      },
+      {
+        "name": "Lemon",
+        "measure": "1"
+      },
+      {
+        "name": "Salt",
+        "measure": "to taste"
+      }
+    ],
+    "dietaryTags": [
+      "Vegetarian",
+      "Vegan",
+      "Gluten-Free",
+      "Lactose-Free"
+    ],
+    "allergens": [
+      "Sesame"
+    ]
+  },
+  {
+    "id": "34",
+    "title": "Paella",
+    "description": "Spanish rice dish",
+    "prepTime": 45,
+    "difficulty": "Hard",
+    "servings": 6,
+    "cuisine": "Spanish",
+    "imageURL": "recipe_34",
+    "tags": [],
+    "instructions": [
+      "Heat oil in paella pan and fry chorizo.",
+      "Add onion, garlic, and peppers.",
+      "Add rice and coat in oil.",
+      "Add stock, saffron, tomatoes.",
+      "Add seafood and cook until rice absorbs all liquid."
+    ],
+    "ingredients": [
+      {
+        "name": "Rice",
+        "measure": "400g"
+      },
+      {
+        "name": "Shrimp",
+        "measure": "300g"
+      },
+      {
+        "name": "Chicken",
+        "measure": "400g"
+      },
+      {
+        "name": "Bell Pepper",
+        "measure": "2"
+      },
+      {
+        "name": "Onion",
+        "measure": "1"
+      },
+      {
+        "name": "Tomatoes",
+        "measure": "2"
+      }
+    ],
+    "dietaryTags": [
+      "Gluten-Free"
+    ],
+    "allergens": [
+      "Shellfish",
+      "Fish"
+    ]
+  },
+  {
+    "id": "35",
+    "title": "Tortilla Española",
+    "description": "Spanish potato omelette",
+    "prepTime": 40,
+    "difficulty": "Medium",
+    "servings": 4,
+    "cuisine": "Spanish",
+    "imageURL": "recipe_35",
+    "tags": [
+      "Vegetarian"
+    ],
+    "instructions": [
+      "Slowly fry potato slices in olive oil until tender.",
+      "Beat eggs with salt and mix with potatoes and onion.",
+      "Cook in oiled pan until set on bottom.",
+      "Flip carefully and cook other side.",
+      "Serve warm or at room temperature."
+    ],
+    "ingredients": [
+      {
+        "name": "Potato",
+        "measure": "600g"
+      },
+      {
+        "name": "Eggs",
+        "measure": "6"
+      },
+      {
+        "name": "Onion",
+        "measure": "1"
+      },
+      {
+        "name": "Olive Oil",
+        "measure": "150ml"
+      },
+      {
+        "name": "Salt",
+        "measure": "to taste"
+      }
+    ],
+    "dietaryTags": [
+      "Vegetarian",
+      "Gluten-Free"
+    ],
+    "allergens": [
+      "Eggs"
+    ]
+  },
+  {
+    "id": "36",
+    "title": "Full English Breakfast",
+    "description": "Classic full English",
+    "prepTime": 25,
+    "difficulty": "Easy",
+    "servings": 2,
+    "cuisine": "British",
+    "imageURL": "recipe_36",
+    "tags": [],
+    "instructions": [
+      "Grill bacon and sausages.",
+      "Fry eggs to your liking.",
+      "Grill tomatoes and mushrooms.",
+      "Toast bread.",
+      "Serve everything together with baked beans."
+    ],
+    "ingredients": [
+      {
+        "name": "Bacon",
+        "measure": "4 rashers"
+      },
+      {
+        "name": "Eggs",
+        "measure": "2"
+      },
+      {
+        "name": "Mushrooms",
+        "measure": "100g"
+      },
+      {
+        "name": "Tomatoes",
+        "measure": "2"
+      },
+      {
+        "name": "Bread",
+        "measure": "2 slices"
+      }
+    ],
+    "dietaryTags": [
+      "Gluten-Free"
+    ],
+    "allergens": [
+      "Eggs",
+      "Dairy",
+      "Gluten"
+    ]
+  },
+  {
+    "id": "37",
+    "title": "Eggs Benedict",
+    "description": "Brunch classic",
+    "prepTime": 25,
+    "difficulty": "Hard",
+    "servings": 2,
+    "cuisine": "American",
+    "imageURL": "recipe_37",
+    "tags": [],
+    "instructions": [
+      "Make hollandaise by whisking egg yolks with melted butter and lemon.",
+      "Poach eggs in simmering water with vinegar.",
+      "Toast English muffins.",
+      "Top with ham, poached egg and hollandaise."
+    ],
+    "ingredients": [
+      {
+        "name": "Eggs",
+        "measure": "4"
+      },
+      {
+        "name": "Ham",
+        "measure": "4 slices"
+      },
+      {
+        "name": "Butter",
+        "measure": "100g"
+      },
+      {
+        "name": "Bread",
+        "measure": "2 muffins"
+      },
+      {
+        "name": "Lemon",
+        "measure": "1"
+      }
+    ],
+    "dietaryTags": [],
+    "allergens": [
+      "Eggs",
+      "Gluten",
+      "Dairy"
+    ]
+  },
+  {
+    "id": "38",
+    "title": "Avocado Toast",
+    "description": "Modern breakfast classic",
+    "prepTime": 10,
+    "difficulty": "Easy",
+    "servings": 2,
+    "cuisine": "American",
+    "imageURL": "recipe_38",
+    "tags": [
+      "Vegetarian"
+    ],
+    "instructions": [
+      "Toast bread until golden.",
+      "Mash avocado with lime juice and salt.",
+      "Spread on toast.",
+      "Top with eggs, chilli flakes and seeds."
+    ],
+    "ingredients": [
+      {
+        "name": "Avocado",
+        "measure": "2"
+      },
+      {
+        "name": "Bread",
+        "measure": "4 slices"
+      },
+      {
+        "name": "Eggs",
+        "measure": "2"
+      },
+      {
+        "name": "Lime",
+        "measure": "1"
+      },
+      {
+        "name": "Salt",
+        "measure": "to taste"
+      }
+    ],
+    "dietaryTags": [
+      "Vegetarian",
+      "Vegan"
+    ],
+    "allergens": [
+      "Gluten"
+    ]
+  },
+  {
+    "id": "39",
+    "title": "Minestrone",
+    "description": "Italian vegetable soup",
+    "prepTime": 45,
+    "difficulty": "Easy",
+    "servings": 6,
+    "cuisine": "Italian",
+    "imageURL": "recipe_39",
+    "tags": [
+      "Vegetarian",
+      "Vegan"
+    ],
+    "instructions": [
+      "Sauté onion, garlic, celery and carrots.",
+      "Add tomatoes, stock and beans.",
+      "Add pasta and cook until tender.",
+      "Add zucchini and spinach last 5 minutes.",
+      "Season and serve with Parmesan."
+    ],
+    "ingredients": [
+      {
+        "name": "Carrots",
+        "measure": "2"
+      },
+      {
+        "name": "Celery",
+        "measure": "2 stalks"
+      },
+      {
+        "name": "Onion",
+        "measure": "1"
+      },
+      {
+        "name": "Tomatoes",
+        "measure": "400g"
+      },
+      {
+        "name": "Pasta",
+        "measure": "100g"
+      },
+      {
+        "name": "Spinach",
+        "measure": "100g"
+      }
+    ],
+    "dietaryTags": [
+      "Vegetarian",
+      "Vegan",
+      "Lactose-Free"
+    ],
+    "allergens": [
+      "Gluten"
+    ]
+  },
+  {
+    "id": "40",
+    "title": "Tomato Soup",
+    "description": "Classic cream of tomato",
+    "prepTime": 30,
+    "difficulty": "Easy",
+    "servings": 4,
+    "cuisine": "British",
+    "imageURL": "recipe_40",
+    "tags": [
+      "Vegetarian"
+    ],
+    "instructions": [
+      "Roast tomatoes with garlic and olive oil at 200°C for 25 min.",
+      "Blend with stock until smooth.",
+      "Add cream and season.",
+      "Serve with crusty bread."
+    ],
+    "ingredients": [
+      {
+        "name": "Tomatoes",
+        "measure": "1kg"
+      },
+      {
+        "name": "Garlic",
+        "measure": "4 cloves"
+      },
+      {
+        "name": "Chicken Stock",
+        "measure": "500ml"
+      },
+      {
+        "name": "Cream",
+        "measure": "100ml"
+      },
+      {
+        "name": "Olive Oil",
+        "measure": "3 tbsp"
+      },
+      {
+        "name": "Basil",
+        "measure": "handful"
+      }
+    ],
+    "dietaryTags": [
+      "Vegetarian",
+      "Vegan",
+      "Gluten-Free",
+      "Lactose-Free"
+    ],
+    "allergens": []
+  },
+  {
+    "id": "41",
+    "title": "Pea and Ham Soup",
+    "description": "Comforting British soup",
+    "prepTime": 60,
+    "difficulty": "Easy",
+    "servings": 4,
+    "cuisine": "British",
+    "imageURL": "recipe_41",
+    "tags": [],
+    "instructions": [
+      "Sauté onion and garlic in butter.",
+      "Add split peas and ham stock.",
+      "Simmer 45 minutes until peas are soft.",
+      "Blend until smooth.",
+      "Add diced ham and season."
+    ],
+    "ingredients": [
+      {
+        "name": "Peas",
+        "measure": "400g"
+      },
+      {
+        "name": "Ham",
+        "measure": "200g"
+      },
+      {
+        "name": "Onion",
+        "measure": "1"
+      },
+      {
+        "name": "Garlic",
+        "measure": "2 cloves"
+      },
+      {
+        "name": "Chicken Stock",
+        "measure": "1L"
+      },
+      {
+        "name": "Butter",
+        "measure": "30g"
+      }
+    ],
+    "dietaryTags": [
+      "Gluten-Free",
+      "Lactose-Free"
+    ],
+    "allergens": []
+  },
+  {
+    "id": "42",
+    "title": "Lentil Soup",
+    "description": "Hearty lentil soup",
+    "prepTime": 40,
+    "difficulty": "Easy",
+    "servings": 4,
+    "cuisine": "Turkish",
+    "imageURL": "recipe_42",
+    "tags": [
+      "Vegetarian",
+      "Vegan"
+    ],
+    "instructions": [
+      "Sauté onion, garlic and cumin in oil.",
+      "Add lentils and vegetable stock.",
+      "Simmer 30 minutes until lentils are soft.",
+      "Blend partially for creamy texture.",
+      "Squeeze lemon and serve with bread."
+    ],
+    "ingredients": [
+      {
+        "name": "Red Lentils",
+        "measure": "300g"
+      },
+      {
+        "name": "Onion",
+        "measure": "2"
+      },
+      {
+        "name": "Garlic",
+        "measure": "3 cloves"
+      },
+      {
+        "name": "Cumin",
+        "measure": "2 tsp"
+      },
+      {
+        "name": "Vegetable Stock",
+        "measure": "1L"
+      },
+      {
+        "name": "Lemon",
+        "measure": "1"
+      }
+    ],
+    "dietaryTags": [
+      "Vegetarian",
+      "Vegan",
+      "Gluten-Free",
+      "Lactose-Free"
+    ],
+    "allergens": []
+  },
+  {
+    "id": "43",
+    "title": "Caesar Salad",
+    "description": "Classic Caesar salad",
+    "prepTime": 15,
+    "difficulty": "Easy",
+    "servings": 4,
+    "cuisine": "American",
+    "imageURL": "recipe_43",
+    "tags": [
+      "Vegetarian"
+    ],
+    "instructions": [
+      "Make dressing with garlic, lemon, Worcestershire, Parmesan and mayo.",
+      "Toss romaine lettuce with dressing.",
+      "Add croutons and shaved Parmesan.",
+      "Optionally top with grilled chicken."
+    ],
+    "ingredients": [
+      {
+        "name": "Lettuce",
+        "measure": "2 heads"
+      },
+      {
+        "name": "Parmesan",
+        "measure": "80g"
+      },
+      {
+        "name": "Garlic",
+        "measure": "2 cloves"
+      },
+      {
+        "name": "Lemon",
+        "measure": "1"
+      },
+      {
+        "name": "Mayonnaise",
+        "measure": "4 tbsp"
+      },
+      {
+        "name": "Bread",
+        "measure": "4 slices croutons"
+      }
+    ],
+    "dietaryTags": [],
+    "allergens": [
+      "Dairy",
+      "Eggs",
+      "Gluten"
+    ]
+  },
+  {
+    "id": "44",
+    "title": "Nicoise Salad",
+    "description": "Classic French salad",
+    "prepTime": 20,
+    "difficulty": "Easy",
+    "servings": 4,
+    "cuisine": "French",
+    "imageURL": "recipe_44",
+    "tags": [],
+    "instructions": [
+      "Boil eggs for 7 minutes, cool and halve.",
+      "Cook green beans until tender.",
+      "Arrange lettuce, tuna, eggs, olives, tomatoes.",
+      "Drizzle with olive oil and lemon dressing."
+    ],
+    "ingredients": [
+      {
+        "name": "Tuna",
+        "measure": "2 cans"
+      },
+      {
+        "name": "Eggs",
+        "measure": "4"
+      },
+      {
+        "name": "Lettuce",
+        "measure": "1 head"
+      },
+      {
+        "name": "Tomatoes",
+        "measure": "4"
+      },
+      {
+        "name": "Green Beans",
+        "measure": "200g"
+      },
+      {
+        "name": "Olive Oil",
+        "measure": "4 tbsp"
+      }
+    ],
+    "dietaryTags": [
+      "Gluten-Free"
+    ],
+    "allergens": [
+      "Fish",
+      "Eggs"
+    ]
+  },
+  {
+    "id": "45",
+    "title": "Chocolate Lava Cake",
+    "description": "Molten chocolate cake",
+    "prepTime": 25,
+    "difficulty": "Medium",
+    "servings": 4,
+    "cuisine": "French",
+    "imageURL": "recipe_45",
+    "tags": [
+      "Vegetarian"
+    ],
+    "instructions": [
+      "Melt dark chocolate with butter.",
+      "Whisk eggs, egg yolks and sugar.",
+      "Fold in chocolate and flour.",
+      "Pour into buttered ramekins.",
+      "Bake at 200°C for 12 minutes. Center should be liquid."
+    ],
+    "ingredients": [
+      {
+        "name": "Chocolate",
+        "measure": "200g"
+      },
+      {
+        "name": "Butter",
+        "measure": "150g"
+      },
+      {
+        "name": "Eggs",
+        "measure": "4"
+      },
+      {
+        "name": "Sugar",
+        "measure": "100g"
+      },
+      {
+        "name": "Flour",
+        "measure": "50g"
+      }
+    ],
+    "dietaryTags": [
+      "Vegetarian"
+    ],
+    "allergens": [
+      "Dairy",
+      "Eggs",
+      "Gluten"
+    ]
+  },
+  {
+    "id": "46",
+    "title": "Apple Crumble",
+    "description": "Classic British dessert",
+    "prepTime": 45,
+    "difficulty": "Easy",
+    "servings": 6,
+    "cuisine": "British",
+    "imageURL": "recipe_46",
+    "tags": [
+      "Vegetarian"
+    ],
+    "instructions": [
+      "Peel and slice apples, mix with sugar and cinnamon.",
+      "Make crumble with flour, butter and sugar.",
+      "Place apples in dish, top with crumble.",
+      "Bake at 180°C for 35-40 minutes until golden.",
+      "Serve with custard or ice cream."
+    ],
+    "ingredients": [
+      {
+        "name": "Apples",
+        "measure": "6"
+      },
+      {
+        "name": "Flour",
+        "measure": "150g"
+      },
+      {
+        "name": "Butter",
+        "measure": "75g"
+      },
+      {
+        "name": "Sugar",
+        "measure": "100g"
+      },
+      {
+        "name": "Cinnamon",
+        "measure": "1 tsp"
+      }
+    ],
+    "dietaryTags": [
+      "Vegetarian"
+    ],
+    "allergens": [
+      "Dairy",
+      "Eggs",
+      "Gluten",
+      "Nuts"
+    ]
+  },
+  {
+    "id": "47",
+    "title": "Cheesecake",
+    "description": "New York cheesecake",
+    "prepTime": 60,
+    "difficulty": "Medium",
+    "servings": 8,
+    "cuisine": "American",
+    "imageURL": "recipe_47",
+    "tags": [
+      "Vegetarian"
+    ],
+    "instructions": [
+      "Make base with crushed biscuits and butter.",
+      "Beat cream cheese with sugar and eggs.",
+      "Add vanilla and cream, mix until smooth.",
+      "Pour over base and bake at 160°C for 50 minutes.",
+      "Cool and refrigerate overnight."
+    ],
+    "ingredients": [
+      {
+        "name": "Cream Cheese",
+        "measure": "600g"
+      },
+      {
+        "name": "Eggs",
+        "measure": "3"
+      },
+      {
+        "name": "Sugar",
+        "measure": "150g"
+      },
+      {
+        "name": "Cream",
+        "measure": "200ml"
+      },
+      {
+        "name": "Butter",
+        "measure": "100g"
+      }
+    ],
+    "dietaryTags": [
+      "Vegetarian"
+    ],
+    "allergens": [
+      "Dairy",
+      "Eggs",
+      "Gluten"
+    ]
+  },
+  {
+    "id": "48",
+    "title": "Chocolate Brownies",
+    "description": "Fudgy chocolate brownies",
+    "prepTime": 40,
+    "difficulty": "Easy",
+    "servings": 12,
+    "cuisine": "American",
+    "imageURL": "recipe_48",
+    "tags": [
+      "Vegetarian"
+    ],
+    "instructions": [
+      "Melt chocolate and butter together.",
+      "Whisk in sugar and eggs.",
+      "Fold in flour and cocoa powder.",
+      "Pour into lined tin.",
+      "Bake at 180°C for 25 minutes. Cool before cutting."
+    ],
+    "ingredients": [
+      {
+        "name": "Chocolate",
+        "measure": "200g"
+      },
+      {
+        "name": "Butter",
+        "measure": "150g"
+      },
+      {
+        "name": "Sugar",
+        "measure": "200g"
+      },
+      {
+        "name": "Eggs",
+        "measure": "3"
+      },
+      {
+        "name": "Flour",
+        "measure": "100g"
+      },
+      {
+        "name": "Cocoa Powder",
+        "measure": "30g"
+      }
+    ],
+    "dietaryTags": [
+      "Vegetarian"
+    ],
+    "allergens": [
+      "Dairy",
+      "Eggs",
+      "Gluten",
+      "Nuts"
+    ]
+  },
+  {
+    "id": "49",
+    "title": "Grilled Salmon",
+    "description": "Simple grilled salmon",
+    "prepTime": 20,
+    "difficulty": "Easy",
+    "servings": 4,
+    "cuisine": "British",
+    "imageURL": "recipe_49",
+    "tags": [],
+    "instructions": [
+      "Season salmon with salt, pepper and lemon.",
+      "Heat grill to high.",
+      "Cook salmon 4 minutes each side.",
+      "Serve with lemon, dill and steamed vegetables."
+    ],
+    "ingredients": [
+      {
+        "name": "Salmon",
+        "measure": "4 fillets"
+      },
+      {
+        "name": "Lemon",
+        "measure": "2"
+      },
+      {
+        "name": "Dill",
+        "measure": "handful"
+      },
+      {
+        "name": "Olive Oil",
+        "measure": "2 tbsp"
+      },
+      {
+        "name": "Black Pepper",
+        "measure": "to taste"
+      },
+      {
+        "name": "Salt",
+        "measure": "to taste"
+      }
+    ],
+    "dietaryTags": [
+      "Gluten-Free",
+      "Lactose-Free"
+    ],
+    "allergens": [
+      "Fish"
+    ]
+  },
+  {
+    "id": "50",
+    "title": "Prawn Linguine",
+    "description": "Garlic prawn pasta",
+    "prepTime": 20,
+    "difficulty": "Easy",
+    "servings": 4,
+    "cuisine": "Italian",
+    "imageURL": "recipe_50",
+    "tags": [],
+    "instructions": [
+      "Cook linguine until al dente.",
+      "Fry garlic in olive oil until golden.",
+      "Add prawns and cook 3 minutes.",
+      "Toss pasta with prawns, chilli and parsley.",
+      "Squeeze lemon over and serve."
+    ],
+    "ingredients": [
+      {
+        "name": "Pasta",
+        "measure": "400g"
+      },
+      {
+        "name": "Shrimp",
+        "measure": "400g"
+      },
+      {
+        "name": "Garlic",
+        "measure": "4 cloves"
+      },
+      {
+        "name": "Olive Oil",
+        "measure": "4 tbsp"
+      },
+      {
+        "name": "Lemon",
+        "measure": "1"
+      },
+      {
+        "name": "Parsley",
+        "measure": "handful"
+      }
+    ],
+    "dietaryTags": [],
+    "allergens": [
+      "Shellfish",
+      "Gluten",
+      "Dairy"
+    ]
+  },
+  {
+    "id": "51",
+    "title": "Fish Tacos",
+    "description": "Mexican fish tacos",
+    "prepTime": 25,
+    "difficulty": "Easy",
+    "servings": 4,
+    "cuisine": "Mexican",
+    "imageURL": "recipe_51",
+    "tags": [],
+    "instructions": [
+      "Season cod with cumin, paprika and salt.",
+      "Pan fry fish until cooked through.",
+      "Warm tortillas.",
+      "Assemble with fish, coleslaw and lime crema.",
+      "Top with avocado and cilantro."
+    ],
+    "ingredients": [
+      {
+        "name": "Cod",
+        "measure": "500g"
+      },
+      {
+        "name": "Avocado",
+        "measure": "2"
+      },
+      {
+        "name": "Cumin",
+        "measure": "1 tsp"
+      },
+      {
+        "name": "Paprika",
+        "measure": "1 tsp"
+      },
+      {
+        "name": "Lime",
+        "measure": "2"
+      },
+      {
+        "name": "Cabbage",
+        "measure": "200g"
+      }
+    ],
+    "dietaryTags": [
+      "Gluten-Free"
+    ],
+    "allergens": [
+      "Fish",
+      "Dairy"
+    ]
+  },
+  {
+    "id": "52",
+    "title": "Vegetable Curry",
+    "description": "Mixed vegetable curry",
+    "prepTime": 35,
+    "difficulty": "Easy",
+    "servings": 4,
+    "cuisine": "Indian",
+    "imageURL": "recipe_52",
+    "tags": [
+      "Vegetarian",
+      "Vegan"
+    ],
+    "instructions": [
+      "Fry onion, garlic and ginger.",
+      "Add curry paste or powder.",
+      "Add vegetables and coconut milk.",
+      "Simmer until vegetables are tender.",
+      "Serve with rice and naan."
+    ],
+    "ingredients": [
+      {
+        "name": "Potato",
+        "measure": "3"
+      },
+      {
+        "name": "Carrots",
+        "measure": "2"
+      },
+      {
+        "name": "Peas",
+        "measure": "150g"
+      },
+      {
+        "name": "Onion",
+        "measure": "2"
+      },
+      {
+        "name": "Coconut Oil",
+        "measure": "400ml"
+      },
+      {
+        "name": "Rice",
+        "measure": "300g"
+      }
+    ],
+    "dietaryTags": [
+      "Vegetarian",
+      "Vegan",
+      "Gluten-Free",
+      "Lactose-Free"
+    ],
+    "allergens": []
+  },
+  {
+    "id": "53",
+    "title": "Veggie Burger",
+    "description": "Homemade veggie burger",
+    "prepTime": 30,
+    "difficulty": "Medium",
+    "servings": 4,
+    "cuisine": "American",
+    "imageURL": "recipe_53",
+    "tags": [
+      "Vegetarian"
+    ],
+    "instructions": [
+      "Mix beans, breadcrumbs, egg, cumin and coriander.",
+      "Form into patties and refrigerate 30 min.",
+      "Pan fry patties until golden each side.",
+      "Serve in buns with lettuce, tomato and mayo."
+    ],
+    "ingredients": [
+      {
+        "name": "Black Beans",
+        "measure": "400g"
+      },
+      {
+        "name": "Bread",
+        "measure": "100g breadcrumbs"
+      },
+      {
+        "name": "Eggs",
+        "measure": "1"
+      },
+      {
+        "name": "Onion",
+        "measure": "1"
+      },
+      {
+        "name": "Cumin",
+        "measure": "1 tsp"
+      },
+      {
+        "name": "Lettuce",
+        "measure": "handful"
+      }
+    ],
+    "dietaryTags": [
+      "Vegetarian"
+    ],
+    "allergens": [
+      "Gluten",
+      "Dairy",
+      "Eggs"
+    ]
+  },
+  {
+    "id": "54",
+    "title": "Mushroom Risotto",
+    "description": "Creamy mushroom risotto",
+    "prepTime": 40,
+    "difficulty": "Medium",
+    "servings": 4,
+    "cuisine": "Italian",
+    "imageURL": "recipe_54",
+    "tags": [
+      "Vegetarian"
+    ],
+    "instructions": [
+      "Sauté shallots and garlic in butter.",
+      "Toast arborio rice.",
+      "Add white wine then stock ladle by ladle.",
+      "Stir in mushrooms, Parmesan and butter.",
+      "Season with salt, pepper and thyme."
+    ],
+    "ingredients": [
+      {
+        "name": "Rice",
+        "measure": "320g"
+      },
+      {
+        "name": "Mushrooms",
+        "measure": "400g"
+      },
+      {
+        "name": "Onion",
+        "measure": "2 shallots"
+      },
+      {
+        "name": "Parmesan",
+        "measure": "80g"
+      },
+      {
+        "name": "Butter",
+        "measure": "60g"
+      },
+      {
+        "name": "White Wine",
+        "measure": "150ml"
+      }
+    ],
+    "dietaryTags": [
+      "Vegetarian",
+      "Gluten-Free"
+    ],
+    "allergens": [
+      "Dairy"
+    ]
+  },
+  {
+    "id": "55",
+    "title": "Shakshuka",
+    "description": "Eggs in tomato sauce",
+    "prepTime": 25,
+    "difficulty": "Easy",
+    "servings": 4,
+    "cuisine": "Moroccan",
+    "imageURL": "recipe_55",
+    "tags": [
+      "Vegetarian"
+    ],
+    "instructions": [
+      "Sauté onion and peppers in olive oil.",
+      "Add garlic, cumin, paprika and chilli.",
+      "Add crushed tomatoes, simmer 10 minutes.",
+      "Make wells and crack eggs into them.",
+      "Cover and cook until whites set. Serve with bread."
+    ],
+    "ingredients": [
+      {
+        "name": "Eggs",
+        "measure": "6"
+      },
+      {
+        "name": "Tomatoes",
+        "measure": "800g"
+      },
+      {
+        "name": "Bell Pepper",
+        "measure": "2"
+      },
+      {
+        "name": "Onion",
+        "measure": "1"
+      },
+      {
+        "name": "Cumin",
+        "measure": "2 tsp"
+      },
+      {
+        "name": "Paprika",
+        "measure": "1 tsp"
+      }
+    ],
+    "dietaryTags": [
+      "Vegetarian",
+      "Gluten-Free"
+    ],
+    "allergens": [
+      "Eggs",
+      "Dairy"
+    ]
+  },
+  {
+    "id": "56",
+    "title": "Falafel",
+    "description": "Crispy chickpea fritters",
+    "prepTime": 30,
+    "difficulty": "Medium",
+    "servings": 4,
+    "cuisine": "Moroccan",
+    "imageURL": "recipe_56",
+    "tags": [
+      "Vegan",
+      "Vegetarian"
+    ],
+    "instructions": [
+      "Blend soaked chickpeas with garlic, parsley and spices.",
+      "Form into balls or patties.",
+      "Deep fry until golden and crispy.",
+      "Serve in pitta with hummus, salad and tahini."
+    ],
+    "ingredients": [
+      {
+        "name": "Chickpeas",
+        "measure": "400g"
+      },
+      {
+        "name": "Garlic",
+        "measure": "3 cloves"
+      },
+      {
+        "name": "Cumin",
+        "measure": "2 tsp"
+      },
+      {
+        "name": "Coriander",
+        "measure": "1 tsp"
+      },
+      {
+        "name": "Parsley",
+        "measure": "handful"
+      },
+      {
+        "name": "Olive Oil",
+        "measure": "for frying"
+      }
+    ],
+    "dietaryTags": [
+      "Vegetarian",
+      "Vegan",
+      "Lactose-Free"
+    ],
+    "allergens": [
+      "Gluten",
+      "Sesame"
+    ]
+  },
+  {
+    "id": "57",
+    "title": "Chicken Caesar Salad",
+    "description": "Grilled chicken Caesar",
+    "prepTime": 20,
+    "difficulty": "Easy",
+    "servings": 4,
+    "cuisine": "American",
+    "imageURL": "recipe_57",
+    "tags": [],
+    "instructions": [
+      "Season and grill chicken breast.",
+      "Make Caesar dressing with garlic, lemon, mayo.",
+      "Toss romaine with dressing.",
+      "Top with sliced chicken, croutons and Parmesan."
+    ],
+    "ingredients": [
+      {
+        "name": "Chicken Breast",
+        "measure": "4"
+      },
+      {
+        "name": "Lettuce",
+        "measure": "2 heads"
+      },
+      {
+        "name": "Parmesan",
+        "measure": "80g"
+      },
+      {
+        "name": "Garlic",
+        "measure": "2"
+      },
+      {
+        "name": "Lemon",
+        "measure": "1"
+      },
+      {
+        "name": "Mayonnaise",
+        "measure": "4 tbsp"
+      }
+    ],
+    "dietaryTags": [],
+    "allergens": [
+      "Dairy",
+      "Eggs",
+      "Gluten"
+    ]
+  },
+  {
+    "id": "58",
+    "title": "Chicken Soup",
+    "description": "Classic chicken noodle soup",
+    "prepTime": 60,
+    "difficulty": "Easy",
+    "servings": 6,
+    "cuisine": "American",
+    "imageURL": "recipe_58",
+    "tags": [],
+    "instructions": [
+      "Simmer whole chicken in water with vegetables for 1 hour.",
+      "Remove chicken, shred meat.",
+      "Add noodles to broth and cook.",
+      "Return chicken to soup.",
+      "Season and serve hot."
+    ],
+    "ingredients": [
+      {
+        "name": "Chicken",
+        "measure": "1 whole"
+      },
+      {
+        "name": "Carrots",
+        "measure": "3"
+      },
+      {
+        "name": "Celery",
+        "measure": "3 stalks"
+      },
+      {
+        "name": "Onion",
+        "measure": "1"
+      },
+      {
+        "name": "Noodles",
+        "measure": "200g"
+      },
+      {
+        "name": "Parsley",
+        "measure": "handful"
+      }
+    ],
+    "dietaryTags": [
+      "Gluten-Free",
+      "Lactose-Free"
+    ],
+    "allergens": []
+  },
+  {
+    "id": "59",
+    "title": "Butter Chicken",
+    "description": "Creamy Indian butter chicken",
+    "prepTime": 45,
+    "difficulty": "Medium",
+    "servings": 4,
+    "cuisine": "Indian",
+    "imageURL": "recipe_59",
+    "tags": [],
+    "instructions": [
+      "Marinate chicken in yogurt and spices.",
+      "Grill until slightly charred.",
+      "Make sauce with butter, tomatoes, cream and spices.",
+      "Add chicken to sauce and simmer 15 minutes.",
+      "Serve with rice and naan."
+    ],
+    "ingredients": [
+      {
+        "name": "Chicken",
+        "measure": "700g"
+      },
+      {
+        "name": "Butter",
+        "measure": "60g"
+      },
+      {
+        "name": "Tomatoes",
+        "measure": "400g"
+      },
+      {
+        "name": "Cream",
+        "measure": "150ml"
+      },
+      {
+        "name": "Onion",
+        "measure": "2"
+      },
+      {
+        "name": "Cumin",
+        "measure": "2 tsp"
+      }
+    ],
+    "dietaryTags": [
+      "Gluten-Free"
+    ],
+    "allergens": [
+      "Dairy"
+    ]
+  },
+  {
+    "id": "60",
+    "title": "Chicken Fajitas",
+    "description": "Sizzling Mexican fajitas",
+    "prepTime": 25,
+    "difficulty": "Easy",
+    "servings": 4,
+    "cuisine": "Mexican",
+    "imageURL": "recipe_60",
+    "tags": [],
+    "instructions": [
+      "Slice chicken and peppers into strips.",
+      "Season with cumin, paprika and garlic.",
+      "Stir fry in hot pan until cooked.",
+      "Serve in warm tortillas with sour cream and salsa."
+    ],
+    "ingredients": [
+      {
+        "name": "Chicken Breast",
+        "measure": "500g"
+      },
+      {
+        "name": "Bell Pepper",
+        "measure": "3"
+      },
+      {
+        "name": "Onion",
+        "measure": "2"
+      },
+      {
+        "name": "Cumin",
+        "measure": "2 tsp"
+      },
+      {
+        "name": "Paprika",
+        "measure": "1 tsp"
+      },
+      {
+        "name": "Sour Cream",
+        "measure": "100ml"
+      }
+    ],
+    "dietaryTags": [
+      "Gluten-Free"
+    ],
+    "allergens": [
+      "Dairy",
+      "Gluten"
+    ]
+  },
+  {
+    "id": "61",
+    "title": "Pesto Pasta",
+    "description": "Fresh basil pesto pasta",
+    "prepTime": 15,
+    "difficulty": "Easy",
+    "servings": 4,
+    "cuisine": "Italian",
+    "imageURL": "recipe_61",
+    "tags": [
+      "Vegetarian"
+    ],
+    "instructions": [
+      "Blend basil, pine nuts, garlic, Parmesan and olive oil.",
+      "Cook pasta until al dente.",
+      "Toss with pesto sauce.",
+      "Add cherry tomatoes and extra Parmesan."
+    ],
+    "ingredients": [
+      {
+        "name": "Pasta",
+        "measure": "400g"
+      },
+      {
+        "name": "Basil",
+        "measure": "large bunch"
+      },
+      {
+        "name": "Pine Nuts",
+        "measure": "50g"
+      },
+      {
+        "name": "Parmesan",
+        "measure": "80g"
+      },
+      {
+        "name": "Garlic",
+        "measure": "2"
+      },
+      {
+        "name": "Olive Oil",
+        "measure": "100ml"
+      }
+    ],
+    "dietaryTags": [
+      "Vegetarian"
+    ],
+    "allergens": [
+      "Dairy",
+      "Gluten",
+      "Nuts"
+    ]
+  },
+  {
+    "id": "62",
+    "title": "Lasagne",
+    "description": "Classic layered pasta",
+    "prepTime": 90,
+    "difficulty": "Hard",
+    "servings": 6,
+    "cuisine": "Italian",
+    "imageURL": "recipe_62",
+    "tags": [],
+    "instructions": [
+      "Make Bolognese sauce with beef and tomatoes.",
+      "Make béchamel with butter, flour and milk.",
+      "Layer pasta sheets, Bolognese, béchamel and cheese.",
+      "Repeat layers and top with béchamel and cheese.",
+      "Bake at 180°C for 45 minutes."
+    ],
+    "ingredients": [
+      {
+        "name": "Ground Beef",
+        "measure": "500g"
+      },
+      {
+        "name": "Tomatoes",
+        "measure": "400g"
+      },
+      {
+        "name": "Milk",
+        "measure": "500ml"
+      },
+      {
+        "name": "Butter",
+        "measure": "50g"
+      },
+      {
+        "name": "Flour",
+        "measure": "50g"
+      },
+      {
+        "name": "Mozzarella",
+        "measure": "200g"
+      }
+    ],
+    "dietaryTags": [],
+    "allergens": [
+      "Dairy",
+      "Eggs",
+      "Gluten"
+    ]
+  },
+  {
+    "id": "63",
+    "title": "Amatriciana",
+    "description": "Roman tomato pasta",
+    "prepTime": 25,
+    "difficulty": "Easy",
+    "servings": 4,
+    "cuisine": "Italian",
+    "imageURL": "recipe_63",
+    "tags": [],
+    "instructions": [
+      "Fry guanciale or pancetta until crispy.",
+      "Add tomatoes and simmer 15 minutes.",
+      "Cook rigatoni until al dente.",
+      "Toss pasta with sauce and Pecorino.",
+      "Season with black pepper."
+    ],
+    "ingredients": [
+      {
+        "name": "Pasta",
+        "measure": "400g"
+      },
+      {
+        "name": "Bacon",
+        "measure": "200g"
+      },
+      {
+        "name": "Tomatoes",
+        "measure": "400g"
+      },
+      {
+        "name": "Parmesan",
+        "measure": "80g"
+      },
+      {
+        "name": "Black Pepper",
+        "measure": "to taste"
+      },
+      {
+        "name": "Olive Oil",
+        "measure": "2 tbsp"
+      }
+    ],
+    "dietaryTags": [],
+    "allergens": [
+      "Gluten",
+      "Dairy"
+    ]
+  },
+  {
+    "id": "64",
+    "title": "Lamb Chops",
+    "description": "Grilled herb lamb chops",
+    "prepTime": 20,
+    "difficulty": "Easy",
+    "servings": 4,
+    "cuisine": "British",
+    "imageURL": "recipe_64",
+    "tags": [],
+    "instructions": [
+      "Marinate chops with rosemary, garlic and olive oil.",
+      "Season with salt and pepper.",
+      "Grill on high heat 4 minutes each side.",
+      "Rest 5 minutes before serving."
+    ],
+    "ingredients": [
+      {
+        "name": "Lamb",
+        "measure": "8 chops"
+      },
+      {
+        "name": "Rosemary",
+        "measure": "2 sprigs"
+      },
+      {
+        "name": "Garlic",
+        "measure": "4 cloves"
+      },
+      {
+        "name": "Olive Oil",
+        "measure": "3 tbsp"
+      },
+      {
+        "name": "Salt",
+        "measure": "to taste"
+      },
+      {
+        "name": "Black Pepper",
+        "measure": "to taste"
+      }
+    ],
+    "dietaryTags": [
+      "Gluten-Free",
+      "Lactose-Free"
+    ],
+    "allergens": []
+  },
+  {
+    "id": "65",
+    "title": "Lamb Tagine",
+    "description": "Moroccan spiced stew",
+    "prepTime": 120,
+    "difficulty": "Medium",
+    "servings": 4,
+    "cuisine": "Moroccan",
+    "imageURL": "recipe_65",
+    "tags": [],
+    "instructions": [
+      "Brown lamb with onion and garlic.",
+      "Add spices: cumin, coriander, ginger, cinnamon.",
+      "Add tomatoes, chickpeas and dried apricots.",
+      "Simmer 1.5 hours until tender.",
+      "Serve with couscous and coriander."
+    ],
+    "ingredients": [
+      {
+        "name": "Lamb",
+        "measure": "700g"
+      },
+      {
+        "name": "Chickpeas",
+        "measure": "400g"
+      },
+      {
+        "name": "Onion",
+        "measure": "2"
+      },
+      {
+        "name": "Cumin",
+        "measure": "2 tsp"
+      },
+      {
+        "name": "Coriander",
+        "measure": "2 tsp"
+      },
+      {
+        "name": "Cinnamon",
+        "measure": "1 tsp"
+      }
+    ],
+    "dietaryTags": [
+      "Gluten-Free",
+      "Lactose-Free"
+    ],
+    "allergens": []
+  },
+  {
+    "id": "66",
+    "title": "Beef Tacos",
+    "description": "Classic beef street tacos",
+    "prepTime": 25,
+    "difficulty": "Easy",
+    "servings": 4,
+    "cuisine": "Mexican",
+    "imageURL": "recipe_66",
+    "tags": [],
+    "instructions": [
+      "Cook minced beef with onion and taco spices.",
+      "Warm corn tortillas.",
+      "Fill with beef, salsa and cheese.",
+      "Top with chopped cilantro and lime."
+    ],
+    "ingredients": [
+      {
+        "name": "Ground Beef",
+        "measure": "500g"
+      },
+      {
+        "name": "Onion",
+        "measure": "1"
+      },
+      {
+        "name": "Cumin",
+        "measure": "2 tsp"
+      },
+      {
+        "name": "Paprika",
+        "measure": "1 tsp"
+      },
+      {
+        "name": "Cheddar",
+        "measure": "100g"
+      },
+      {
+        "name": "Lime",
+        "measure": "2"
+      }
+    ],
+    "dietaryTags": [
+      "Gluten-Free"
+    ],
+    "allergens": [
+      "Dairy"
+    ]
+  },
+  {
+    "id": "67",
+    "title": "Chilli Con Carne",
+    "description": "Spicy beef and bean chilli",
+    "prepTime": 60,
+    "difficulty": "Easy",
+    "servings": 6,
+    "cuisine": "American",
+    "imageURL": "recipe_67",
+    "tags": [],
+    "instructions": [
+      "Brown minced beef with onion and garlic.",
+      "Add chilli powder, cumin, paprika.",
+      "Add tomatoes, beef stock and kidney beans.",
+      "Simmer 45 minutes.",
+      "Serve with rice, sour cream and cheese."
+    ],
+    "ingredients": [
+      {
+        "name": "Ground Beef",
+        "measure": "500g"
+      },
+      {
+        "name": "Kidney Beans",
+        "measure": "400g"
+      },
+      {
+        "name": "Tomatoes",
+        "measure": "400g"
+      },
+      {
+        "name": "Onion",
+        "measure": "2"
+      },
+      {
+        "name": "Cumin",
+        "measure": "2 tsp"
+      },
+      {
+        "name": "Paprika",
+        "measure": "2 tsp"
+      }
+    ],
+    "dietaryTags": [
+      "Gluten-Free",
+      "Lactose-Free"
+    ],
+    "allergens": []
+  },
+  {
+    "id": "68",
+    "title": "Pulled Pork",
+    "description": "Slow cooked BBQ pork",
+    "prepTime": 480,
+    "difficulty": "Easy",
+    "servings": 8,
+    "cuisine": "American",
+    "imageURL": "recipe_68",
+    "tags": [],
+    "instructions": [
+      "Rub pork shoulder with spice mix.",
+      "Cook in slow cooker on low for 8 hours.",
+      "Shred with forks.",
+      "Mix with BBQ sauce.",
+      "Serve in buns with coleslaw."
+    ],
+    "ingredients": [
+      {
+        "name": "Pork",
+        "measure": "1.5kg shoulder"
+      },
+      {
+        "name": "BBQ Sauce",
+        "measure": "300ml"
+      },
+      {
+        "name": "Paprika",
+        "measure": "2 tsp"
+      },
+      {
+        "name": "Cumin",
+        "measure": "1 tsp"
+      },
+      {
+        "name": "Onion",
+        "measure": "1"
+      },
+      {
+        "name": "Garlic",
+        "measure": "4 cloves"
+      }
+    ],
+    "dietaryTags": [
+      "Gluten-Free",
+      "Lactose-Free"
+    ],
+    "allergens": []
+  },
+  {
+    "id": "69",
+    "title": "Korean Fried Chicken",
+    "description": "Crispy Korean chicken",
+    "prepTime": 45,
+    "difficulty": "Medium",
+    "servings": 4,
+    "cuisine": "Korean",
+    "imageURL": "recipe_69",
+    "tags": [],
+    "instructions": [
+      "Coat chicken in seasoned flour and cornstarch.",
+      "Double fry at 160°C then 190°C.",
+      "Make sauce with gochujang, soy, sugar, garlic.",
+      "Toss chicken in sauce.",
+      "Garnish with sesame seeds and spring onion."
+    ],
+    "ingredients": [
+      {
+        "name": "Chicken",
+        "measure": "1kg"
+      },
+      {
+        "name": "Flour",
+        "measure": "100g"
+      },
+      {
+        "name": "Soy Sauce",
+        "measure": "3 tbsp"
+      },
+      {
+        "name": "Garlic",
+        "measure": "4 cloves"
+      },
+      {
+        "name": "Sugar",
+        "measure": "2 tbsp"
+      },
+      {
+        "name": "Sesame Oil",
+        "measure": "1 tbsp"
+      }
+    ],
+    "dietaryTags": [],
+    "allergens": [
+      "Gluten",
+      "Eggs"
+    ]
+  },
+  {
+    "id": "70",
+    "title": "Vietnamese Pho",
+    "description": "Vietnamese noodle soup",
+    "prepTime": 180,
+    "difficulty": "Hard",
+    "servings": 4,
+    "cuisine": "Vietnamese",
+    "imageURL": "recipe_70",
+    "tags": [],
+    "instructions": [
+      "Char onion and ginger, add to stock with spices.",
+      "Simmer beef stock for 3 hours.",
+      "Strain and season with fish sauce.",
+      "Serve with rice noodles, raw beef slices.",
+      "Accompany with bean sprouts, basil, lime and chilli."
+    ],
+    "ingredients": [
+      {
+        "name": "Beef",
+        "measure": "500g"
+      },
+      {
+        "name": "Noodles",
+        "measure": "400g rice noodles"
+      },
+      {
+        "name": "Onion",
+        "measure": "2"
+      },
+      {
+        "name": "Cinnamon",
+        "measure": "1 stick"
+      },
+      {
+        "name": "Ginger",
+        "measure": "50g"
+      },
+      {
+        "name": "Beef Stock",
+        "measure": "2L"
+      }
+    ],
+    "dietaryTags": [
+      "Gluten-Free",
+      "Lactose-Free"
+    ],
+    "allergens": []
+  },
+  {
+    "id": "71",
+    "title": "Falafel Wrap",
+    "description": "Middle Eastern wrap",
+    "prepTime": 20,
+    "difficulty": "Easy",
+    "servings": 4,
+    "cuisine": "Turkish",
+    "imageURL": "recipe_71",
+    "tags": [
+      "Vegetarian",
+      "Vegan"
+    ],
+    "instructions": [
+      "Warm pitta bread.",
+      "Spread with hummus.",
+      "Add falafel, lettuce, tomatoes, cucumber.",
+      "Drizzle with tahini and lemon."
+    ],
+    "ingredients": [
+      {
+        "name": "Chickpeas",
+        "measure": "400g"
+      },
+      {
+        "name": "Lettuce",
+        "measure": "handful"
+      },
+      {
+        "name": "Tomatoes",
+        "measure": "2"
+      },
+      {
+        "name": "Cucumber",
+        "measure": "1"
+      },
+      {
+        "name": "Garlic",
+        "measure": "2 cloves"
+      },
+      {
+        "name": "Cumin",
+        "measure": "1 tsp"
+      }
+    ],
+    "dietaryTags": [
+      "Vegetarian",
+      "Vegan"
+    ],
+    "allergens": [
+      "Gluten",
+      "Sesame"
+    ]
+  },
+  {
+    "id": "72",
+    "title": "Teriyaki Chicken",
+    "description": "Japanese glazed chicken",
+    "prepTime": 25,
+    "difficulty": "Easy",
+    "servings": 4,
+    "cuisine": "Japanese",
+    "imageURL": "recipe_72",
+    "tags": [],
+    "instructions": [
+      "Mix soy sauce, mirin, sugar for teriyaki sauce.",
+      "Pan fry chicken until golden.",
+      "Add sauce and cook until glazed.",
+      "Serve over rice with sesame seeds and spring onions."
+    ],
+    "ingredients": [
+      {
+        "name": "Chicken Thigh",
+        "measure": "600g"
+      },
+      {
+        "name": "Soy Sauce",
+        "measure": "4 tbsp"
+      },
+      {
+        "name": "Sugar",
+        "measure": "2 tbsp"
+      },
+      {
+        "name": "Sesame Oil",
+        "measure": "1 tbsp"
+      },
+      {
+        "name": "Rice",
+        "measure": "300g"
+      },
+      {
+        "name": "Garlic",
+        "measure": "2 cloves"
+      }
+    ],
+    "dietaryTags": [
+      "Gluten-Free"
+    ],
+    "allergens": [
+      "Soy",
+      "Sesame"
+    ]
+  },
+  {
+    "id": "73",
+    "title": "Miso Soup",
+    "description": "Traditional Japanese soup",
+    "prepTime": 10,
+    "difficulty": "Easy",
+    "servings": 4,
+    "cuisine": "Japanese",
+    "imageURL": "recipe_73",
+    "tags": [
+      "Vegetarian"
+    ],
+    "instructions": [
+      "Heat dashi stock.",
+      "Dissolve miso paste in stock.",
+      "Add tofu, wakame and spring onion.",
+      "Do not boil after adding miso.",
+      "Serve immediately."
+    ],
+    "ingredients": [
+      {
+        "name": "Tofu",
+        "measure": "200g"
+      },
+      {
+        "name": "Onion",
+        "measure": "3 spring onions"
+      },
+      {
+        "name": "Soy Sauce",
+        "measure": "1 tbsp"
+      },
+      {
+        "name": "Vegetable Stock",
+        "measure": "1L"
+      }
+    ],
+    "dietaryTags": [
+      "Vegetarian",
+      "Vegan",
+      "Gluten-Free",
+      "Lactose-Free"
+    ],
+    "allergens": [
+      "Soy"
+    ]
+  },
+  {
+    "id": "74",
+    "title": "Sushi Rolls",
+    "description": "Homemade maki rolls",
+    "prepTime": 60,
+    "difficulty": "Hard",
+    "servings": 4,
+    "cuisine": "Japanese",
+    "imageURL": "recipe_74",
+    "tags": [],
+    "instructions": [
+      "Cook sushi rice and season with rice vinegar.",
+      "Place nori on bamboo mat, spread rice.",
+      "Add filling (salmon, cucumber, avocado).",
+      "Roll tightly and slice with wet knife.",
+      "Serve with soy sauce, wasabi and pickled ginger."
+    ],
+    "ingredients": [
+      {
+        "name": "Rice",
+        "measure": "400g"
+      },
+      {
+        "name": "Salmon",
+        "measure": "200g"
+      },
+      {
+        "name": "Cucumber",
+        "measure": "1"
+      },
+      {
+        "name": "Avocado",
+        "measure": "2"
+      },
+      {
+        "name": "Soy Sauce",
+        "measure": "to serve"
+      }
+    ],
+    "dietaryTags": [
+      "Gluten-Free"
+    ],
+    "allergens": [
+      "Fish",
+      "Soy",
+      "Sesame",
+      "Gluten"
+    ]
+  },
+  {
+    "id": "75",
+    "title": "Gyoza",
+    "description": "Japanese pan fried dumplings",
+    "prepTime": 45,
+    "difficulty": "Medium",
+    "servings": 4,
+    "cuisine": "Japanese",
+    "imageURL": "recipe_75",
+    "tags": [],
+    "instructions": [
+      "Mix pork, cabbage, ginger, garlic and soy sauce.",
+      "Fill dumpling wrappers and pleat edges.",
+      "Fry in oil until golden on bottom.",
+      "Add water, cover and steam 5 minutes.",
+      "Serve with dipping sauce."
+    ],
+    "ingredients": [
+      {
+        "name": "Pork",
+        "measure": "300g mince"
+      },
+      {
+        "name": "Cabbage",
+        "measure": "200g"
+      },
+      {
+        "name": "Garlic",
+        "measure": "3 cloves"
+      },
+      {
+        "name": "Ginger",
+        "measure": "20g"
+      },
+      {
+        "name": "Soy Sauce",
+        "measure": "2 tbsp"
+      },
+      {
+        "name": "Sesame Oil",
+        "measure": "1 tbsp"
+      }
+    ],
+    "dietaryTags": [],
+    "allergens": [
+      "Gluten",
+      "Eggs",
+      "Soy"
+    ]
+  },
+  {
+    "id": "76",
+    "title": "Beef Wellington",
+    "description": "Classic British showstopper",
+    "prepTime": 90,
+    "difficulty": "Hard",
+    "servings": 4,
+    "cuisine": "British",
+    "imageURL": "recipe_76",
+    "tags": [],
+    "instructions": [
+      "Sear beef fillet all over, let cool.",
+      "Coat with mushroom duxelles and Parma ham.",
+      "Wrap in puff pastry and refrigerate 30 min.",
+      "Brush with egg wash.",
+      "Bake at 220°C for 25 minutes for medium rare."
+    ],
+    "ingredients": [
+      {
+        "name": "Beef",
+        "measure": "800g fillet"
+      },
+      {
+        "name": "Mushrooms",
+        "measure": "400g"
+      },
+      {
+        "name": "Ham",
+        "measure": "8 slices"
+      },
+      {
+        "name": "Butter",
+        "measure": "50g"
+      },
+      {
+        "name": "Garlic",
+        "measure": "3 cloves"
+      },
+      {
+        "name": "Mustard",
+        "measure": "2 tbsp"
+      }
+    ],
+    "dietaryTags": [],
+    "allergens": [
+      "Gluten",
+      "Dairy"
+    ]
+  },
+  {
+    "id": "77",
+    "title": "Chicken Parmigiana",
+    "description": "Italian-American classic",
+    "prepTime": 40,
+    "difficulty": "Medium",
+    "servings": 4,
+    "cuisine": "Italian",
+    "imageURL": "recipe_77",
+    "tags": [],
+    "instructions": [
+      "Pound chicken breasts flat.",
+      "Coat in breadcrumbs and fry until golden.",
+      "Top with tomato sauce and mozzarella.",
+      "Bake at 180°C for 15 minutes.",
+      "Serve with pasta or salad."
+    ],
+    "ingredients": [
+      {
+        "name": "Chicken Breast",
+        "measure": "4"
+      },
+      {
+        "name": "Mozzarella",
+        "measure": "200g"
+      },
+      {
+        "name": "Tomato Sauce",
+        "measure": "300ml"
+      },
+      {
+        "name": "Flour",
+        "measure": "100g"
+      },
+      {
+        "name": "Eggs",
+        "measure": "2"
+      },
+      {
+        "name": "Parmesan",
+        "measure": "50g"
+      }
+    ],
+    "dietaryTags": [],
+    "allergens": [
+      "Dairy",
+      "Eggs",
+      "Gluten"
+    ]
+  },
+  {
+    "id": "78",
+    "title": "Beef Rendang",
+    "description": "Malaysian dry curry",
+    "prepTime": 120,
+    "difficulty": "Hard",
+    "servings": 4,
+    "cuisine": "Malaysian",
+    "imageURL": "recipe_78",
+    "tags": [],
+    "instructions": [
+      "Blend shallots, lemongrass, chillies, ginger, garlic.",
+      "Fry paste until fragrant.",
+      "Add beef and coat in paste.",
+      "Add coconut milk and simmer until almost dry.",
+      "Cook on low until beef is tender and dark."
+    ],
+    "ingredients": [
+      {
+        "name": "Beef",
+        "measure": "700g"
+      },
+      {
+        "name": "Coconut Oil",
+        "measure": "400ml"
+      },
+      {
+        "name": "Onion",
+        "measure": "3 shallots"
+      },
+      {
+        "name": "Garlic",
+        "measure": "4 cloves"
+      },
+      {
+        "name": "Ginger",
+        "measure": "30g"
+      },
+      {
+        "name": "Cumin",
+        "measure": "1 tsp"
+      }
+    ],
+    "dietaryTags": [
+      "Gluten-Free",
+      "Lactose-Free"
+    ],
+    "allergens": [
+      "Nuts"
+    ]
+  },
+  {
+    "id": "79",
+    "title": "Borscht",
+    "description": "Russian beetroot soup",
+    "prepTime": 60,
+    "difficulty": "Medium",
+    "servings": 6,
+    "cuisine": "Russian",
+    "imageURL": "recipe_79",
+    "tags": [
+      "Vegetarian"
+    ],
+    "instructions": [
+      "Sauté onion and garlic.",
+      "Add grated beets and carrots, cook 10 minutes.",
+      "Add cabbage and potato.",
+      "Pour in stock and simmer 30 minutes.",
+      "Season with vinegar and sugar. Serve with sour cream."
+    ],
+    "ingredients": [
+      {
+        "name": "Beets",
+        "measure": "4"
+      },
+      {
+        "name": "Cabbage",
+        "measure": "300g"
+      },
+      {
+        "name": "Potato",
+        "measure": "3"
+      },
+      {
+        "name": "Carrots",
+        "measure": "2"
+      },
+      {
+        "name": "Onion",
+        "measure": "1"
+      },
+      {
+        "name": "Vegetable Stock",
+        "measure": "1.5L"
+      }
+    ],
+    "dietaryTags": [
+      "Vegetarian",
+      "Gluten-Free"
+    ],
+    "allergens": [
+      "Dairy"
+    ]
+  },
+  {
+    "id": "80",
+    "title": "Pierogi",
+    "description": "Polish stuffed dumplings",
+    "prepTime": 60,
+    "difficulty": "Medium",
+    "servings": 4,
+    "cuisine": "Polish",
+    "imageURL": "recipe_80",
+    "tags": [
+      "Vegetarian"
+    ],
+    "instructions": [
+      "Make dough with flour, egg and water.",
+      "Fill with mashed potato and cheese.",
+      "Fold and seal edges.",
+      "Boil in salted water until they float.",
+      "Pan fry in butter until golden.",
+      "Serve with sour cream and fried onion."
+    ],
+    "ingredients": [
+      {
+        "name": "Flour",
+        "measure": "400g"
+      },
+      {
+        "name": "Potato",
+        "measure": "600g"
+      },
+      {
+        "name": "Cheddar",
+        "measure": "200g"
+      },
+      {
+        "name": "Butter",
+        "measure": "100g"
+      },
+      {
+        "name": "Onion",
+        "measure": "2"
+      },
+      {
+        "name": "Eggs",
+        "measure": "2"
+      }
+    ],
+    "dietaryTags": [
+      "Vegetarian"
+    ],
+    "allergens": [
+      "Gluten",
+      "Dairy",
+      "Eggs"
+    ]
+  },
+  {
+    "id": "81",
+    "title": "Spaghetti Aglio e Olio",
+    "description": "Simple garlic pasta",
+    "prepTime": 15,
+    "difficulty": "Easy",
+    "servings": 4,
+    "cuisine": "Italian",
+    "imageURL": "recipe_81",
+    "tags": [
+      "Vegetarian"
+    ],
+    "instructions": [
+      "Cook spaghetti until al dente.",
+      "Fry sliced garlic in olive oil until golden.",
+      "Add chilli flakes and parsley.",
+      "Toss pasta with garlic oil and pasta water.",
+      "Serve with Parmesan."
+    ],
+    "ingredients": [
+      {
+        "name": "Spaghetti",
+        "measure": "400g"
+      },
+      {
+        "name": "Garlic",
+        "measure": "6 cloves"
+      },
+      {
+        "name": "Olive Oil",
+        "measure": "100ml"
+      },
+      {
+        "name": "Parsley",
+        "measure": "handful"
+      },
+      {
+        "name": "Parmesan",
+        "measure": "50g"
+      },
+      {
+        "name": "Black Pepper",
+        "measure": "to taste"
+      }
+    ],
+    "dietaryTags": [
+      "Vegetarian"
+    ],
+    "allergens": [
+      "Gluten",
+      "Dairy"
+    ]
+  },
+  {
+    "id": "82",
+    "title": "Gnocchi al Pomodoro",
+    "description": "Potato gnocchi with tomato sauce",
+    "prepTime": 40,
+    "difficulty": "Medium",
+    "servings": 4,
+    "cuisine": "Italian",
+    "imageURL": "recipe_82",
+    "tags": [
+      "Vegetarian"
+    ],
+    "instructions": [
+      "Boil potatoes, peel and mash.",
+      "Mix with flour and egg to form dough.",
+      "Roll into ropes and cut into pieces.",
+      "Cook in boiling water until they float.",
+      "Serve with tomato sauce and basil."
+    ],
+    "ingredients": [
+      {
+        "name": "Potato",
+        "measure": "800g"
+      },
+      {
+        "name": "Flour",
+        "measure": "200g"
+      },
+      {
+        "name": "Eggs",
+        "measure": "1"
+      },
+      {
+        "name": "Tomato Sauce",
+        "measure": "400ml"
+      },
+      {
+        "name": "Basil",
+        "measure": "handful"
+      },
+      {
+        "name": "Parmesan",
+        "measure": "50g"
+      }
+    ],
+    "dietaryTags": [
+      "Vegetarian"
+    ],
+    "allergens": [
+      "Gluten",
+      "Dairy"
+    ]
+  },
+  {
+    "id": "83",
+    "title": "Bruschetta",
+    "description": "Toasted bread with tomatoes",
+    "prepTime": 10,
+    "difficulty": "Easy",
+    "servings": 4,
+    "cuisine": "Italian",
+    "imageURL": "recipe_83",
+    "tags": [
+      "Vegetarian",
+      "Vegan"
+    ],
+    "instructions": [
+      "Toast thick slices of sourdough.",
+      "Rub with garlic clove.",
+      "Top with diced tomatoes, basil and olive oil.",
+      "Season with salt and black pepper.",
+      "Serve immediately."
+    ],
+    "ingredients": [
+      {
+        "name": "Bread",
+        "measure": "8 slices"
+      },
+      {
+        "name": "Tomatoes",
+        "measure": "4"
+      },
+      {
+        "name": "Garlic",
+        "measure": "2 cloves"
+      },
+      {
+        "name": "Basil",
+        "measure": "handful"
+      },
+      {
+        "name": "Olive Oil",
+        "measure": "4 tbsp"
+      },
+      {
+        "name": "Salt",
+        "measure": "to taste"
+      }
+    ],
+    "dietaryTags": [
+      "Vegetarian",
+      "Vegan"
+    ],
+    "allergens": [
+      "Gluten"
+    ]
+  },
+  {
+    "id": "84",
+    "title": "Osso Buco",
+    "description": "Braised veal shanks",
+    "prepTime": 120,
+    "difficulty": "Hard",
+    "servings": 4,
+    "cuisine": "Italian",
+    "imageURL": "recipe_84",
+    "tags": [],
+    "instructions": [
+      "Dust veal shanks in flour and brown in butter.",
+      "Add onion, carrot, celery and cook 5 minutes.",
+      "Add white wine, tomatoes and stock.",
+      "Braise in oven at 160°C for 1.5 hours.",
+      "Make gremolata with lemon zest, garlic, parsley.",
+      "Serve with risotto Milanese and gremolata."
+    ],
+    "ingredients": [
+      {
+        "name": "Beef",
+        "measure": "4 shanks"
+      },
+      {
+        "name": "Onion",
+        "measure": "2"
+      },
+      {
+        "name": "Carrots",
+        "measure": "2"
+      },
+      {
+        "name": "White Wine",
+        "measure": "200ml"
+      },
+      {
+        "name": "Tomatoes",
+        "measure": "400g"
+      },
+      {
+        "name": "Butter",
+        "measure": "50g"
+      }
+    ],
+    "dietaryTags": [
+      "Gluten-Free",
+      "Lactose-Free"
+    ],
+    "allergens": []
+  },
+  {
+    "id": "85",
+    "title": "Cacio e Pepe",
+    "description": "Roman cheese and pepper pasta",
+    "prepTime": 20,
+    "difficulty": "Medium",
+    "servings": 4,
+    "cuisine": "Italian",
+    "imageURL": "recipe_85",
+    "tags": [
+      "Vegetarian"
+    ],
+    "instructions": [
+      "Cook tonnarelli or spaghetti al dente.",
+      "Toast coarsely ground black pepper in pan.",
+      "Add pasta water to create sauce.",
+      "Toss with Pecorino Romano off the heat.",
+      "Add more pasta water if needed for creaminess."
+    ],
+    "ingredients": [
+      {
+        "name": "Spaghetti",
+        "measure": "400g"
+      },
+      {
+        "name": "Parmesan",
+        "measure": "150g"
+      },
+      {
+        "name": "Black Pepper",
+        "measure": "2 tsp"
+      },
+      {
+        "name": "Butter",
+        "measure": "30g"
+      },
+      {
+        "name": "Salt",
+        "measure": "to taste"
+      }
+    ],
+    "dietaryTags": [
+      "Vegetarian"
+    ],
+    "allergens": [
+      "Dairy",
+      "Gluten"
+    ]
+  },
+  {
+    "id": "86",
+    "title": "Chicken Marsala",
+    "description": "Italian-American chicken dish",
+    "prepTime": 30,
+    "difficulty": "Medium",
+    "servings": 4,
+    "cuisine": "Italian",
+    "imageURL": "recipe_86",
+    "tags": [],
+    "instructions": [
+      "Pound chicken breasts thin and dust in flour.",
+      "Fry in butter until golden each side.",
+      "Add mushrooms and cook 3 minutes.",
+      "Pour in Marsala wine and chicken stock.",
+      "Simmer until sauce thickens. Serve with pasta."
+    ],
+    "ingredients": [
+      {
+        "name": "Chicken Breast",
+        "measure": "4"
+      },
+      {
+        "name": "Mushrooms",
+        "measure": "250g"
+      },
+      {
+        "name": "Flour",
+        "measure": "50g"
+      },
+      {
+        "name": "Butter",
+        "measure": "50g"
+      },
+      {
+        "name": "White Wine",
+        "measure": "150ml"
+      },
+      {
+        "name": "Chicken Stock",
+        "measure": "150ml"
+      }
+    ],
+    "dietaryTags": [
+      "Gluten-Free"
+    ],
+    "allergens": [
+      "Dairy"
+    ]
+  },
+  {
+    "id": "87",
+    "title": "Polenta",
+    "description": "Creamy Italian polenta",
+    "prepTime": 30,
+    "difficulty": "Easy",
+    "servings": 4,
+    "cuisine": "Italian",
+    "imageURL": "recipe_87",
+    "tags": [
+      "Vegetarian"
+    ],
+    "instructions": [
+      "Bring salted water to boil.",
+      "Whisk in polenta gradually.",
+      "Stir constantly for 30 minutes on low heat.",
+      "Remove from heat, stir in butter and Parmesan.",
+      "Serve topped with mushroom ragù or tomato sauce."
+    ],
+    "ingredients": [
+      {
+        "name": "Corn",
+        "measure": "300g polenta"
+      },
+      {
+        "name": "Butter",
+        "measure": "80g"
+      },
+      {
+        "name": "Parmesan",
+        "measure": "100g"
+      },
+      {
+        "name": "Mushrooms",
+        "measure": "300g"
+      },
+      {
+        "name": "Garlic",
+        "measure": "3 cloves"
+      },
+      {
+        "name": "Salt",
+        "measure": "to taste"
+      }
+    ],
+    "dietaryTags": [
+      "Vegetarian",
+      "Gluten-Free"
+    ],
+    "allergens": [
+      "Dairy"
+    ]
+  },
+  {
+    "id": "88",
+    "title": "Chicken Piccata",
+    "description": "Lemon caper chicken",
+    "prepTime": 25,
+    "difficulty": "Easy",
+    "servings": 4,
+    "cuisine": "Italian",
+    "imageURL": "recipe_88",
+    "tags": [],
+    "instructions": [
+      "Pound chicken thin, dust in flour.",
+      "Fry in olive oil until golden.",
+      "Add white wine, lemon juice and capers.",
+      "Simmer sauce and finish with butter.",
+      "Serve with pasta or mashed potato."
+    ],
+    "ingredients": [
+      {
+        "name": "Chicken Breast",
+        "measure": "4"
+      },
+      {
+        "name": "Flour",
+        "measure": "50g"
+      },
+      {
+        "name": "Lemon",
+        "measure": "2"
+      },
+      {
+        "name": "White Wine",
+        "measure": "100ml"
+      },
+      {
+        "name": "Butter",
+        "measure": "60g"
+      },
+      {
+        "name": "Olive Oil",
+        "measure": "3 tbsp"
+      }
+    ],
+    "dietaryTags": [
+      "Gluten-Free"
+    ],
+    "allergens": [
+      "Dairy",
+      "Gluten"
+    ]
+  },
+  {
+    "id": "89",
+    "title": "Roast Beef",
+    "description": "Classic Sunday roast",
+    "prepTime": 90,
+    "difficulty": "Medium",
+    "servings": 6,
+    "cuisine": "British",
+    "imageURL": "recipe_89",
+    "tags": [],
+    "instructions": [
+      "Bring beef to room temperature, season generously.",
+      "Sear in hot pan all over.",
+      "Roast at 220°C for 20 min, then 160°C for 1 hour.",
+      "Rest 20 minutes before carving.",
+      "Make gravy from pan juices."
+    ],
+    "ingredients": [
+      {
+        "name": "Beef",
+        "measure": "1.5kg joint"
+      },
+      {
+        "name": "Garlic",
+        "measure": "4 cloves"
+      },
+      {
+        "name": "Rosemary",
+        "measure": "3 sprigs"
+      },
+      {
+        "name": "Olive Oil",
+        "measure": "3 tbsp"
+      },
+      {
+        "name": "Salt",
+        "measure": "to taste"
+      },
+      {
+        "name": "Black Pepper",
+        "measure": "to taste"
+      }
+    ],
+    "dietaryTags": [
+      "Gluten-Free",
+      "Lactose-Free"
+    ],
+    "allergens": []
+  },
+  {
+    "id": "90",
+    "title": "Bangers and Mash",
+    "description": "Sausages with mashed potato",
+    "prepTime": 30,
+    "difficulty": "Easy",
+    "servings": 4,
+    "cuisine": "British",
+    "imageURL": "recipe_90",
+    "tags": [],
+    "instructions": [
+      "Grill or fry sausages until cooked through.",
+      "Boil potatoes until tender.",
+      "Mash with butter, milk and seasoning.",
+      "Make onion gravy by caramelising onions.",
+      "Serve sausages on mash with gravy."
+    ],
+    "ingredients": [
+      {
+        "name": "Sausage",
+        "measure": "8"
+      },
+      {
+        "name": "Potato",
+        "measure": "1kg"
+      },
+      {
+        "name": "Butter",
+        "measure": "60g"
+      },
+      {
+        "name": "Milk",
+        "measure": "100ml"
+      },
+      {
+        "name": "Onion",
+        "measure": "3"
+      },
+      {
+        "name": "Beef Stock",
+        "measure": "300ml"
+      }
+    ],
+    "dietaryTags": [
+      "Gluten-Free"
+    ],
+    "allergens": [
+      "Dairy",
+      "Gluten"
+    ]
+  },
+  {
+    "id": "91",
+    "title": "Cottage Pie",
+    "description": "British minced beef pie",
+    "prepTime": 60,
+    "difficulty": "Easy",
+    "servings": 4,
+    "cuisine": "British",
+    "imageURL": "recipe_91",
+    "tags": [],
+    "instructions": [
+      "Brown minced beef with onion and carrots.",
+      "Add stock, Worcestershire and tomato purée.",
+      "Simmer 20 minutes.",
+      "Top with mashed potato.",
+      "Bake at 200°C for 25 minutes until golden."
+    ],
+    "ingredients": [
+      {
+        "name": "Ground Beef",
+        "measure": "500g"
+      },
+      {
+        "name": "Potato",
+        "measure": "800g"
+      },
+      {
+        "name": "Onion",
+        "measure": "2"
+      },
+      {
+        "name": "Carrots",
+        "measure": "2"
+      },
+      {
+        "name": "Butter",
+        "measure": "50g"
+      },
+      {
+        "name": "Beef Stock",
+        "measure": "200ml"
+      }
+    ],
+    "dietaryTags": [
+      "Gluten-Free"
+    ],
+    "allergens": [
+      "Dairy"
+    ]
+  },
+  {
+    "id": "92",
+    "title": "Sticky Toffee Pudding",
+    "description": "British sponge dessert",
+    "prepTime": 50,
+    "difficulty": "Medium",
+    "servings": 6,
+    "cuisine": "British",
+    "imageURL": "recipe_92",
+    "tags": [
+      "Vegetarian"
+    ],
+    "instructions": [
+      "Make sponge with flour, sugar, eggs and dates.",
+      "Bake at 180°C for 25 minutes.",
+      "Make toffee sauce with butter, cream and sugar.",
+      "Pour warm sauce over hot pudding.",
+      "Serve with vanilla ice cream."
+    ],
+    "ingredients": [
+      {
+        "name": "Flour",
+        "measure": "175g"
+      },
+      {
+        "name": "Eggs",
+        "measure": "2"
+      },
+      {
+        "name": "Sugar",
+        "measure": "175g"
+      },
+      {
+        "name": "Butter",
+        "measure": "100g"
+      },
+      {
+        "name": "Cream",
+        "measure": "200ml"
+      }
+    ],
+    "dietaryTags": [
+      "Vegetarian"
+    ],
+    "allergens": [
+      "Dairy",
+      "Eggs",
+      "Gluten"
+    ]
+  },
+  {
+    "id": "93",
+    "title": "Welsh Rarebit",
+    "description": "Cheese on toast",
+    "prepTime": 15,
+    "difficulty": "Easy",
+    "servings": 4,
+    "cuisine": "British",
+    "imageURL": "recipe_93",
+    "tags": [
+      "Vegetarian"
+    ],
+    "instructions": [
+      "Make cheese sauce with cheddar, butter, flour, beer.",
+      "Season with mustard and Worcestershire sauce.",
+      "Toast bread.",
+      "Spread cheese mixture on toast.",
+      "Grill until bubbling and golden."
+    ],
+    "ingredients": [
+      {
+        "name": "Cheddar",
+        "measure": "200g"
+      },
+      {
+        "name": "Bread",
+        "measure": "4 slices"
+      },
+      {
+        "name": "Butter",
+        "measure": "30g"
+      },
+      {
+        "name": "Flour",
+        "measure": "30g"
+      },
+      {
+        "name": "Mustard",
+        "measure": "1 tsp"
+      }
+    ],
+    "dietaryTags": [
+      "Vegetarian"
+    ],
+    "allergens": [
+      "Dairy",
+      "Gluten",
+      "Eggs"
+    ]
+  },
+  {
+    "id": "94",
+    "title": "Chicken Tikka",
+    "description": "Grilled spiced chicken",
+    "prepTime": 30,
+    "difficulty": "Easy",
+    "servings": 4,
+    "cuisine": "Indian",
+    "imageURL": "recipe_94",
+    "tags": [],
+    "instructions": [
+      "Cut chicken into chunks.",
+      "Marinate in yogurt, lemon, cumin, coriander, turmeric.",
+      "Thread on skewers.",
+      "Grill on high heat turning every 3 minutes.",
+      "Serve with mint chutney and salad."
+    ],
+    "ingredients": [
+      {
+        "name": "Chicken",
+        "measure": "700g"
+      },
+      {
+        "name": "Yogurt",
+        "measure": "150ml"
+      },
+      {
+        "name": "Lemon",
+        "measure": "1"
+      },
+      {
+        "name": "Cumin",
+        "measure": "2 tsp"
+      },
+      {
+        "name": "Turmeric",
+        "measure": "1 tsp"
+      },
+      {
+        "name": "Coriander",
+        "measure": "2 tsp"
+      }
+    ],
+    "dietaryTags": [
+      "Gluten-Free"
+    ],
+    "allergens": [
+      "Dairy"
+    ]
+  },
+  {
+    "id": "95",
+    "title": "Saag Aloo",
+    "description": "Spinach and potato curry",
+    "prepTime": 30,
+    "difficulty": "Easy",
+    "servings": 4,
+    "cuisine": "Indian",
+    "imageURL": "recipe_95",
+    "tags": [
+      "Vegetarian",
+      "Vegan"
+    ],
+    "instructions": [
+      "Fry cumin seeds in oil until sputtering.",
+      "Add diced potato and cook 10 minutes.",
+      "Add garlic, ginger and spices.",
+      "Add spinach and wilt.",
+      "Season and serve with rice or naan."
+    ],
+    "ingredients": [
+      {
+        "name": "Spinach",
+        "measure": "400g"
+      },
+      {
+        "name": "Potato",
+        "measure": "500g"
+      },
+      {
+        "name": "Onion",
+        "measure": "2"
+      },
+      {
+        "name": "Garlic",
+        "measure": "3 cloves"
+      },
+      {
+        "name": "Cumin",
+        "measure": "2 tsp"
+      },
+      {
+        "name": "Turmeric",
+        "measure": "1 tsp"
+      }
+    ],
+    "dietaryTags": [
+      "Vegetarian",
+      "Vegan",
+      "Gluten-Free",
+      "Lactose-Free"
+    ],
+    "allergens": []
+  },
+  {
+    "id": "96",
+    "title": "Aloo Gobi",
+    "description": "Potato and cauliflower curry",
+    "prepTime": 30,
+    "difficulty": "Easy",
+    "servings": 4,
+    "cuisine": "Indian",
+    "imageURL": "recipe_96",
+    "tags": [
+      "Vegetarian",
+      "Vegan"
+    ],
+    "instructions": [
+      "Heat oil and fry cumin and mustard seeds.",
+      "Add onion, garlic and ginger, cook until soft.",
+      "Add potato and cauliflower.",
+      "Add spices and tomatoes, cook 20 minutes.",
+      "Garnish with coriander and serve."
+    ],
+    "ingredients": [
+      {
+        "name": "Potato",
+        "measure": "400g"
+      },
+      {
+        "name": "Cauliflower",
+        "measure": "1 head"
+      },
+      {
+        "name": "Onion",
+        "measure": "2"
+      },
+      {
+        "name": "Tomatoes",
+        "measure": "2"
+      },
+      {
+        "name": "Cumin",
+        "measure": "1 tsp"
+      },
+      {
+        "name": "Turmeric",
+        "measure": "1 tsp"
+      }
+    ],
+    "dietaryTags": [
+      "Vegetarian",
+      "Vegan",
+      "Gluten-Free",
+      "Lactose-Free"
+    ],
+    "allergens": []
+  },
+  {
+    "id": "97",
+    "title": "Chicken Korma",
+    "description": "Mild creamy curry",
+    "prepTime": 40,
+    "difficulty": "Medium",
+    "servings": 4,
+    "cuisine": "Indian",
+    "imageURL": "recipe_97",
+    "tags": [],
+    "instructions": [
+      "Blend onion, ginger, garlic and cashews.",
+      "Fry paste in oil until golden.",
+      "Add chicken and cook 5 minutes.",
+      "Add yogurt, cream and spices.",
+      "Simmer 20 minutes. Serve with rice."
+    ],
+    "ingredients": [
+      {
+        "name": "Chicken",
+        "measure": "600g"
+      },
+      {
+        "name": "Yogurt",
+        "measure": "150ml"
+      },
+      {
+        "name": "Cream",
+        "measure": "100ml"
+      },
+      {
+        "name": "Onion",
+        "measure": "2"
+      },
+      {
+        "name": "Cashews",
+        "measure": "50g"
+      },
+      {
+        "name": "Cumin",
+        "measure": "1 tsp"
+      }
+    ],
+    "dietaryTags": [
+      "Gluten-Free"
+    ],
+    "allergens": [
+      "Dairy",
+      "Nuts"
+    ]
+  },
+  {
+    "id": "98",
+    "title": "Naan Bread",
+    "description": "Leavened Indian flatbread",
+    "prepTime": 90,
+    "difficulty": "Medium",
+    "servings": 4,
+    "cuisine": "Indian",
+    "imageURL": "recipe_98",
+    "tags": [
+      "Vegetarian"
+    ],
+    "instructions": [
+      "Mix flour, yeast, yogurt, salt and water.",
+      "Knead until smooth, let rise 1 hour.",
+      "Divide and roll into ovals.",
+      "Cook in very hot dry pan until charred.",
+      "Brush with butter and garlic."
+    ],
+    "ingredients": [
+      {
+        "name": "Flour",
+        "measure": "400g"
+      },
+      {
+        "name": "Yogurt",
+        "measure": "100ml"
+      },
+      {
+        "name": "Butter",
+        "measure": "30g"
+      },
+      {
+        "name": "Garlic",
+        "measure": "3 cloves"
+      },
+      {
+        "name": "Salt",
+        "measure": "1 tsp"
+      }
+    ],
+    "dietaryTags": [
+      "Vegetarian"
+    ],
+    "allergens": [
+      "Dairy",
+      "Gluten"
+    ]
+  },
+  {
+    "id": "99",
+    "title": "Samosas",
+    "description": "Crispy filled pastries",
+    "prepTime": 60,
+    "difficulty": "Medium",
+    "servings": 4,
+    "cuisine": "Indian",
+    "imageURL": "recipe_99",
+    "tags": [
+      "Vegetarian"
+    ],
+    "instructions": [
+      "Make spiced potato and pea filling.",
+      "Make dough with flour, oil and water.",
+      "Fill and fold into triangles.",
+      "Deep fry until golden and crispy.",
+      "Serve with mint chutney."
+    ],
+    "ingredients": [
+      {
+        "name": "Potato",
+        "measure": "400g"
+      },
+      {
+        "name": "Peas",
+        "measure": "150g"
+      },
+      {
+        "name": "Flour",
+        "measure": "300g"
+      },
+      {
+        "name": "Cumin",
+        "measure": "2 tsp"
+      },
+      {
+        "name": "Coriander",
+        "measure": "1 tsp"
+      },
+      {
+        "name": "Vegetable Oil",
+        "measure": "for frying"
+      }
+    ],
+    "dietaryTags": [
+      "Vegetarian"
+    ],
+    "allergens": [
+      "Gluten"
+    ]
+  },
+  {
+    "id": "100",
+    "title": "Burritos Bowl",
+    "description": "Deconstructed burrito",
+    "prepTime": 25,
+    "difficulty": "Easy",
+    "servings": 4,
+    "cuisine": "Mexican",
+    "imageURL": "recipe_100",
+    "tags": [],
+    "instructions": [
+      "Cook seasoned rice.",
+      "Season and cook chicken with cumin and paprika.",
+      "Warm black beans.",
+      "Assemble bowls with rice, chicken, beans.",
+      "Top with avocado, salsa, cheese, sour cream."
+    ],
+    "ingredients": [
+      {
+        "name": "Rice",
+        "measure": "300g"
+      },
+      {
+        "name": "Chicken Breast",
+        "measure": "400g"
+      },
+      {
+        "name": "Black Beans",
+        "measure": "400g"
+      },
+      {
+        "name": "Avocado",
+        "measure": "2"
+      },
+      {
+        "name": "Cumin",
+        "measure": "2 tsp"
+      },
+      {
+        "name": "Cheddar",
+        "measure": "100g"
+      }
+    ],
+    "dietaryTags": [
+      "Gluten-Free"
+    ],
+    "allergens": [
+      "Dairy"
+    ]
+  },
+  {
+    "id": "101",
+    "title": "Quesadillas",
+    "description": "Cheese filled tortillas",
+    "prepTime": 15,
+    "difficulty": "Easy",
+    "servings": 4,
+    "cuisine": "Mexican",
+    "imageURL": "recipe_101",
+    "tags": [
+      "Vegetarian"
+    ],
+    "instructions": [
+      "Spread cheese on half of tortilla.",
+      "Add peppers and onion.",
+      "Fold tortilla in half.",
+      "Cook in dry pan until golden each side.",
+      "Cut into wedges and serve with salsa."
+    ],
+    "ingredients": [
+      {
+        "name": "Cheddar",
+        "measure": "200g"
+      },
+      {
+        "name": "Bell Pepper",
+        "measure": "2"
+      },
+      {
+        "name": "Onion",
+        "measure": "1"
+      },
+      {
+        "name": "Sour Cream",
+        "measure": "100ml"
+      },
+      {
+        "name": "Tomatoes",
+        "measure": "2"
+      }
+    ],
+    "dietaryTags": [
+      "Vegetarian",
+      "Gluten-Free"
+    ],
+    "allergens": [
+      "Dairy"
+    ]
+  },
+  {
+    "id": "102",
+    "title": "Enchiladas",
+    "description": "Rolled tortillas in sauce",
+    "prepTime": 45,
+    "difficulty": "Medium",
+    "servings": 4,
+    "cuisine": "Mexican",
+    "imageURL": "recipe_102",
+    "tags": [],
+    "instructions": [
+      "Cook chicken and shred.",
+      "Fill tortillas with chicken and cheese, roll up.",
+      "Place in baking dish, cover with enchilada sauce.",
+      "Top with cheese and bake 25 minutes.",
+      "Serve with sour cream and guacamole."
+    ],
+    "ingredients": [
+      {
+        "name": "Chicken",
+        "measure": "400g"
+      },
+      {
+        "name": "Cheddar",
+        "measure": "200g"
+      },
+      {
+        "name": "Tomato Sauce",
+        "measure": "400ml"
+      },
+      {
+        "name": "Onion",
+        "measure": "1"
+      },
+      {
+        "name": "Cumin",
+        "measure": "2 tsp"
+      },
+      {
+        "name": "Sour Cream",
+        "measure": "100ml"
+      }
+    ],
+    "dietaryTags": [
+      "Gluten-Free"
+    ],
+    "allergens": [
+      "Dairy",
+      "Gluten"
+    ]
+  },
+  {
+    "id": "103",
+    "title": "Nachos",
+    "description": "Loaded tortilla chips",
+    "prepTime": 20,
+    "difficulty": "Easy",
+    "servings": 4,
+    "cuisine": "Mexican",
+    "imageURL": "recipe_103",
+    "tags": [
+      "Vegetarian"
+    ],
+    "instructions": [
+      "Spread tortilla chips on baking tray.",
+      "Top with beans, jalapenos and cheese.",
+      "Bake at 200°C for 10 minutes until cheese melts.",
+      "Top with guacamole, sour cream and salsa.",
+      "Serve immediately."
+    ],
+    "ingredients": [
+      {
+        "name": "Cheddar",
+        "measure": "200g"
+      },
+      {
+        "name": "Black Beans",
+        "measure": "400g"
+      },
+      {
+        "name": "Tomatoes",
+        "measure": "2"
+      },
+      {
+        "name": "Avocado",
+        "measure": "2"
+      },
+      {
+        "name": "Sour Cream",
+        "measure": "100ml"
+      }
+    ],
+    "dietaryTags": [
+      "Vegetarian",
+      "Gluten-Free"
+    ],
+    "allergens": [
+      "Dairy"
+    ]
+  },
+  {
+    "id": "104",
+    "title": "Churros",
+    "description": "Spanish fried doughnuts",
+    "prepTime": 30,
+    "difficulty": "Medium",
+    "servings": 4,
+    "cuisine": "Spanish",
+    "imageURL": "recipe_104",
+    "tags": [
+      "Vegetarian"
+    ],
+    "instructions": [
+      "Make dough with water, butter, flour.",
+      "Pipe into hot oil and fry until golden.",
+      "Drain and roll in cinnamon sugar.",
+      "Make chocolate dipping sauce.",
+      "Serve warm."
+    ],
+    "ingredients": [
+      {
+        "name": "Flour",
+        "measure": "200g"
+      },
+      {
+        "name": "Butter",
+        "measure": "100g"
+      },
+      {
+        "name": "Sugar",
+        "measure": "50g"
+      },
+      {
+        "name": "Cinnamon",
+        "measure": "1 tsp"
+      },
+      {
+        "name": "Chocolate",
+        "measure": "100g"
+      },
+      {
+        "name": "Cream",
+        "measure": "100ml"
+      }
+    ],
+    "dietaryTags": [
+      "Vegetarian"
+    ],
+    "allergens": [
+      "Dairy",
+      "Gluten"
+    ]
+  },
+  {
+    "id": "105",
+    "title": "Gazpacho",
+    "description": "Cold Spanish tomato soup",
+    "prepTime": 15,
+    "difficulty": "Easy",
+    "servings": 4,
+    "cuisine": "Spanish",
+    "imageURL": "recipe_105",
+    "tags": [
+      "Vegetarian",
+      "Vegan"
+    ],
+    "instructions": [
+      "Blend tomatoes, cucumber, peppers, garlic.",
+      "Add olive oil and vinegar.",
+      "Season with salt and pepper.",
+      "Chill for 2 hours.",
+      "Serve cold with croutons."
+    ],
+    "ingredients": [
+      {
+        "name": "Tomatoes",
+        "measure": "800g"
+      },
+      {
+        "name": "Cucumber",
+        "measure": "1"
+      },
+      {
+        "name": "Bell Pepper",
+        "measure": "2"
+      },
+      {
+        "name": "Garlic",
+        "measure": "2 cloves"
+      },
+      {
+        "name": "Olive Oil",
+        "measure": "4 tbsp"
+      },
+      {
+        "name": "Vinegar",
+        "measure": "2 tbsp"
+      }
+    ],
+    "dietaryTags": [
+      "Vegetarian",
+      "Vegan",
+      "Gluten-Free",
+      "Lactose-Free"
+    ],
+    "allergens": []
+  },
+  {
+    "id": "106",
+    "title": "Bouillabaisse",
+    "description": "Provençal fish stew",
+    "prepTime": 60,
+    "difficulty": "Hard",
+    "servings": 4,
+    "cuisine": "French",
+    "imageURL": "recipe_106",
+    "tags": [],
+    "instructions": [
+      "Sauté onion, fennel and garlic in olive oil.",
+      "Add tomatoes, saffron and fish stock.",
+      "Simmer 20 minutes.",
+      "Add firm fish first, then delicate fish.",
+      "Serve with rouille and crusty bread."
+    ],
+    "ingredients": [
+      {
+        "name": "Salmon",
+        "measure": "300g"
+      },
+      {
+        "name": "Cod",
+        "measure": "300g"
+      },
+      {
+        "name": "Shrimp",
+        "measure": "200g"
+      },
+      {
+        "name": "Tomatoes",
+        "measure": "400g"
+      },
+      {
+        "name": "Onion",
+        "measure": "2"
+      },
+      {
+        "name": "Garlic",
+        "measure": "4 cloves"
+      }
+    ],
+    "dietaryTags": [
+      "Gluten-Free",
+      "Lactose-Free"
+    ],
+    "allergens": [
+      "Fish",
+      "Shellfish"
+    ]
+  },
+  {
+    "id": "107",
+    "title": "Ratatouille",
+    "description": "Provençal vegetable stew",
+    "prepTime": 60,
+    "difficulty": "Medium",
+    "servings": 4,
+    "cuisine": "French",
+    "imageURL": "recipe_107",
+    "tags": [
+      "Vegetarian",
+      "Vegan"
+    ],
+    "instructions": [
+      "Slice vegetables into thin rounds.",
+      "Layer zucchini, eggplant, tomatoes, peppers in dish.",
+      "Make tomato sauce base.",
+      "Cover with vegetables.",
+      "Bake at 160°C for 1 hour."
+    ],
+    "ingredients": [
+      {
+        "name": "Zucchini",
+        "measure": "2"
+      },
+      {
+        "name": "Eggplant",
+        "measure": "1"
+      },
+      {
+        "name": "Tomatoes",
+        "measure": "4"
+      },
+      {
+        "name": "Bell Pepper",
+        "measure": "2"
+      },
+      {
+        "name": "Onion",
+        "measure": "2"
+      },
+      {
+        "name": "Garlic",
+        "measure": "4 cloves"
+      }
+    ],
+    "dietaryTags": [
+      "Vegetarian",
+      "Vegan",
+      "Gluten-Free",
+      "Lactose-Free"
+    ],
+    "allergens": []
+  },
+  {
+    "id": "108",
+    "title": "Croissant",
+    "description": "Buttery French pastry",
+    "prepTime": 240,
+    "difficulty": "Hard",
+    "servings": 8,
+    "cuisine": "French",
+    "imageURL": "recipe_108",
+    "tags": [
+      "Vegetarian"
+    ],
+    "instructions": [
+      "Make enriched dough and rest overnight.",
+      "Laminate with butter in multiple folds.",
+      "Shape into crescents.",
+      "Proof 2 hours.",
+      "Brush with egg wash and bake at 200°C for 18 minutes."
+    ],
+    "ingredients": [
+      {
+        "name": "Flour",
+        "measure": "500g"
+      },
+      {
+        "name": "Butter",
+        "measure": "250g"
+      },
+      {
+        "name": "Milk",
+        "measure": "150ml"
+      },
+      {
+        "name": "Sugar",
+        "measure": "50g"
+      },
+      {
+        "name": "Salt",
+        "measure": "1 tsp"
+      }
+    ],
+    "dietaryTags": [
+      "Vegetarian"
+    ],
+    "allergens": [
+      "Dairy",
+      "Gluten",
+      "Eggs"
+    ]
+  },
+  {
+    "id": "109",
+    "title": "Coq au Vin",
+    "description": "French chicken in wine",
+    "prepTime": 90,
+    "difficulty": "Medium",
+    "servings": 4,
+    "cuisine": "French",
+    "imageURL": "recipe_109",
+    "tags": [],
+    "instructions": [
+      "Brown chicken pieces in butter.",
+      "Fry bacon, onion and mushrooms.",
+      "Add red wine and chicken stock.",
+      "Simmer covered for 1 hour.",
+      "Thicken sauce and serve with crusty bread."
+    ],
+    "ingredients": [
+      {
+        "name": "Chicken",
+        "measure": "1 whole cut up"
+      },
+      {
+        "name": "Red Wine",
+        "measure": "750ml"
+      },
+      {
+        "name": "Bacon",
+        "measure": "150g"
+      },
+      {
+        "name": "Mushrooms",
+        "measure": "250g"
+      },
+      {
+        "name": "Onion",
+        "measure": "2"
+      },
+      {
+        "name": "Garlic",
+        "measure": "4 cloves"
+      }
+    ],
+    "dietaryTags": [
+      "Gluten-Free",
+      "Lactose-Free"
+    ],
+    "allergens": []
+  },
+  {
+    "id": "110",
+    "title": "Vichyssoise",
+    "description": "Cold leek and potato soup",
+    "prepTime": 40,
+    "difficulty": "Easy",
+    "servings": 4,
+    "cuisine": "French",
+    "imageURL": "recipe_110",
+    "tags": [
+      "Vegetarian"
+    ],
+    "instructions": [
+      "Sauté leeks and onion in butter.",
+      "Add potato and stock.",
+      "Simmer until potato is soft.",
+      "Blend until smooth.",
+      "Stir in cream, season and chill. Serve cold."
+    ],
+    "ingredients": [
+      {
+        "name": "Potato",
+        "measure": "500g"
+      },
+      {
+        "name": "Onion",
+        "measure": "2"
+      },
+      {
+        "name": "Butter",
+        "measure": "50g"
+      },
+      {
+        "name": "Cream",
+        "measure": "200ml"
+      },
+      {
+        "name": "Chicken Stock",
+        "measure": "1L"
+      },
+      {
+        "name": "Salt",
+        "measure": "to taste"
+      }
+    ],
+    "dietaryTags": [
+      "Vegetarian",
+      "Gluten-Free"
+    ],
+    "allergens": [
+      "Dairy"
+    ]
+  },
+  {
+    "id": "111",
+    "title": "Miso Glazed Salmon",
+    "description": "Japanese glazed fish",
+    "prepTime": 20,
+    "difficulty": "Easy",
+    "servings": 4,
+    "cuisine": "Japanese",
+    "imageURL": "recipe_111",
+    "tags": [],
+    "instructions": [
+      "Mix miso, mirin, soy sauce and sugar.",
+      "Coat salmon in glaze, marinate 30 minutes.",
+      "Grill skin side up for 8 minutes.",
+      "Flip and grill 3 more minutes.",
+      "Serve with steamed rice and edamame."
+    ],
+    "ingredients": [
+      {
+        "name": "Salmon",
+        "measure": "4 fillets"
+      },
+      {
+        "name": "Soy Sauce",
+        "measure": "3 tbsp"
+      },
+      {
+        "name": "Sugar",
+        "measure": "2 tbsp"
+      },
+      {
+        "name": "Sesame Oil",
+        "measure": "1 tbsp"
+      },
+      {
+        "name": "Rice",
+        "measure": "300g"
+      },
+      {
+        "name": "Garlic",
+        "measure": "2 cloves"
+      }
+    ],
+    "dietaryTags": [
+      "Gluten-Free"
+    ],
+    "allergens": [
+      "Fish",
+      "Soy",
+      "Sesame"
+    ]
+  },
+  {
+    "id": "112",
+    "title": "Katsu Curry",
+    "description": "Japanese breaded curry",
+    "prepTime": 40,
+    "difficulty": "Medium",
+    "servings": 4,
+    "cuisine": "Japanese",
+    "imageURL": "recipe_112",
+    "tags": [],
+    "instructions": [
+      "Pound chicken flat, coat in flour, egg and breadcrumbs.",
+      "Deep fry until golden.",
+      "Make curry sauce with onion, apple, curry powder.",
+      "Serve sliced chicken over rice with curry sauce."
+    ],
+    "ingredients": [
+      {
+        "name": "Chicken Breast",
+        "measure": "4"
+      },
+      {
+        "name": "Flour",
+        "measure": "50g"
+      },
+      {
+        "name": "Eggs",
+        "measure": "2"
+      },
+      {
+        "name": "Onion",
+        "measure": "2"
+      },
+      {
+        "name": "Carrots",
+        "measure": "2"
+      },
+      {
+        "name": "Rice",
+        "measure": "300g"
+      }
+    ],
+    "dietaryTags": [],
+    "allergens": [
+      "Gluten",
+      "Eggs",
+      "Dairy"
+    ]
+  },
+  {
+    "id": "113",
+    "title": "Yakitori",
+    "description": "Japanese grilled chicken skewers",
+    "prepTime": 25,
+    "difficulty": "Easy",
+    "servings": 4,
+    "cuisine": "Japanese",
+    "imageURL": "recipe_113",
+    "tags": [],
+    "instructions": [
+      "Cut chicken thighs into chunks.",
+      "Mix soy sauce, mirin, sake, sugar for tare.",
+      "Thread chicken on skewers.",
+      "Grill over charcoal or gas, basting with tare.",
+      "Serve with shichimi togarashi."
+    ],
+    "ingredients": [
+      {
+        "name": "Chicken Thigh",
+        "measure": "600g"
+      },
+      {
+        "name": "Soy Sauce",
+        "measure": "4 tbsp"
+      },
+      {
+        "name": "Sugar",
+        "measure": "2 tbsp"
+      },
+      {
+        "name": "Sesame Oil",
+        "measure": "1 tbsp"
+      },
+      {
+        "name": "Garlic",
+        "measure": "2 cloves"
+      },
+      {
+        "name": "Onion",
+        "measure": "2 spring onions"
+      }
+    ],
+    "dietaryTags": [
+      "Gluten-Free",
+      "Lactose-Free"
+    ],
+    "allergens": [
+      "Soy",
+      "Sesame"
+    ]
+  },
+  {
+    "id": "114",
+    "title": "Tom Yum Soup",
+    "description": "Thai hot and sour soup",
+    "prepTime": 25,
+    "difficulty": "Easy",
+    "servings": 4,
+    "cuisine": "Thai",
+    "imageURL": "recipe_114",
+    "tags": [],
+    "instructions": [
+      "Bring stock to boil with lemongrass and galangal.",
+      "Add mushrooms and shrimp.",
+      "Season with fish sauce, lime juice and chilli.",
+      "Add coconut milk if desired.",
+      "Garnish with coriander and serve."
+    ],
+    "ingredients": [
+      {
+        "name": "Shrimp",
+        "measure": "300g"
+      },
+      {
+        "name": "Mushrooms",
+        "measure": "200g"
+      },
+      {
+        "name": "Chicken Stock",
+        "measure": "1L"
+      },
+      {
+        "name": "Lime",
+        "measure": "2"
+      },
+      {
+        "name": "Onion",
+        "measure": "3 spring onions"
+      },
+      {
+        "name": "Coriander",
+        "measure": "handful"
+      }
+    ],
+    "dietaryTags": [
+      "Gluten-Free",
+      "Lactose-Free"
+    ],
+    "allergens": [
+      "Shellfish",
+      "Fish"
+    ]
+  },
+  {
+    "id": "115",
+    "title": "Massaman Curry",
+    "description": "Thai-Muslim curry",
+    "prepTime": 60,
+    "difficulty": "Medium",
+    "servings": 4,
+    "cuisine": "Thai",
+    "imageURL": "recipe_115",
+    "tags": [],
+    "instructions": [
+      "Fry Massaman curry paste in oil.",
+      "Add chicken and coat well.",
+      "Add coconut milk, potato and peanuts.",
+      "Simmer 40 minutes.",
+      "Season with fish sauce, sugar and tamarind."
+    ],
+    "ingredients": [
+      {
+        "name": "Chicken",
+        "measure": "600g"
+      },
+      {
+        "name": "Coconut Oil",
+        "measure": "400ml"
+      },
+      {
+        "name": "Potato",
+        "measure": "400g"
+      },
+      {
+        "name": "Peanuts",
+        "measure": "100g"
+      },
+      {
+        "name": "Onion",
+        "measure": "2"
+      },
+      {
+        "name": "Cumin",
+        "measure": "1 tsp"
+      }
+    ],
+    "dietaryTags": [
+      "Gluten-Free",
+      "Lactose-Free"
+    ],
+    "allergens": [
+      "Nuts"
+    ]
+  },
+  {
+    "id": "116",
+    "title": "Bulgur Pilaf",
+    "description": "Turkish wheat pilaf",
+    "prepTime": 25,
+    "difficulty": "Easy",
+    "servings": 4,
+    "cuisine": "Turkish",
+    "imageURL": "recipe_116",
+    "tags": [
+      "Vegetarian",
+      "Vegan"
+    ],
+    "instructions": [
+      "Sauté onion in olive oil.",
+      "Add tomato paste and cook 2 minutes.",
+      "Add bulgur wheat and stock.",
+      "Simmer covered 15 minutes.",
+      "Fluff with fork and serve with salad."
+    ],
+    "ingredients": [
+      {
+        "name": "Onion",
+        "measure": "2"
+      },
+      {
+        "name": "Tomatoes",
+        "measure": "2"
+      },
+      {
+        "name": "Olive Oil",
+        "measure": "3 tbsp"
+      },
+      {
+        "name": "Vegetable Stock",
+        "measure": "600ml"
+      },
+      {
+        "name": "Garlic",
+        "measure": "3 cloves"
+      },
+      {
+        "name": "Parsley",
+        "measure": "handful"
+      }
+    ],
+    "dietaryTags": [
+      "Vegetarian",
+      "Vegan",
+      "Lactose-Free"
+    ],
+    "allergens": [
+      "Gluten"
+    ]
+  },
+  {
+    "id": "117",
+    "title": "Iskender Kebab",
+    "description": "Turkish döner on bread",
+    "prepTime": 30,
+    "difficulty": "Medium",
+    "servings": 4,
+    "cuisine": "Turkish",
+    "imageURL": "recipe_117",
+    "tags": [],
+    "instructions": [
+      "Grill thinly sliced lamb until crispy.",
+      "Make tomato butter sauce.",
+      "Toast pieces of flatbread.",
+      "Layer bread, lamb, yogurt and tomato sauce.",
+      "Top with browned butter."
+    ],
+    "ingredients": [
+      {
+        "name": "Lamb",
+        "measure": "600g"
+      },
+      {
+        "name": "Bread",
+        "measure": "4 flatbreads"
+      },
+      {
+        "name": "Yogurt",
+        "measure": "300ml"
+      },
+      {
+        "name": "Tomatoes",
+        "measure": "400g"
+      },
+      {
+        "name": "Butter",
+        "measure": "80g"
+      },
+      {
+        "name": "Garlic",
+        "measure": "3 cloves"
+      }
+    ],
+    "dietaryTags": [],
+    "allergens": [
+      "Dairy",
+      "Gluten"
+    ]
+  },
+  {
+    "id": "118",
+    "title": "Baklava",
+    "description": "Turkish honey nut pastry",
+    "prepTime": 60,
+    "difficulty": "Hard",
+    "servings": 12,
+    "cuisine": "Turkish",
+    "imageURL": "recipe_118",
+    "tags": [
+      "Vegetarian"
+    ],
+    "instructions": [
+      "Layer filo pastry with melted butter.",
+      "Spread ground walnuts or pistachios between layers.",
+      "Cut into diamond shapes before baking.",
+      "Bake at 180°C for 45 minutes.",
+      "Pour cold honey syrup over hot baklava."
+    ],
+    "ingredients": [
+      {
+        "name": "Walnuts",
+        "measure": "300g"
+      },
+      {
+        "name": "Butter",
+        "measure": "200g"
+      },
+      {
+        "name": "Honey",
+        "measure": "200ml"
+      },
+      {
+        "name": "Sugar",
+        "measure": "150g"
+      },
+      {
+        "name": "Cinnamon",
+        "measure": "1 tsp"
+      }
+    ],
+    "dietaryTags": [
+      "Vegetarian"
+    ],
+    "allergens": [
+      "Gluten",
+      "Nuts"
+    ]
+  },
+  {
+    "id": "119",
+    "title": "Pork Belly",
+    "description": "Slow roasted pork belly",
+    "prepTime": 180,
+    "difficulty": "Medium",
+    "servings": 4,
+    "cuisine": "British",
+    "imageURL": "recipe_119",
+    "tags": [],
+    "instructions": [
+      "Score pork skin deeply.",
+      "Rub with salt, pepper and fennel seeds.",
+      "Roast at 220°C for 30 min for crackling.",
+      "Reduce to 160°C and roast 2 more hours.",
+      "Rest before slicing."
+    ],
+    "ingredients": [
+      {
+        "name": "Pork",
+        "measure": "1kg belly"
+      },
+      {
+        "name": "Salt",
+        "measure": "2 tbsp"
+      },
+      {
+        "name": "Black Pepper",
+        "measure": "1 tsp"
+      },
+      {
+        "name": "Garlic",
+        "measure": "4 cloves"
+      },
+      {
+        "name": "Rosemary",
+        "measure": "2 sprigs"
+      }
+    ],
+    "dietaryTags": [
+      "Gluten-Free",
+      "Lactose-Free"
+    ],
+    "allergens": []
+  },
+  {
+    "id": "120",
+    "title": "Toad in the Hole",
+    "description": "Yorkshire pudding with sausages",
+    "prepTime": 50,
+    "difficulty": "Easy",
+    "servings": 4,
+    "cuisine": "British",
+    "imageURL": "recipe_120",
+    "tags": [],
+    "instructions": [
+      "Make Yorkshire pudding batter with flour, eggs and milk.",
+      "Heat oil in roasting tin until smoking.",
+      "Add sausages to tin and cook 10 minutes.",
+      "Pour batter over sausages.",
+      "Bake at 220°C for 30 minutes without opening oven."
+    ],
+    "ingredients": [
+      {
+        "name": "Sausage",
+        "measure": "8"
+      },
+      {
+        "name": "Flour",
+        "measure": "140g"
+      },
+      {
+        "name": "Eggs",
+        "measure": "4"
+      },
+      {
+        "name": "Milk",
+        "measure": "200ml"
+      },
+      {
+        "name": "Vegetable Oil",
+        "measure": "3 tbsp"
+      }
+    ],
+    "dietaryTags": [],
+    "allergens": [
+      "Gluten",
+      "Eggs",
+      "Dairy"
+    ]
+  },
+  {
+    "id": "121",
+    "title": "Ceviche",
+    "description": "Latin American raw fish",
+    "prepTime": 30,
+    "difficulty": "Medium",
+    "servings": 4,
+    "cuisine": "Peruvian",
+    "imageURL": "recipe_121",
+    "tags": [],
+    "instructions": [
+      "Cut fresh white fish into small cubes.",
+      "Marinate in lime juice for 15-20 minutes.",
+      "Add diced onion, chilli, coriander.",
+      "Season with salt and pepper.",
+      "Serve with plantain chips."
+    ],
+    "ingredients": [
+      {
+        "name": "Cod",
+        "measure": "500g"
+      },
+      {
+        "name": "Lime",
+        "measure": "6"
+      },
+      {
+        "name": "Onion",
+        "measure": "1"
+      },
+      {
+        "name": "Coriander",
+        "measure": "handful"
+      },
+      {
+        "name": "Tomatoes",
+        "measure": "2"
+      },
+      {
+        "name": "Salt",
+        "measure": "to taste"
+      }
+    ],
+    "dietaryTags": [
+      "Gluten-Free",
+      "Lactose-Free"
+    ],
+    "allergens": [
+      "Fish"
+    ]
+  },
+  {
+    "id": "122",
+    "title": "Beef Empanadas",
+    "description": "Latin American stuffed pastries",
+    "prepTime": 60,
+    "difficulty": "Medium",
+    "servings": 4,
+    "cuisine": "Argentinian",
+    "imageURL": "recipe_122",
+    "tags": [],
+    "instructions": [
+      "Make pastry dough and rest 30 minutes.",
+      "Cook beef filling with onion, olives, cumin.",
+      "Fill pastry circles and crimp edges.",
+      "Brush with egg wash.",
+      "Bake at 200°C for 25 minutes."
+    ],
+    "ingredients": [
+      {
+        "name": "Ground Beef",
+        "measure": "400g"
+      },
+      {
+        "name": "Onion",
+        "measure": "2"
+      },
+      {
+        "name": "Cumin",
+        "measure": "2 tsp"
+      },
+      {
+        "name": "Flour",
+        "measure": "400g"
+      },
+      {
+        "name": "Butter",
+        "measure": "100g"
+      },
+      {
+        "name": "Eggs",
+        "measure": "2"
+      }
+    ],
+    "dietaryTags": [],
+    "allergens": [
+      "Gluten",
+      "Eggs"
+    ]
+  },
+  {
+    "id": "123",
+    "title": "Jerk Chicken",
+    "description": "Jamaican spiced chicken",
+    "prepTime": 60,
+    "difficulty": "Medium",
+    "servings": 4,
+    "cuisine": "Jamaican",
+    "imageURL": "recipe_123",
+    "tags": [],
+    "instructions": [
+      "Blend scotch bonnet, allspice, thyme, garlic, ginger.",
+      "Marinate chicken overnight.",
+      "Grill on low heat for 45 minutes.",
+      "Turn and baste frequently.",
+      "Serve with rice and peas and plantain."
+    ],
+    "ingredients": [
+      {
+        "name": "Chicken",
+        "measure": "1 whole"
+      },
+      {
+        "name": "Garlic",
+        "measure": "6 cloves"
+      },
+      {
+        "name": "Ginger",
+        "measure": "30g"
+      },
+      {
+        "name": "Cumin",
+        "measure": "1 tsp"
+      },
+      {
+        "name": "Cinnamon",
+        "measure": "1 tsp"
+      },
+      {
+        "name": "Rice",
+        "measure": "300g"
+      }
+    ],
+    "dietaryTags": [
+      "Gluten-Free",
+      "Lactose-Free"
+    ],
+    "allergens": []
+  },
+  {
+    "id": "124",
+    "title": "Poutine",
+    "description": "Canadian chips with gravy",
+    "prepTime": 30,
+    "difficulty": "Easy",
+    "servings": 4,
+    "cuisine": "Canadian",
+    "imageURL": "recipe_124",
+    "tags": [],
+    "instructions": [
+      "Fry potato chips until golden.",
+      "Make rich beef gravy.",
+      "Place chips in bowl.",
+      "Top with cheese curds.",
+      "Pour hot gravy over and serve immediately."
+    ],
+    "ingredients": [
+      {
+        "name": "Potato",
+        "measure": "1kg"
+      },
+      {
+        "name": "Cheese",
+        "measure": "200g curds"
+      },
+      {
+        "name": "Beef Stock",
+        "measure": "500ml"
+      },
+      {
+        "name": "Butter",
+        "measure": "30g"
+      },
+      {
+        "name": "Flour",
+        "measure": "30g"
+      },
+      {
+        "name": "Vegetable Oil",
+        "measure": "for frying"
+      }
+    ],
+    "dietaryTags": [
+      "Gluten-Free"
+    ],
+    "allergens": [
+      "Dairy"
+    ]
+  },
+  {
+    "id": "125",
+    "title": "Butter Tarts",
+    "description": "Canadian sweet pastry",
+    "prepTime": 40,
+    "difficulty": "Medium",
+    "servings": 12,
+    "cuisine": "Canadian",
+    "imageURL": "recipe_125",
+    "tags": [
+      "Vegetarian"
+    ],
+    "instructions": [
+      "Make shortcrust pastry and line muffin tin.",
+      "Mix butter, sugar, eggs, syrup and vanilla.",
+      "Add raisins if desired.",
+      "Fill pastry cases.",
+      "Bake at 190°C for 18-20 minutes."
+    ],
+    "ingredients": [
+      {
+        "name": "Butter",
+        "measure": "60g"
+      },
+      {
+        "name": "Sugar",
+        "measure": "150g"
+      },
+      {
+        "name": "Eggs",
+        "measure": "2"
+      },
+      {
+        "name": "Flour",
+        "measure": "300g"
+      },
+      {
+        "name": "Honey",
+        "measure": "2 tbsp"
+      }
+    ],
+    "dietaryTags": [
+      "Vegetarian"
+    ],
+    "allergens": [
+      "Dairy",
+      "Eggs",
+      "Gluten"
+    ]
+  },
+  {
+    "id": "126",
+    "title": "Kimchi Fried Rice",
+    "description": "Korean spicy fried rice",
+    "prepTime": 15,
+    "difficulty": "Easy",
+    "servings": 4,
+    "cuisine": "Korean",
+    "imageURL": "recipe_126",
+    "tags": [],
+    "instructions": [
+      "Fry kimchi in sesame oil until slightly caramelised.",
+      "Add cold cooked rice and stir fry.",
+      "Make space in pan and fry egg.",
+      "Season with soy sauce and sesame oil.",
+      "Top with spring onion and sesame seeds."
+    ],
+    "ingredients": [
+      {
+        "name": "Rice",
+        "measure": "400g cooked"
+      },
+      {
+        "name": "Eggs",
+        "measure": "4"
+      },
+      {
+        "name": "Soy Sauce",
+        "measure": "3 tbsp"
+      },
+      {
+        "name": "Sesame Oil",
+        "measure": "2 tbsp"
+      },
+      {
+        "name": "Onion",
+        "measure": "3 spring onions"
+      },
+      {
+        "name": "Garlic",
+        "measure": "3 cloves"
+      }
+    ],
+    "dietaryTags": [
+      "Gluten-Free"
+    ],
+    "allergens": [
+      "Eggs",
+      "Soy"
+    ]
+  },
+  {
+    "id": "127",
+    "title": "Bibimbap",
+    "description": "Korean mixed rice bowl",
+    "prepTime": 40,
+    "difficulty": "Medium",
+    "servings": 4,
+    "cuisine": "Korean",
+    "imageURL": "recipe_127",
+    "tags": [],
+    "instructions": [
+      "Cook rice.",
+      "Prepare vegetables: blanch spinach, sauté mushrooms, julienne carrot.",
+      "Cook beef with soy sauce and garlic.",
+      "Arrange everything in bowl over rice.",
+      "Top with fried egg and gochujang."
+    ],
+    "ingredients": [
+      {
+        "name": "Rice",
+        "measure": "400g"
+      },
+      {
+        "name": "Ground Beef",
+        "measure": "300g"
+      },
+      {
+        "name": "Spinach",
+        "measure": "200g"
+      },
+      {
+        "name": "Mushrooms",
+        "measure": "200g"
+      },
+      {
+        "name": "Carrots",
+        "measure": "2"
+      },
+      {
+        "name": "Eggs",
+        "measure": "4"
+      }
+    ],
+    "dietaryTags": [],
+    "allergens": [
+      "Eggs",
+      "Soy",
+      "Gluten"
+    ]
+  },
+  {
+    "id": "128",
+    "title": "Laksa",
+    "description": "Malaysian noodle soup",
+    "prepTime": 40,
+    "difficulty": "Medium",
+    "servings": 4,
+    "cuisine": "Malaysian",
+    "imageURL": "recipe_128",
+    "tags": [],
+    "instructions": [
+      "Fry laksa paste until fragrant.",
+      "Add chicken stock and coconut milk.",
+      "Add shrimp, tofu and fish balls.",
+      "Cook noodles separately.",
+      "Serve noodles in soup with toppings."
+    ],
+    "ingredients": [
+      {
+        "name": "Shrimp",
+        "measure": "300g"
+      },
+      {
+        "name": "Tofu",
+        "measure": "200g"
+      },
+      {
+        "name": "Noodles",
+        "measure": "400g"
+      },
+      {
+        "name": "Coconut Oil",
+        "measure": "400ml"
+      },
+      {
+        "name": "Chicken Stock",
+        "measure": "1L"
+      },
+      {
+        "name": "Onion",
+        "measure": "2"
+      }
+    ],
+    "dietaryTags": [
+      "Gluten-Free",
+      "Lactose-Free"
+    ],
+    "allergens": [
+      "Shellfish",
+      "Soy"
+    ]
+  },
+  {
+    "id": "129",
+    "title": "Nasi Goreng",
+    "description": "Indonesian fried rice",
+    "prepTime": 20,
+    "difficulty": "Easy",
+    "servings": 4,
+    "cuisine": "Indonesian",
+    "imageURL": "recipe_129",
+    "tags": [],
+    "instructions": [
+      "Fry shallots and garlic in oil.",
+      "Add chicken and stir fry.",
+      "Add cold rice and mix well.",
+      "Season with kecap manis, soy sauce, sambal.",
+      "Top with fried egg and prawn crackers."
+    ],
+    "ingredients": [
+      {
+        "name": "Rice",
+        "measure": "400g cooked"
+      },
+      {
+        "name": "Chicken",
+        "measure": "300g"
+      },
+      {
+        "name": "Eggs",
+        "measure": "4"
+      },
+      {
+        "name": "Soy Sauce",
+        "measure": "3 tbsp"
+      },
+      {
+        "name": "Onion",
+        "measure": "3 shallots"
+      },
+      {
+        "name": "Garlic",
+        "measure": "4 cloves"
+      }
+    ],
+    "dietaryTags": [
+      "Gluten-Free"
+    ],
+    "allergens": [
+      "Eggs",
+      "Soy"
+    ]
+  },
+  {
+    "id": "130",
+    "title": "Gado Gado",
+    "description": "Indonesian peanut salad",
+    "prepTime": 25,
+    "difficulty": "Easy",
+    "servings": 4,
+    "cuisine": "Indonesian",
+    "imageURL": "recipe_130",
+    "tags": [
+      "Vegetarian"
+    ],
+    "instructions": [
+      "Boil eggs, potato and green beans.",
+      "Make peanut sauce with peanut butter, lime, soy.",
+      "Arrange vegetables, tofu, eggs.",
+      "Pour peanut sauce over.",
+      "Serve with prawn crackers."
+    ],
+    "ingredients": [
+      {
+        "name": "Eggs",
+        "measure": "4"
+      },
+      {
+        "name": "Potato",
+        "measure": "400g"
+      },
+      {
+        "name": "Green Beans",
+        "measure": "200g"
+      },
+      {
+        "name": "Tofu",
+        "measure": "200g"
+      },
+      {
+        "name": "Peanuts",
+        "measure": "100g"
+      },
+      {
+        "name": "Lime",
+        "measure": "2"
+      }
+    ],
+    "dietaryTags": [
+      "Vegetarian",
+      "Gluten-Free"
+    ],
+    "allergens": [
+      "Eggs",
+      "Nuts",
+      "Soy",
+      "Sesame"
+    ]
+  },
+  {
+    "id": "131",
+    "title": "Pho Bo",
+    "description": "Vietnamese beef noodles",
+    "prepTime": 180,
+    "difficulty": "Hard",
+    "servings": 4,
+    "cuisine": "Vietnamese",
+    "imageURL": "recipe_131",
+    "tags": [],
+    "instructions": [
+      "Simmer beef bones for 3 hours with spices.",
+      "Strain clear broth.",
+      "Season with fish sauce and salt.",
+      "Cook rice noodles separately.",
+      "Serve with raw beef, herbs, lime and chilli."
+    ],
+    "ingredients": [
+      {
+        "name": "Beef",
+        "measure": "500g"
+      },
+      {
+        "name": "Noodles",
+        "measure": "400g"
+      },
+      {
+        "name": "Onion",
+        "measure": "2"
+      },
+      {
+        "name": "Ginger",
+        "measure": "50g"
+      },
+      {
+        "name": "Cinnamon",
+        "measure": "1 stick"
+      },
+      {
+        "name": "Beef Stock",
+        "measure": "2L"
+      }
+    ],
+    "dietaryTags": [
+      "Gluten-Free",
+      "Lactose-Free"
+    ],
+    "allergens": []
+  },
+  {
+    "id": "132",
+    "title": "Banh Mi",
+    "description": "Vietnamese baguette sandwich",
+    "prepTime": 20,
+    "difficulty": "Easy",
+    "servings": 4,
+    "cuisine": "Vietnamese",
+    "imageURL": "recipe_132",
+    "tags": [],
+    "instructions": [
+      "Marinate pork with lemongrass, fish sauce, sugar.",
+      "Grill until caramelised.",
+      "Split baguette and spread mayo.",
+      "Fill with pork, pickled veg, coriander, chilli.",
+      "Serve immediately."
+    ],
+    "ingredients": [
+      {
+        "name": "Pork",
+        "measure": "400g"
+      },
+      {
+        "name": "Bread",
+        "measure": "2 baguettes"
+      },
+      {
+        "name": "Carrots",
+        "measure": "2 pickled"
+      },
+      {
+        "name": "Cucumber",
+        "measure": "1"
+      },
+      {
+        "name": "Coriander",
+        "measure": "handful"
+      },
+      {
+        "name": "Garlic",
+        "measure": "3 cloves"
+      }
+    ],
+    "dietaryTags": [
+      "Gluten-Free",
+      "Lactose-Free"
+    ],
+    "allergens": [
+      "Gluten"
+    ]
+  },
+  {
+    "id": "133",
+    "title": "Beef Kafta",
+    "description": "Middle Eastern meatballs",
+    "prepTime": 30,
+    "difficulty": "Easy",
+    "servings": 4,
+    "cuisine": "Turkish",
+    "imageURL": "recipe_133",
+    "tags": [],
+    "instructions": [
+      "Mix ground beef with onion, parsley, cumin, paprika.",
+      "Shape into ovals around skewers.",
+      "Grill or pan fry until cooked through.",
+      "Serve with flatbread, salad and tahini."
+    ],
+    "ingredients": [
+      {
+        "name": "Ground Beef",
+        "measure": "500g"
+      },
+      {
+        "name": "Onion",
+        "measure": "1"
+      },
+      {
+        "name": "Parsley",
+        "measure": "handful"
+      },
+      {
+        "name": "Cumin",
+        "measure": "2 tsp"
+      },
+      {
+        "name": "Paprika",
+        "measure": "1 tsp"
+      },
+      {
+        "name": "Garlic",
+        "measure": "3 cloves"
+      }
+    ],
+    "dietaryTags": [
+      "Gluten-Free",
+      "Lactose-Free"
+    ],
+    "allergens": []
+  },
+  {
+    "id": "134",
+    "title": "Tabbouleh",
+    "description": "Lebanese herb salad",
+    "prepTime": 20,
+    "difficulty": "Easy",
+    "servings": 4,
+    "cuisine": "Turkish",
+    "imageURL": "recipe_134",
+    "tags": [
+      "Vegetarian",
+      "Vegan"
+    ],
+    "instructions": [
+      "Soak bulgur wheat in water 30 minutes.",
+      "Finely chop parsley, mint, tomatoes, cucumber.",
+      "Mix with bulgur, lemon juice and olive oil.",
+      "Season and refrigerate.",
+      "Serve with flatbread."
+    ],
+    "ingredients": [
+      {
+        "name": "Parsley",
+        "measure": "large bunch"
+      },
+      {
+        "name": "Tomatoes",
+        "measure": "3"
+      },
+      {
+        "name": "Cucumber",
+        "measure": "1"
+      },
+      {
+        "name": "Lemon",
+        "measure": "2"
+      },
+      {
+        "name": "Olive Oil",
+        "measure": "4 tbsp"
+      },
+      {
+        "name": "Onion",
+        "measure": "3 spring onions"
+      }
+    ],
+    "dietaryTags": [
+      "Vegetarian",
+      "Vegan",
+      "Lactose-Free"
+    ],
+    "allergens": [
+      "Gluten"
+    ]
+  },
+  {
+    "id": "135",
+    "title": "Chicken Shawarma",
+    "description": "Middle Eastern grilled chicken",
+    "prepTime": 30,
+    "difficulty": "Easy",
+    "servings": 4,
+    "cuisine": "Turkish",
+    "imageURL": "recipe_135",
+    "tags": [],
+    "instructions": [
+      "Marinate chicken with cumin, turmeric, garlic, lemon.",
+      "Grill until cooked and slightly charred.",
+      "Warm flatbreads.",
+      "Slice chicken and fill wraps with salad, tahini.",
+      "Add pickles and serve."
+    ],
+    "ingredients": [
+      {
+        "name": "Chicken Breast",
+        "measure": "600g"
+      },
+      {
+        "name": "Cumin",
+        "measure": "2 tsp"
+      },
+      {
+        "name": "Turmeric",
+        "measure": "1 tsp"
+      },
+      {
+        "name": "Garlic",
+        "measure": "4 cloves"
+      },
+      {
+        "name": "Lemon",
+        "measure": "1"
+      },
+      {
+        "name": "Yogurt",
+        "measure": "100ml"
+      }
+    ],
+    "dietaryTags": [
+      "Gluten-Free"
+    ],
+    "allergens": [
+      "Dairy"
+    ]
+  },
+  {
+    "id": "136",
+    "title": "Spinach and Ricotta Cannelloni",
+    "description": "Stuffed pasta tubes",
+    "prepTime": 60,
+    "difficulty": "Medium",
+    "servings": 4,
+    "cuisine": "Italian",
+    "imageURL": "recipe_136",
+    "tags": [
+      "Vegetarian"
+    ],
+    "instructions": [
+      "Mix ricotta with spinach, egg and nutmeg.",
+      "Fill cannelloni tubes with mixture.",
+      "Place in baking dish with tomato sauce.",
+      "Cover with béchamel and cheese.",
+      "Bake at 180°C for 35 minutes."
+    ],
+    "ingredients": [
+      {
+        "name": "Spinach",
+        "measure": "400g"
+      },
+      {
+        "name": "Cottage Cheese",
+        "measure": "400g"
+      },
+      {
+        "name": "Eggs",
+        "measure": "1"
+      },
+      {
+        "name": "Tomato Sauce",
+        "measure": "400ml"
+      },
+      {
+        "name": "Mozzarella",
+        "measure": "150g"
+      },
+      {
+        "name": "Milk",
+        "measure": "300ml"
+      }
+    ],
+    "dietaryTags": [
+      "Vegetarian",
+      "Gluten-Free"
+    ],
+    "allergens": [
+      "Dairy",
+      "Eggs"
+    ]
+  },
+  {
+    "id": "137",
+    "title": "Clam Chowder",
+    "description": "New England creamy soup",
+    "prepTime": 40,
+    "difficulty": "Medium",
+    "servings": 4,
+    "cuisine": "American",
+    "imageURL": "recipe_137",
+    "tags": [],
+    "instructions": [
+      "Fry bacon until crispy, set aside.",
+      "Sauté onion and celery in butter.",
+      "Add flour to make roux.",
+      "Add clam juice, potato and cream.",
+      "Simmer until potato is soft, add clams."
+    ],
+    "ingredients": [
+      {
+        "name": "Bacon",
+        "measure": "150g"
+      },
+      {
+        "name": "Potato",
+        "measure": "400g"
+      },
+      {
+        "name": "Onion",
+        "measure": "2"
+      },
+      {
+        "name": "Celery",
+        "measure": "3 stalks"
+      },
+      {
+        "name": "Cream",
+        "measure": "300ml"
+      },
+      {
+        "name": "Butter",
+        "measure": "50g"
+      }
+    ],
+    "dietaryTags": [
+      "Gluten-Free"
+    ],
+    "allergens": [
+      "Dairy"
+    ]
+  },
+  {
+    "id": "138",
+    "title": "Lobster Bisque",
+    "description": "Creamy shellfish soup",
+    "prepTime": 60,
+    "difficulty": "Hard",
+    "servings": 4,
+    "cuisine": "French",
+    "imageURL": "recipe_138",
+    "tags": [],
+    "instructions": [
+      "Sauté vegetables with tomato paste.",
+      "Add brandy and flambé.",
+      "Add fish stock and cream.",
+      "Simmer and blend until smooth.",
+      "Add lobster meat and serve with crusty bread."
+    ],
+    "ingredients": [
+      {
+        "name": "Shrimp",
+        "measure": "400g"
+      },
+      {
+        "name": "Cream",
+        "measure": "300ml"
+      },
+      {
+        "name": "Onion",
+        "measure": "2"
+      },
+      {
+        "name": "Carrots",
+        "measure": "2"
+      },
+      {
+        "name": "Tomatoes",
+        "measure": "3"
+      },
+      {
+        "name": "Butter",
+        "measure": "60g"
+      }
+    ],
+    "dietaryTags": [
+      "Gluten-Free"
+    ],
+    "allergens": [
+      "Dairy",
+      "Shellfish"
+    ]
+  },
+  {
+    "id": "139",
+    "title": "Shakshuka with Feta",
+    "description": "Eggs with feta and tomatoes",
+    "prepTime": 25,
+    "difficulty": "Easy",
+    "servings": 4,
+    "cuisine": "Moroccan",
+    "imageURL": "recipe_139",
+    "tags": [
+      "Vegetarian"
+    ],
+    "instructions": [
+      "Sauté onion and peppers with garlic and spices.",
+      "Add tomatoes and simmer 10 minutes.",
+      "Crumble feta over sauce.",
+      "Make wells and add eggs.",
+      "Cover and cook until eggs are just set."
+    ],
+    "ingredients": [
+      {
+        "name": "Eggs",
+        "measure": "6"
+      },
+      {
+        "name": "Tomatoes",
+        "measure": "800g"
+      },
+      {
+        "name": "Bell Pepper",
+        "measure": "2"
+      },
+      {
+        "name": "Cheese",
+        "measure": "150g feta"
+      },
+      {
+        "name": "Onion",
+        "measure": "1"
+      },
+      {
+        "name": "Cumin",
+        "measure": "2 tsp"
+      }
+    ],
+    "dietaryTags": [
+      "Vegetarian",
+      "Gluten-Free"
+    ],
+    "allergens": [
+      "Dairy",
+      "Eggs"
+    ]
+  },
+  {
+    "id": "140",
+    "title": "Momos",
+    "description": "Tibetan dumplings",
+    "prepTime": 60,
+    "difficulty": "Medium",
+    "servings": 4,
+    "cuisine": "Nepali",
+    "imageURL": "recipe_140",
+    "tags": [],
+    "instructions": [
+      "Make dough with flour and water.",
+      "Mix chicken or veg filling with ginger, garlic, coriander.",
+      "Fill and pleat dumplings.",
+      "Steam for 15 minutes.",
+      "Serve with spicy tomato chutney."
+    ],
+    "ingredients": [
+      {
+        "name": "Chicken",
+        "measure": "400g mince"
+      },
+      {
+        "name": "Onion",
+        "measure": "2"
+      },
+      {
+        "name": "Garlic",
+        "measure": "4 cloves"
+      },
+      {
+        "name": "Ginger",
+        "measure": "20g"
+      },
+      {
+        "name": "Flour",
+        "measure": "300g"
+      },
+      {
+        "name": "Coriander",
+        "measure": "handful"
+      }
+    ],
+    "dietaryTags": [
+      "Gluten-Free",
+      "Lactose-Free"
+    ],
+    "allergens": [
+      "Gluten"
+    ]
+  },
+  {
+    "id": "141",
+    "title": "Okonomiyaki",
+    "description": "Japanese savoury pancake",
+    "prepTime": 30,
+    "difficulty": "Medium",
+    "servings": 4,
+    "cuisine": "Japanese",
+    "imageURL": "recipe_141",
+    "tags": [],
+    "instructions": [
+      "Mix batter with flour, eggs, dashi, cabbage.",
+      "Add pork belly slices on top.",
+      "Cook in oiled pan 5 minutes each side.",
+      "Top with mayo, okonomiyaki sauce.",
+      "Garnish with bonito flakes."
+    ],
+    "ingredients": [
+      {
+        "name": "Cabbage",
+        "measure": "400g"
+      },
+      {
+        "name": "Eggs",
+        "measure": "4"
+      },
+      {
+        "name": "Flour",
+        "measure": "150g"
+      },
+      {
+        "name": "Bacon",
+        "measure": "200g"
+      },
+      {
+        "name": "Mayonnaise",
+        "measure": "4 tbsp"
+      },
+      {
+        "name": "Soy Sauce",
+        "measure": "2 tbsp"
+      }
+    ],
+    "dietaryTags": [],
+    "allergens": [
+      "Gluten",
+      "Eggs",
+      "Dairy",
+      "Fish"
+    ]
+  },
+  {
+    "id": "142",
+    "title": "Chana Masala",
+    "description": "Indian chickpea curry",
+    "prepTime": 40,
+    "difficulty": "Easy",
+    "servings": 4,
+    "cuisine": "Indian",
+    "imageURL": "recipe_142",
+    "tags": [
+      "Vegetarian",
+      "Vegan"
+    ],
+    "instructions": [
+      "Sauté onion, garlic and ginger.",
+      "Add tomatoes and cook until mushy.",
+      "Add spices: cumin, coriander, garam masala.",
+      "Add chickpeas and simmer 20 minutes.",
+      "Garnish with coriander and lemon."
+    ],
+    "ingredients": [
+      {
+        "name": "Chickpeas",
+        "measure": "800g"
+      },
+      {
+        "name": "Tomatoes",
+        "measure": "400g"
+      },
+      {
+        "name": "Onion",
+        "measure": "2"
+      },
+      {
+        "name": "Garlic",
+        "measure": "4 cloves"
+      },
+      {
+        "name": "Cumin",
+        "measure": "2 tsp"
+      },
+      {
+        "name": "Coriander",
+        "measure": "2 tsp"
+      }
+    ],
+    "dietaryTags": [
+      "Vegetarian",
+      "Vegan",
+      "Gluten-Free",
+      "Lactose-Free"
+    ],
+    "allergens": []
+  },
+  {
+    "id": "143",
+    "title": "Mutton Rogan Josh",
+    "description": "Kashmiri lamb curry",
+    "prepTime": 90,
+    "difficulty": "Hard",
+    "servings": 4,
+    "cuisine": "Indian",
+    "imageURL": "recipe_143",
+    "tags": [],
+    "instructions": [
+      "Brown lamb in ghee.",
+      "Add whole spices and onion.",
+      "Add yogurt gradually and cook.",
+      "Add tomatoes and red chilli.",
+      "Slow cook 1 hour until tender."
+    ],
+    "ingredients": [
+      {
+        "name": "Lamb",
+        "measure": "700g"
+      },
+      {
+        "name": "Yogurt",
+        "measure": "200ml"
+      },
+      {
+        "name": "Onion",
+        "measure": "3"
+      },
+      {
+        "name": "Tomatoes",
+        "measure": "2"
+      },
+      {
+        "name": "Cumin",
+        "measure": "2 tsp"
+      },
+      {
+        "name": "Coriander",
+        "measure": "2 tsp"
+      }
+    ],
+    "dietaryTags": [
+      "Gluten-Free"
+    ],
+    "allergens": [
+      "Dairy"
+    ]
+  },
+  {
+    "id": "144",
+    "title": "Baba Ganoush",
+    "description": "Smoky aubergine dip",
+    "prepTime": 30,
+    "difficulty": "Easy",
+    "servings": 4,
+    "cuisine": "Turkish",
+    "imageURL": "recipe_144",
+    "tags": [
+      "Vegetarian",
+      "Vegan"
+    ],
+    "instructions": [
+      "Char eggplant directly over flame until black.",
+      "Cool and scoop out flesh.",
+      "Blend with tahini, lemon, garlic, olive oil.",
+      "Season with salt and cumin.",
+      "Serve with pita and paprika."
+    ],
+    "ingredients": [
+      {
+        "name": "Eggplant",
+        "measure": "2"
+      },
+      {
+        "name": "Garlic",
+        "measure": "2 cloves"
+      },
+      {
+        "name": "Olive Oil",
+        "measure": "3 tbsp"
+      },
+      {
+        "name": "Lemon",
+        "measure": "1"
+      },
+      {
+        "name": "Cumin",
+        "measure": "1 tsp"
+      },
+      {
+        "name": "Salt",
+        "measure": "to taste"
+      }
+    ],
+    "dietaryTags": [
+      "Vegetarian",
+      "Vegan",
+      "Gluten-Free",
+      "Lactose-Free"
+    ],
+    "allergens": [
+      "Sesame"
+    ]
+  },
+  {
+    "id": "145",
+    "title": "Corn Chowder",
+    "description": "Creamy corn soup",
+    "prepTime": 35,
+    "difficulty": "Easy",
+    "servings": 4,
+    "cuisine": "American",
+    "imageURL": "recipe_145",
+    "tags": [
+      "Vegetarian"
+    ],
+    "instructions": [
+      "Sauté onion and celery in butter.",
+      "Add potato and corn.",
+      "Pour in stock and simmer 20 minutes.",
+      "Blend half the soup for creaminess.",
+      "Add cream, season and serve with crackers."
+    ],
+    "ingredients": [
+      {
+        "name": "Corn",
+        "measure": "4 cobs"
+      },
+      {
+        "name": "Potato",
+        "measure": "3"
+      },
+      {
+        "name": "Onion",
+        "measure": "2"
+      },
+      {
+        "name": "Celery",
+        "measure": "2 stalks"
+      },
+      {
+        "name": "Cream",
+        "measure": "200ml"
+      },
+      {
+        "name": "Butter",
+        "measure": "40g"
+      }
+    ],
+    "dietaryTags": [
+      "Vegetarian",
+      "Gluten-Free"
+    ],
+    "allergens": [
+      "Dairy"
+    ]
+  },
+  {
+    "id": "146",
+    "title": "Greek Moussaka",
+    "description": "Layered eggplant dish",
+    "prepTime": 90,
+    "difficulty": "Hard",
+    "servings": 6,
+    "cuisine": "Greek",
+    "imageURL": "recipe_146",
+    "tags": [],
+    "instructions": [
+      "Fry eggplant slices.",
+      "Make lamb ragù with tomatoes and spices.",
+      "Make béchamel sauce.",
+      "Layer eggplant, lamb, béchamel.",
+      "Bake at 180°C for 45 minutes until golden."
+    ],
+    "ingredients": [
+      {
+        "name": "Eggplant",
+        "measure": "3"
+      },
+      {
+        "name": "Lamb",
+        "measure": "500g"
+      },
+      {
+        "name": "Tomatoes",
+        "measure": "400g"
+      },
+      {
+        "name": "Milk",
+        "measure": "500ml"
+      },
+      {
+        "name": "Flour",
+        "measure": "50g"
+      },
+      {
+        "name": "Butter",
+        "measure": "60g"
+      }
+    ],
+    "dietaryTags": [],
+    "allergens": [
+      "Dairy",
+      "Eggs",
+      "Gluten"
+    ]
+  },
+  {
+    "id": "147",
+    "title": "Spanakopita",
+    "description": "Greek spinach pie",
+    "prepTime": 60,
+    "difficulty": "Medium",
+    "servings": 6,
+    "cuisine": "Greek",
+    "imageURL": "recipe_147",
+    "tags": [
+      "Vegetarian"
+    ],
+    "instructions": [
+      "Mix spinach with feta, eggs and dill.",
+      "Layer filo pastry with butter in tin.",
+      "Add spinach filling.",
+      "Top with remaining filo and butter.",
+      "Bake at 180°C for 40 minutes."
+    ],
+    "ingredients": [
+      {
+        "name": "Spinach",
+        "measure": "700g"
+      },
+      {
+        "name": "Cheese",
+        "measure": "300g feta"
+      },
+      {
+        "name": "Eggs",
+        "measure": "3"
+      },
+      {
+        "name": "Butter",
+        "measure": "150g"
+      },
+      {
+        "name": "Dill",
+        "measure": "handful"
+      }
+    ],
+    "dietaryTags": [
+      "Vegetarian"
+    ],
+    "allergens": [
+      "Dairy",
+      "Eggs",
+      "Gluten"
+    ]
+  },
+  {
+    "id": "148",
+    "title": "Beef Kofta",
+    "description": "Grilled Middle Eastern meatballs",
+    "prepTime": 25,
+    "difficulty": "Easy",
+    "servings": 4,
+    "cuisine": "Moroccan",
+    "imageURL": "recipe_148",
+    "tags": [],
+    "instructions": [
+      "Mix ground beef with onion, parsley, cumin, paprika.",
+      "Roll into sausage shapes.",
+      "Grill on high heat turning often.",
+      "Serve with flatbread, salad and yogurt."
+    ],
+    "ingredients": [
+      {
+        "name": "Ground Beef",
+        "measure": "600g"
+      },
+      {
+        "name": "Onion",
+        "measure": "1"
+      },
+      {
+        "name": "Parsley",
+        "measure": "handful"
+      },
+      {
+        "name": "Cumin",
+        "measure": "2 tsp"
+      },
+      {
+        "name": "Paprika",
+        "measure": "2 tsp"
+      },
+      {
+        "name": "Garlic",
+        "measure": "3 cloves"
+      }
+    ],
+    "dietaryTags": [
+      "Gluten-Free",
+      "Lactose-Free"
+    ],
+    "allergens": []
+  },
+  {
+    "id": "149",
+    "title": "Kedgeree",
+    "description": "British spiced fish rice",
+    "prepTime": 35,
+    "difficulty": "Easy",
+    "servings": 4,
+    "cuisine": "British",
+    "imageURL": "recipe_149",
+    "tags": [],
+    "instructions": [
+      "Poach smoked haddock in milk.",
+      "Cook basmati rice with turmeric.",
+      "Flake fish and mix with rice.",
+      "Add hard boiled eggs and cream.",
+      "Season and garnish with parsley."
+    ],
+    "ingredients": [
+      {
+        "name": "Salmon",
+        "measure": "400g smoked"
+      },
+      {
+        "name": "Rice",
+        "measure": "300g"
+      },
+      {
+        "name": "Eggs",
+        "measure": "4"
+      },
+      {
+        "name": "Cream",
+        "measure": "100ml"
+      },
+      {
+        "name": "Turmeric",
+        "measure": "1 tsp"
+      },
+      {
+        "name": "Onion",
+        "measure": "1"
+      }
+    ],
+    "dietaryTags": [
+      "Gluten-Free"
+    ],
+    "allergens": [
+      "Fish",
+      "Dairy",
+      "Eggs"
+    ]
+  },
+  {
+    "id": "150",
+    "title": "Roasted Vegetable Tart",
+    "description": "Seasonal vegetable tart",
+    "prepTime": 60,
+    "difficulty": "Medium",
+    "servings": 4,
+    "cuisine": "French",
+    "imageURL": "recipe_150",
+    "tags": [
+      "Vegetarian"
+    ],
+    "instructions": [
+      "Blind bake shortcrust pastry case.",
+      "Roast vegetables with olive oil and herbs.",
+      "Make egg and cream custard filling.",
+      "Fill pastry with vegetables and custard.",
+      "Bake at 160°C for 35 minutes until set."
+    ],
+    "ingredients": [
+      {
+        "name": "Zucchini",
+        "measure": "2"
+      },
+      {
+        "name": "Bell Pepper",
+        "measure": "2"
+      },
+      {
+        "name": "Tomatoes",
+        "measure": "3"
+      },
+      {
+        "name": "Eggs",
+        "measure": "3"
+      },
+      {
+        "name": "Cream",
+        "measure": "200ml"
+      },
+      {
+        "name": "Butter",
+        "measure": "100g"
+      }
+    ],
+    "dietaryTags": [
+      "Vegetarian",
+      "Gluten-Free"
+    ],
+    "allergens": [
+      "Dairy",
+      "Eggs"
+    ]
+  }
+]

@@ -5,27 +5,46 @@
 //  Created by Иван Болдырев on 30.01.2026.
 //
 
+//
+//  RecipeDetailView.swift
+//  RecipeHelper
+//
+//  Created by Иван Болдырев on 30.01.2026.
+//
+
 
 
 import SwiftUI
 import SwiftData
 
+struct CookingSessionItem: Identifiable { let id: UUID }
+
 struct RecipeDetailView: View {
     @Environment(\.modelContext) private var modelContext
-    @Query private var inventory: [Product]
-    @Query private var shoppingList: [ShoppingListItem]
-    
+
     let recipe: Recipe
+
+    @State private var showAddedAlert   = false
+    @State private var addedItemsCount  = 0
+    @State private var isLoadingDetail  = false
+    @State private var cookingSessionItem: CookingSessionItem? = nil
+    @ObservedObject private var cookingManager = CookingSessionManager.shared
+
+    private let mealDBService = MealDBService.shared
     
-    @State private var showAddedAlert = false
-    @State private var addedItemsCount = 0
-    
+    // Check if this recipe needs detail loading
+    private var needsDetailLoad: Bool {
+        let hasIngredients = !(recipe.ingredients?.isEmpty ?? true)
+        let hasInstructions = !(recipe.instructions.isEmpty)
+        return !hasIngredients || !hasInstructions
+    }
+
     var body: some View {
         ScrollView {
             VStack(alignment: .leading, spacing: 16) {
                 // Recipe Image
                 if let imageURL = recipe.imageURL {
-                    AsyncImage(url: URL(string: imageURL)) { image in
+                    CachedAsyncImage(url: imageURL) { image in
                         image
                             .resizable()
                             .aspectRatio(contentMode: .fill)
@@ -41,6 +60,9 @@ struct RecipeDetailView: View {
                     Text(recipe.title)
                         .font(.largeTitle)
                         .fontWeight(.bold)
+                        .lineLimit(2)
+                        .minimumScaleFactor(0.7)
+                        .fixedSize(horizontal: false, vertical: true)
                     
                     // Metadata
                     HStack(spacing: 16) {
@@ -70,22 +92,31 @@ struct RecipeDetailView: View {
                             Text("Ingredients")
                                 .font(.title2)
                                 .fontWeight(.bold)
-                            
-                            Spacer()
-                            
+
+                            Spacer(minLength: 8)
+
                             // Match indicator
                             let match = calculateMatch()
                             HStack(spacing: 4) {
                                 Image(systemName: match.percentage >= 70 ? "checkmark.circle.fill" : "exclamationmark.circle.fill")
                                     .foregroundStyle(match.percentage >= 70 ? .green : .orange)
-                                Text("\(Int(match.percentage))% available")
-                                    .font(.caption)
+                                Text("\(match.available)/\(match.total)")
+                                    .font(.caption).fontWeight(.semibold)
                                     .foregroundStyle(.secondary)
                             }
+                            .lineLimit(1)
+                            .fixedSize()
                         }
-                        
+
                         if let ingredients = recipe.ingredients {
-                            ForEach(ingredients, id: \.id) { recipeIngredient in
+                            let pantry = FirestoreService.shared.pantry
+                            ForEach(
+                                ingredients.filter {
+                                    !RecipeMatchService.isIgnored($0.ingredientName)
+                                    && !RecipeMatchService.isInPantry($0.ingredientName, pantry: pantry)
+                                },
+                                id: \.id
+                            ) { recipeIngredient in
                                 IngredientRowView(
                                     recipeIngredient: recipeIngredient,
                                     isAvailable: isIngredientAvailable(recipeIngredient)
@@ -113,8 +144,30 @@ struct RecipeDetailView: View {
                         .padding(.vertical, 8)
                     }
                     
+                    // Start Cooking button — disabled until user has every
+                    // non-pantry ingredient in stock (water and pantry spices
+                    // are automatically excluded, see isIngredientAvailable).
+                    let canCook = !hasMissingIngredients()
+                    Button {
+                        let session = cookingManager.startSession(recipe: recipe)
+                        cookingSessionItem = CookingSessionItem(id: session.id)
+                    } label: {
+                        HStack {
+                            Image(systemName: canCook ? "flame.fill" : "lock.fill")
+                            Text(canCook ? "Start Cooking" : "Missing ingredients")
+                        }
+                        .font(.headline)
+                        .foregroundStyle(.white)
+                        .frame(maxWidth: .infinity)
+                        .padding()
+                        .background(canCook ? Color.orange : Color.gray)
+                        .clipShape(RoundedRectangle(cornerRadius: 12))
+                    }
+                    .disabled(!canCook)
+                    .padding(.vertical, 8)
+
                     Divider()
-                    
+
                     // Instructions
                     VStack(alignment: .leading, spacing: 12) {
                         Text("Instructions")
@@ -139,6 +192,11 @@ struct RecipeDetailView: View {
                 .padding()
             }
         }
+        .safeAreaInset(edge: .bottom) {
+            if !CookingSessionManager.shared.sessions.isEmpty {
+                Color.clear.frame(height: 70)
+            }
+        }
         .toolbar {
             ToolbarItem(placement: .navigationBarTrailing) {
                 Button {
@@ -151,6 +209,22 @@ struct RecipeDetailView: View {
             }
         }
         .navigationBarTitleDisplayMode(.inline)
+        .task {
+            if needsDetailLoad && !isLoadingDetail {
+                await loadDetail()
+            }
+        }
+        .overlay {
+            if isLoadingDetail {
+                ProgressView("Loading recipe...")
+                    .padding(24)
+                    .background(.ultraThinMaterial)
+                    .cornerRadius(16)
+            }
+        }
+        .sheet(item: $cookingSessionItem) { item in
+            CookingSessionView(recipe: recipe, sessionId: item.id)
+        }
         .alert("Added to Shopping List", isPresented: $showAddedAlert) {
             Button("OK", role: .cancel) { }
         } message: {
@@ -161,62 +235,36 @@ struct RecipeDetailView: View {
     // MARK: - Helper Methods
     
     private func calculateMatch() -> (percentage: Double, available: Int, total: Int) {
-        guard let ingredients = recipe.ingredients, !ingredients.isEmpty else {
-            return (0, 0, 0)
+        guard let all = recipe.ingredients, !all.isEmpty else { return (0, 0, 0) }
+        let pantry = FirestoreService.shared.pantry
+        // Exclude both "always-free" ingredients (water) AND spices the user has
+        // in pantry — they shouldn't be part of the denominator either.
+        let ingredients = all.filter {
+            !RecipeMatchService.isIgnored($0.ingredientName)
+            && !RecipeMatchService.isInPantry($0.ingredientName, pantry: pantry)
         }
-        
+        guard !ingredients.isEmpty else { return (100, 0, 0) }
         let available = ingredients.filter { isIngredientAvailable($0) }.count
         let total = ingredients.count
         let percentage = (Double(available) / Double(total)) * 100.0
-        
         return (percentage, available, total)
     }
     
     private func isIngredientAvailable(_ recipeIngredient: RecipeIngredient) -> Bool {
-        let ingredientName = recipeIngredient.ingredientName.lowercased().trimmingCharacters(in: .whitespaces)
-        
+        let name = recipeIngredient.ingredientName
+        if RecipeMatchService.isIgnored(name) { return true }   // water, etc.
+        if RecipeMatchService.isInPantry(name, pantry: FirestoreService.shared.pantry) { return true }
+
+        let ingredientName = name.lowercased().trimmingCharacters(in: .whitespaces)
+        let inventory = FirestoreService.shared.products
         for product in inventory {
-            let productName = product.name.lowercased().trimmingCharacters(in: .whitespaces)
-            
-            // Точное совпадение
-            if productName == ingredientName {
-                return true
-            }
-            
-            // Частичное совпадение
-            if productName.contains(ingredientName) || ingredientName.contains(productName) {
-                return true
-            }
-            
-            // Синонимы (упрощенно)
-            if areSynonyms(ingredientName, productName) {
-                return true
-            }
+            let n = product.name.lowercased().trimmingCharacters(in: .whitespaces)
+            if n == ingredientName || n.contains(ingredientName) || ingredientName.contains(n) { return true }
+            if RecipeMatchService.areSynonyms(ingredientName, n) { return true }
         }
-        
         return false
     }
-    
-    private func areSynonyms(_ word1: String, _ word2: String) -> Bool {
-        let synonyms: [String: [String]] = [
-            "tomato": ["tomatoes"],
-            "onion": ["onions"],
-            "chicken": ["chicken breast", "chicken thigh"],
-            "pasta": ["spaghetti", "penne"],
-            "cheese": ["cheddar", "mozzarella"]
-        ]
-        
-        for (key, values) in synonyms {
-            if (word1 == key && values.contains(word2)) ||
-               (word2 == key && values.contains(word1)) ||
-               (values.contains(word1) && values.contains(word2)) {
-                return true
-            }
-        }
-        
-        return false
-    }
-    
+
     private func hasMissingIngredients() -> Bool {
         guard let ingredients = recipe.ingredients else { return false }
         return ingredients.contains { !isIngredientAvailable($0) }
@@ -224,38 +272,71 @@ struct RecipeDetailView: View {
     
     private func addMissingToShoppingList() {
         guard let ingredients = recipe.ingredients else { return }
-        
+        let fs = FirestoreService.shared
         var addedCount = 0
-        
-        for recipeIngredient in ingredients {
-            // Проверяем что ингредиента нет в инвентаре
-            if !isIngredientAvailable(recipeIngredient) {
-                // Проверяем что еще не добавлен в список покупок
-                let alreadyInList = shoppingList.contains { item in
-                    item.ingredientName.lowercased() == recipeIngredient.ingredientName.lowercased()
-                }
-                
-                if !alreadyInList {
-                    let shoppingItem = ShoppingListItem(
-                        ingredientName: recipeIngredient.ingredientName,
-                        quantity: recipeIngredient.quantity,
-                        unit: recipeIngredient.unit,
-                        recipeName: recipe.title
-                    )
-                    
-                    modelContext.insert(shoppingItem)
-                    addedCount += 1
+        Task {
+            for recipeIngredient in ingredients {
+                if !isIngredientAvailable(recipeIngredient) {
+                    let alreadyInList = fs.shoppingList.contains {
+                        $0.ingredientName.lowercased() == recipeIngredient.ingredientName.lowercased()
+                    }
+                    if !alreadyInList {
+                        let item = FSShoppingItem(
+                            ingredientName: recipeIngredient.ingredientName,
+                            quantity: recipeIngredient.quantity,
+                            unit: recipeIngredient.unit,
+                            isPurchased: false,
+                            addedDate: Date(),
+                            recipeName: recipe.title
+                        )
+                        try? await fs.addShoppingItem(item)
+                        addedCount += 1
+                    }
                 }
             }
-        }
-        
-        if addedCount > 0 {
-            addedItemsCount = addedCount
-            showAddedAlert = true
+            if addedCount > 0 {
+                addedItemsCount = addedCount
+                showAddedAlert = true
+            }
         }
     }
     private func toggleFavorite() {
         recipe.isFavorite.toggle()
+    }
+
+    // MARK: - Lazy detail loading
+
+    private func loadDetail() async {
+        guard needsDetailLoad else { return }
+        isLoadingDetail = true
+        defer { isLoadingDetail = false }
+        do {
+            let results = try await mealDBService.searchMeals(query: recipe.title)
+            guard let match = results.first(where: { $0.strMeal == recipe.title }),
+                  let full  = try await mealDBService.getMealDetails(id: match.idMeal)
+            else { return }
+            await MainActor.run {
+                recipe.cuisineType     = full.strArea
+                recipe.preparationTime = 30
+                let ingredients = full.getIngredients()
+                let recipeIngredients: [RecipeIngredient] = ingredients.map { name, measure in
+                    let ri = RecipeIngredient(ingredientName: name, quantity: 1.0, unit: measure, isOptional: false)
+                    ri.recipe = recipe
+                    modelContext.insert(ri)
+                    return ri
+                }
+                recipe.ingredients = recipeIngredients
+                let instructions = full.strInstructions?
+                    .components(separatedBy: .newlines)
+                    .map { $0.trimmingCharacters(in: .whitespaces) }
+                    .filter { !$0.isEmpty && Int($0) == nil && $0.count > 2 }
+                    .map { $0.replacingOccurrences(of: #"^(Step\s*)?\d+[\.\):\s]\s*"#, with: "", options: .regularExpression) }
+                    ?? []
+                recipe.instructions = instructions
+            }
+        } catch {
+            print("Failed to load recipe detail: \(error)")
+        }
     }
 }
 
@@ -279,8 +360,9 @@ struct IngredientRowView: View {
                     .strikethrough(isAvailable, color: .secondary)
                     .foregroundStyle(isAvailable ? .secondary : .primary)
                 
-                if recipeIngredient.quantity > 0 {
-                    Text("\(String(format: "%.1f", recipeIngredient.quantity)) \(recipeIngredient.unit)")
+                // Show unit/measure only — quantity is always 1.0 from MealDB
+                if !recipeIngredient.unit.isEmpty {
+                    Text(recipeIngredient.unit)
                         .font(.caption)
                         .foregroundStyle(.secondary)
                 }
@@ -316,5 +398,5 @@ struct IngredientRowView: View {
             allergens: []
         ))
     }
-    .modelContainer(for: [Product.self, ShoppingListItem.self], inMemory: true)
+    .modelContainer(for: [Recipe.self, RecipeIngredient.self], inMemory: true)
 }

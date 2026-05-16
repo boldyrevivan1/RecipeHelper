@@ -2,268 +2,210 @@
 //  AddProductView.swift
 //  RecipeHelper
 //
-//  Created by Иван Болдырев on 30.01.2026.
-//
 
 import SwiftUI
-import SwiftData
 
 struct AddProductView: View {
-    @Environment(\.modelContext) private var modelContext
     @Environment(\.dismiss) private var dismiss
-    
-    @State private var searchText = ""
+
+    @State private var searchText          = ""
     @State private var selectedIngredient: String?
-    @State private var category = "Other"
-    @State private var quantityStatus: ProductQuantityStatus = .medium
-    @State private var expirationDate: Date?
-    @State private var hasExpirationDate = false
-    
-    @State private var showError = false
-    @State private var errorMessage = ""
-    
-    // Поисковые результаты
-    private var searchResults: [String] {
-        KnownIngredients.search(query: searchText)
-    }
-    
-    // Показывать ли список автодополнения
-    private var showSuggestions: Bool {
-        !searchText.isEmpty && selectedIngredient == nil
-    }
-    
+    @State private var category            = "Other"
+    @State private var quantityStatus      = "Plenty"
+    @State private var hasExpirationDate   = false
+    @State private var expirationDate      = Date()
+    @State private var showPantryAlert     = false
+
+    @ObservedObject private var fs = FirestoreService.shared
+
+    private let allCategories = [
+        "Meat","Seafood","Dairy","Vegetables","Fruits",
+        "Bakery","Grains","Oils","Sauces","Spices",
+        "Baking","Nuts","Legumes","Other"
+    ]
+
+    private var searchResults: [String] { KnownIngredients.search(query: searchText) }
+    private var showSuggestions: Bool { !searchText.isEmpty && selectedIngredient == nil && !searchResults.isEmpty }
+
     var body: some View {
         NavigationStack {
             Form {
-                // Product Name with Autocomplete
                 Section {
-                    VStack(alignment: .leading, spacing: 0) {
-                        TextField("Start typing product name...", text: $searchText)
-                            .textInputAutocapitalization(.words)
-                            .onChange(of: searchText) { oldValue, newValue in
-                                // Сбрасываем выбор при изменении текста
-                                if newValue != selectedIngredient {
-                                    selectedIngredient = nil
-                                }
-                            }
-                        
-                        // Показываем выбранный продукт
-                        if let selected = selectedIngredient {
-                            HStack {
-                                Image(systemName: "checkmark.circle.fill")
-                                    .foregroundStyle(.green)
-                                Text(selected)
-                                    .foregroundStyle(.secondary)
-                                Spacer()
-                                Button("Change") {
-                                    selectedIngredient = nil
-                                    searchText = ""
-                                }
+                    TextField("Start typing product name...", text: $searchText)
+                        .textInputAutocapitalization(.words)
+                        .onChange(of: searchText) { _, new in
+                            if new != selectedIngredient { selectedIngredient = nil }
+                        }
+                    if let selected = selectedIngredient {
+                        HStack {
+                            Image(systemName: "checkmark.circle.fill").foregroundStyle(.green)
+                            Text(selected).foregroundStyle(.secondary)
+                            Spacer()
+                            Button("Change") { selectedIngredient = nil; searchText = ""; category = "Other"; hasExpirationDate = false }
                                 .font(.caption)
-                            }
-                            .padding(.top, 8)
                         }
-                    }
-                    
-                    // Autocomplete suggestions
-                    if showSuggestions {
-                        VStack(alignment: .leading, spacing: 0) {
-                            if searchResults.isEmpty {
-                                Text("No matching ingredients found")
-                                    .font(.caption)
-                                    .foregroundStyle(.secondary)
-                                    .padding(.vertical, 8)
-                            } else {
-                                ForEach(searchResults.prefix(5), id: \.self) { ingredient in
-                                    Button {
-                                        selectIngredient(ingredient)
-                                    } label: {
-                                        HStack {
-                                            Image(systemName: "magnifyingglass")
-                                                .font(.caption)
-                                                .foregroundStyle(.secondary)
-                                            Text(ingredient)
-                                                .foregroundStyle(.primary)
-                                            Spacer()
-                                        }
-                                        .contentShape(Rectangle())
-                                    }
-                                    .buttonStyle(.plain)
-                                    .padding(.vertical, 8)
-                                    
-                                    if ingredient != searchResults.prefix(5).last {
-                                        Divider()
-                                    }
+                        if isInPantry(selected) {
+                            HStack(alignment: .top, spacing: 8) {
+                                Image(systemName: "leaf.fill").foregroundStyle(.orange)
+                                VStack(alignment: .leading, spacing: 2) {
+                                    Text("Already in your Pantry")
+                                        .font(.caption).fontWeight(.semibold)
+                                    Text("This spice is already marked as always available. You don't need to track it in the inventory.")
+                                        .font(.caption2).foregroundStyle(.secondary)
                                 }
                             }
+                            .padding(.vertical, 4)
+                        } else if isInInventory(selected) {
+                            HStack(alignment: .top, spacing: 8) {
+                                Image(systemName: "arrow.triangle.2.circlepath")
+                                    .foregroundStyle(.blue)
+                                VStack(alignment: .leading, spacing: 2) {
+                                    Text("Already in your Inventory")
+                                        .font(.caption).fontWeight(.semibold)
+                                    Text("Saving will refresh the existing entry — quantity and expiration will be updated, no duplicate will be created.")
+                                        .font(.caption2).foregroundStyle(.secondary)
+                                }
+                            }
+                            .padding(.vertical, 4)
                         }
                     }
-                } header: {
-                    Text("Product Name")
-                } footer: {
-                    if showSuggestions && !searchResults.isEmpty {
-                        Text("Select from \(searchResults.count) matching ingredients")
-                            .font(.caption)
+                    if showSuggestions {
+                        ForEach(searchResults.prefix(5), id: \.self) { ingredient in
+                            Button { selectIngredient(ingredient) } label: {
+                                HStack {
+                                    Image(systemName: "magnifyingglass").font(.caption).foregroundStyle(.secondary)
+                                    Text(ingredient).foregroundStyle(.primary)
+                                    Spacer()
+                                    if let m = matchByEnglish(ingredient) {
+                                        Text(m.category).font(.caption2).foregroundStyle(.blue)
+                                    }
+                                }
+                                .contentShape(Rectangle())
+                            }
+                            .buttonStyle(.plain).padding(.vertical, 6)
+                        }
                     }
-                }
-                
-                // Category
+                } header: { Text("Product Name") }
+
                 Section("Category") {
                     Picker("Category", selection: $category) {
-                        Text("Vegetables").tag("Vegetables")
-                        Text("Fruits").tag("Fruits")
-                        Text("Meat").tag("Meat")
-                        Text("Seafood").tag("Seafood")
-                        Text("Dairy").tag("Dairy")
-                        Text("Grains").tag("Grains")
-                        Text("Spices").tag("Spices")
-                        Text("Other").tag("Other")
+                        ForEach(allCategories, id: \.self) { Text($0).tag($0) }
                     }
                     .pickerStyle(.menu)
                 }
-                
-                // Quantity Status - FIXED VERSION
+
                 Section("Quantity Status") {
-                    VStack(spacing: 12) {
-                        HStack(spacing: 12) {
-                            StatusButton(
-                                title: "Plenty",
-                                icon: "checkmark.circle.fill",
-                                color: .green,
-                                isSelected: quantityStatus == .plenty
-                            ) {
-                                quantityStatus = .plenty
+                    HStack(spacing: 12) {
+                        ForEach(["Plenty", "Medium"], id: \.self) { status in
+                            let statusColor = QuantityStatusStyle.color(for: status)
+                            let statusIcon  = QuantityStatusStyle.icon(for: status)
+                            Button { quantityStatus = status } label: {
+                                VStack(spacing: 6) {
+                                    Image(systemName: statusIcon).font(.title2)
+                                        .foregroundStyle(quantityStatus == status ? statusColor : .gray.opacity(0.4))
+                                    Text(status).font(.caption)
+                                        .foregroundStyle(quantityStatus == status ? .primary : .secondary)
+                                }
+                                .frame(maxWidth: .infinity).padding(.vertical, 12)
+                                .background(RoundedRectangle(cornerRadius: 10)
+                                    .fill(quantityStatus == status ? statusColor.opacity(0.15) : Color.gray.opacity(0.05)))
+                                .overlay(RoundedRectangle(cornerRadius: 10)
+                                    .stroke(quantityStatus == status ? statusColor : Color.clear, lineWidth: 2))
                             }
-                            
-                            StatusButton(
-                                title: "Medium",
-                                icon: "minus.circle.fill",
-                                color: .orange,
-                                isSelected: quantityStatus == .medium
-                            ) {
-                                quantityStatus = .medium
-                            }
-                            
-                            StatusButton(
-                                title: "Running Out",
-                                icon: "exclamationmark.circle.fill",
-                                color: .red,
-                                isSelected: quantityStatus == .runningOut
-                            ) {
-                                quantityStatus = .runningOut
-                            }
+                            .buttonStyle(.plain)
                         }
                     }
                 }
-                
-                // Expiration Date
+
                 Section {
                     Toggle("Has expiration date", isOn: $hasExpirationDate)
-                    
                     if hasExpirationDate {
-                        DatePicker(
-                            "Expiration Date",
-                            selection: Binding(
-                                get: { expirationDate ?? Date() },
-                                set: { expirationDate = $0 }
-                            ),
-                            displayedComponents: .date
-                        )
+                        DatePicker("Expiration Date", selection: $expirationDate, in: Date()..., displayedComponents: .date)
                     }
-                } header: {
-                    Text("Expiration")
-                }
+                } header: { Text("Expiration") }
             }
             .navigationTitle("Add Product")
             .navigationBarTitleDisplayMode(.inline)
             .toolbar {
-                ToolbarItem(placement: .cancellationAction) {
-                    Button("Cancel") {
-                        dismiss()
-                    }
-                }
-                
+                ToolbarItem(placement: .cancellationAction) { Button("Cancel") { dismiss() } }
                 ToolbarItem(placement: .confirmationAction) {
                     Button("Save") {
-                        saveProduct()
+                        if let name = selectedIngredient, isInPantry(name) {
+                            showPantryAlert = true
+                        } else {
+                            saveProduct()
+                        }
                     }
                     .disabled(selectedIngredient == nil)
+                    .fontWeight(.semibold)
                 }
             }
-            .alert("Error", isPresented: $showError) {
-                Button("OK", role: .cancel) { }
+            .alert("Already in Pantry", isPresented: $showPantryAlert) {
+                Button("Add anyway") { saveProduct() }
+                Button("Cancel", role: .cancel) {}
             } message: {
-                Text(errorMessage)
+                Text("\"\(selectedIngredient ?? "")\" is already in your Pantry. Recipes will treat it as always available. Are you sure you want to also track it in the inventory?")
             }
         }
     }
-    
-    // MARK: - Helper Methods
-    
+
+    private func isInPantry(_ name: String) -> Bool {
+        RecipeMatchService.isInPantry(name, pantry: fs.pantry)
+    }
+
+    private func isInInventory(_ name: String) -> Bool {
+        let target = name.lowercased().trimmingCharacters(in: .whitespaces)
+        return fs.products.contains {
+            $0.name.lowercased().trimmingCharacters(in: .whitespaces) == target
+        }
+    }
+
     private func selectIngredient(_ ingredient: String) {
         selectedIngredient = ingredient
         searchText = ingredient
+        if let match = matchByEnglish(ingredient) {
+            category = match.category
+            hasExpirationDate = true
+            expirationDate = Calendar.current.date(byAdding: .day, value: match.defaultDays, to: Date()) ?? Date()
+        }
     }
-    
+
+    private func matchByEnglish(_ name: String) -> IngredientMatch? {
+        IngredientMatcher.entries.values.first { $0.englishName.lowercased() == name.lowercased() }
+    }
+
     private func saveProduct() {
-        guard let productName = selectedIngredient else {
-            errorMessage = "Please select a product from the suggestions"
-            showError = true
-            return
+        guard let name = selectedIngredient else { return }
+
+        // De-dup against existing inventory entry (case-insensitive match on name).
+        // If user re-adds the same product, we refresh it instead of creating a
+        // duplicate line. Reasonable: "I bought more milk" → update status + expiry.
+        let existing = fs.products.first {
+            $0.name.lowercased().trimmingCharacters(in: .whitespaces)
+                == name.lowercased().trimmingCharacters(in: .whitespaces)
         }
-        
-        // Проверяем что ингредиент валидный
-        guard KnownIngredients.isValid(ingredient: productName) else {
-            errorMessage = "Please select a valid ingredient from the list"
-            showError = true
-            return
+
+        Task {
+            if var existing, let id = existing.id {
+                existing.quantityStatus = quantityStatus
+                existing.expirationDate = hasExpirationDate ? expirationDate : existing.expirationDate
+                existing.addedDate      = Date()
+                existing.category       = category
+                _ = id   // silence unused-warning; updateProduct uses @DocumentID internally
+                try? await FirestoreService.shared.updateProduct(existing)
+            } else {
+                let product = FSProduct(
+                    name: name,
+                    quantityStatus: quantityStatus,
+                    expirationDate: hasExpirationDate ? expirationDate : nil,
+                    addedDate: Date(),
+                    category: category
+                )
+                try? await FirestoreService.shared.addProduct(product)
+            }
         }
-        
-        let product = Product(name: productName, quantityStatus: quantityStatus)
-        product.expirationDate = hasExpirationDate ? expirationDate : nil
-        product.category = category
-        
-        modelContext.insert(product)
         dismiss()
     }
 }
 
-// MARK: - Status Button Component
-
-struct StatusButton: View {
-    let title: String
-    let icon: String
-    let color: Color
-    let isSelected: Bool
-    let action: () -> Void
-    
-    var body: some View {
-        Button(action: action) {
-            VStack(spacing: 6) {
-                Image(systemName: icon)
-                    .font(.title2)
-                    .foregroundStyle(isSelected ? color : .gray.opacity(0.3))
-                
-                Text(title)
-                    .font(.caption)
-                    .foregroundStyle(isSelected ? .primary : .secondary)
-            }
-            .frame(maxWidth: .infinity)
-            .padding(.vertical, 12)
-            .background(
-                RoundedRectangle(cornerRadius: 10)
-                    .fill(isSelected ? color.opacity(0.15) : Color.gray.opacity(0.05))
-            )
-            .overlay(
-                RoundedRectangle(cornerRadius: 10)
-                    .stroke(isSelected ? color : Color.clear, lineWidth: 2)
-            )
-        }
-        .buttonStyle(.plain)
-    }
-}
-
-#Preview {
-    AddProductView()
-        .modelContainer(for: Product.self, inMemory: true)
-}
+#Preview { AddProductView() }

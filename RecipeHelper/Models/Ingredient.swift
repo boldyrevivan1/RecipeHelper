@@ -2,24 +2,12 @@
 //  Ingredient.swift
 //  RecipeHelper
 //
-//  Created by Иван Болдырев on 30.01.2026.
+//  SwiftData model for a single line of ingredients inside a Recipe
+//  (name + quantity + unit). The parent `Recipe` owns the list.
 //
 
 import Foundation
 import SwiftData
-
-@Model
-final class Ingredient {
-    @Attribute(.unique) var id: UUID
-    var name: String
-    var category: String? // например: "Овощи", "Специи"
-    
-    init(name: String, category: String? = nil) {
-        self.id = UUID()
-        self.name = name
-        self.category = category
-    }
-}
 
 @Model
 final class RecipeIngredient {
@@ -28,19 +16,20 @@ final class RecipeIngredient {
     var quantity: Double
     var unit: String
     var isOptional: Bool
-    
-    // Связь с рецептом
+
+    // Relationship to parent recipe
     var recipe: Recipe?
-    
-    // Возможные замены
-    var substitutes: [String]? // список возможных заменителей
-    
-    init(ingredientName: String, quantity: Double, unit: String, isOptional: Bool = false, substitutes: [String]? = nil) {
-        self.id = UUID()
+
+    // Possible substitutes (unused for now, kept for compatibility)
+    var substitutes: [String]?
+
+    init(ingredientName: String, quantity: Double, unit: String,
+         isOptional: Bool = false, substitutes: [String]? = nil) {
+        self.id             = UUID()
         self.ingredientName = ingredientName
-        self.quantity = quantity
-        self.unit = unit
-        self.isOptional = isOptional
-        self.substitutes = substitutes
+        self.quantity       = quantity
+        self.unit           = unit
+        self.isOptional     = isOptional
+        self.substitutes    = substitutes
     }
 }

@@ -6,6 +6,11 @@
 	objectVersion = 77;
 	objects = {
 
+/* Begin PBXBuildFile section */
+		5A84A85A2F97B6CE00FCC4EB /* FirebaseAuth in Frameworks */ = {isa = PBXBuildFile; productRef = 5A84A8592F97B6CE00FCC4EB /* FirebaseAuth */; };
+		5A84A85C2F97B6CE00FCC4EB /* FirebaseFirestore in Frameworks */ = {isa = PBXBuildFile; productRef = 5A84A85B2F97B6CE00FCC4EB /* FirebaseFirestore */; };
+/* End PBXBuildFile section */
+
 /* Begin PBXContainerItemProxy section */
 		5AD475D72F2BFCE6007190FA /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
@@ -29,9 +34,22 @@
 		5AD475E02F2BFCE6007190FA /* RecipeHelperUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = RecipeHelperUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
+/* Begin PBXFileSystemSynchronizedBuildFileExceptionSet section */
+		5A84A8372F8D715B00FCC4EB /* Exceptions for "RecipeHelper" folder in "RecipeHelper" target */ = {
+			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
+			membershipExceptions = (
+				Info.plist,
+			);
+			target = 5AD475C62F2BFCE4007190FA /* RecipeHelper */;
+		};
+/* End PBXFileSystemSynchronizedBuildFileExceptionSet section */
+
 /* Begin PBXFileSystemSynchronizedRootGroup section */
 		5AD475C92F2BFCE4007190FA /* RecipeHelper */ = {
 			isa = PBXFileSystemSynchronizedRootGroup;
+			exceptions = (
+				5A84A8372F8D715B00FCC4EB /* Exceptions for "RecipeHelper" folder in "RecipeHelper" target */,
+			);
 			path = RecipeHelper;
 			sourceTree = "<group>";
 		};
@@ -52,6 +70,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5A84A85A2F97B6CE00FCC4EB /* FirebaseAuth in Frameworks */,
+				5A84A85C2F97B6CE00FCC4EB /* FirebaseFirestore in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -112,6 +132,8 @@
 			);
 			name = RecipeHelper;
 			packageProductDependencies = (
+				5A84A8592F97B6CE00FCC4EB /* FirebaseAuth */,
+				5A84A85B2F97B6CE00FCC4EB /* FirebaseFirestore */,
 			);
 			productName = RecipeHelper;
 			productReference = 5AD475C72F2BFCE4007190FA /* RecipeHelper.app */;
@@ -195,6 +217,9 @@
 			);
 			mainGroup = 5AD475BE2F2BFCE4007190FA;
 			minimizedProjectReferenceProxies = 1;
+			packageReferences = (
+				5A84A8582F97B6CE00FCC4EB /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */,
+			);
 			preferredProjectObjectVersion = 77;
 			productRefGroup = 5AD475C82F2BFCE4007190FA /* Products */;
 			projectDirPath = "";
@@ -399,6 +424,7 @@
 				DEVELOPMENT_TEAM = GA759C62DQ;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = RecipeHelper/Info.plist;
 				INFOPLIST_KEY_NSCameraUsageDescription = "We need camera access to scan QR codes from receipts\n\n";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
@@ -429,6 +455,7 @@
 				DEVELOPMENT_TEAM = GA759C62DQ;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = RecipeHelper/Info.plist;
 				INFOPLIST_KEY_NSCameraUsageDescription = "We need camera access to scan QR codes from receipts\n\n";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
@@ -556,6 +583,30 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		5A84A8582F97B6CE00FCC4EB /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/firebase/firebase-ios-sdk";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 12.12.1;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		5A84A8592F97B6CE00FCC4EB /* FirebaseAuth */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 5A84A8582F97B6CE00FCC4EB /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseAuth;
+		};
+		5A84A85B2F97B6CE00FCC4EB /* FirebaseFirestore */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 5A84A8582F97B6CE00FCC4EB /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseFirestore;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 5AD475BF2F2BFCE4007190FA /* Project object */;
 }
