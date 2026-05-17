@@ -1,11 +1,4 @@
-//
-//  CookingHistoryView.swift
-//  RecipeHelper
-//
-
 import SwiftUI
-
-// MARK: - Range filter
 
 enum HistoryRange: String, CaseIterable, Identifiable {
     case week   = "Week"
@@ -16,7 +9,6 @@ enum HistoryRange: String, CaseIterable, Identifiable {
 
     var id: String { rawValue }
 
-    /// Date interval for this range, or nil for .all / .custom
     func interval(now: Date = Date()) -> DateInterval? {
         let cal = Calendar.current
         let end = now
@@ -29,8 +21,6 @@ enum HistoryRange: String, CaseIterable, Identifiable {
     }
 }
 
-// MARK: - Main view
-
 struct CookingHistoryView: View {
     @ObservedObject private var fs = FirestoreService.shared
 
@@ -39,14 +29,12 @@ struct CookingHistoryView: View {
     @State private var customEnd   = Date()
     @State private var showCustomSheet = false
 
-    // MARK: Filtered data
-
     private var filteredHistory: [FSCookingHistory] {
         let items = fs.history.sorted { $0.cookedAt > $1.cookedAt }
         let interval: DateInterval?
         switch range {
         case .custom:
-            // include the full end day
+
             let endOfDay = Calendar.current.date(bySettingHour: 23, minute: 59, second: 59, of: customEnd) ?? customEnd
             interval = DateInterval(start: Calendar.current.startOfDay(for: customStart), end: endOfDay)
         default:
@@ -56,7 +44,6 @@ struct CookingHistoryView: View {
         return items.filter { iv.contains($0.cookedAt) }
     }
 
-    /// History grouped by day, sorted newest-first
     private var groupedByDay: [(date: Date, items: [FSCookingHistory])] {
         let cal = Calendar.current
         let groups = Dictionary(grouping: filteredHistory) { cal.startOfDay(for: $0.cookedAt) }
@@ -64,8 +51,6 @@ struct CookingHistoryView: View {
             .map { (date: $0.key, items: $0.value) }
             .sorted { $0.date > $1.date }
     }
-
-    // MARK: Body
 
     var body: some View {
         List {
@@ -110,8 +95,6 @@ struct CookingHistoryView: View {
         .navigationTitle("Cooking History")
         .navigationBarTitleDisplayMode(.large)
     }
-
-    // MARK: Bits
 
     private var rangePicker: some View {
         Picker("Range", selection: $range) {
@@ -162,28 +145,23 @@ struct CookingHistoryView: View {
     }
 }
 
-// MARK: - Stats header
-
 private struct StatsHeader: View {
     let history: [FSCookingHistory]
     let rangeLabel: String
 
     private var total: Int { history.count }
 
-    /// Unique days — so if you cooked 3 recipes today, strike counts it as 1 day.
     private var uniqueDays: [Date] {
         let cal = Calendar.current
         return Array(Set(history.map { cal.startOfDay(for: $0.cookedAt) })).sorted(by: >)
     }
 
-    /// How many days in a row (ending today or yesterday) the user cooked.
     private var currentStreak: Int {
         let cal = Calendar.current
         let today = cal.startOfDay(for: Date())
         let yesterday = cal.date(byAdding: .day, value: -1, to: today)!
         let days = Set(uniqueDays)
 
-        // Only count as active streak if user cooked today or yesterday
         var cursor: Date
         if days.contains(today)          { cursor = today }
         else if days.contains(yesterday) { cursor = yesterday }
@@ -253,8 +231,6 @@ private struct StatsHeader: View {
     }
 }
 
-// MARK: - Stats bits
-
 private struct StatCard: View {
     let icon: String
     let value: String
@@ -316,8 +292,6 @@ private struct CuisineBar: View {
     }
 }
 
-// MARK: - Row
-
 private struct HistoryRow: View {
     let entry: FSCookingHistory
 
@@ -348,7 +322,6 @@ private struct HistoryRow: View {
         .padding(.vertical, 2)
     }
 
-    /// Shows time ("14:32") because the day already gives context via section header.
     private func timeLabel(_ date: Date) -> String {
         let f = DateFormatter()
         f.dateFormat = "HH:mm"

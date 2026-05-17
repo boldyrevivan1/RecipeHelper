@@ -1,15 +1,3 @@
-//
-//  EmailVerificationView.swift
-//  RecipeHelper
-//
-//  Created by Иван Болдырев on 21.04.2026.
-//
-
-//
-//  EmailVerificationView.swift
-//  RecipeHelper
-//
-
 import SwiftUI
 
 struct EmailVerificationView: View {
@@ -56,7 +44,7 @@ struct EmailVerificationView: View {
             }
 
             VStack(spacing: 12) {
-                // Check verification
+
                 Button {
                     Task {
                         checking = true
@@ -80,7 +68,6 @@ struct EmailVerificationView: View {
                 }
                 .disabled(checking)
 
-                // Resend
                 Button {
                     Task {
                         resent = await auth.resendVerification()
@@ -92,7 +79,6 @@ struct EmailVerificationView: View {
                         .foregroundStyle(.blue)
                 }
 
-                // Sign out
                 Button {
                     auth.signOut()
                 } label: {

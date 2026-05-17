@@ -1,8 +1,3 @@
-//
-//  AuthView.swift
-//  RecipeHelper
-//
-
 import SwiftUI
 
 struct AuthView: View {

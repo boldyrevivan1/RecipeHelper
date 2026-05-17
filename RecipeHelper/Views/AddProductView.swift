@@ -1,8 +1,3 @@
-//
-//  AddProductView.swift
-//  RecipeHelper
-//
-
 import SwiftUI
 
 struct AddProductView: View {
@@ -177,9 +172,6 @@ struct AddProductView: View {
     private func saveProduct() {
         guard let name = selectedIngredient else { return }
 
-        // De-dup against existing inventory entry (case-insensitive match on name).
-        // If user re-adds the same product, we refresh it instead of creating a
-        // duplicate line. Reasonable: "I bought more milk" → update status + expiry.
         let existing = fs.products.first {
             $0.name.lowercased().trimmingCharacters(in: .whitespaces)
                 == name.lowercased().trimmingCharacters(in: .whitespaces)
@@ -191,7 +183,7 @@ struct AddProductView: View {
                 existing.expirationDate = hasExpirationDate ? expirationDate : existing.expirationDate
                 existing.addedDate      = Date()
                 existing.category       = category
-                _ = id   // silence unused-warning; updateProduct uses @DocumentID internally
+                _ = id
                 try? await FirestoreService.shared.updateProduct(existing)
             } else {
                 let product = FSProduct(

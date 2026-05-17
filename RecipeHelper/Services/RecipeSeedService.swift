@@ -1,8 +1,3 @@
-//
-//  RecipeSeedService.swift
-//  RecipeHelper
-//
-
 import Foundation
 import SwiftData
 
@@ -34,13 +29,11 @@ enum RecipeSeedService {
         let descriptor = FetchDescriptor<Recipe>()
         let count = (try? modelContext.fetchCount(descriptor)) ?? 0
 
-        // Force re-seed if recipes don't have dietary tags
         if count >= 10 {
             let sample = try? modelContext.fetch(FetchDescriptor<Recipe>())
             let hasTags = sample?.first(where: { !($0.dietaryTags ?? []).isEmpty }) != nil
             if hasTags { return }
 
-            // Delete all existing recipes to re-seed with tags
             print("🔄 Re-seeding recipes with dietary tags...")
             let allRecipes = (try? modelContext.fetch(FetchDescriptor<Recipe>())) ?? []
             for recipe in allRecipes { modelContext.delete(recipe) }
@@ -62,7 +55,6 @@ enum RecipeSeedService {
             default:       difficulty = .easy
             }
 
-            // Use dietaryTags if available, fallback to tags
             let dietary = seed.dietaryTags ?? seed.tags ?? []
 
             let recipe = Recipe(

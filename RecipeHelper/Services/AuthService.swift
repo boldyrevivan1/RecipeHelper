@@ -1,8 +1,3 @@
-//
-//  AuthService.swift
-//  RecipeHelper
-//
-
 import Foundation
 import FirebaseAuth
 
@@ -30,8 +25,6 @@ class AuthService: ObservableObject {
         return user.isEmailVerified
     }
 
-    // MARK: - Sign Up
-
     func signUp(email: String, password: String, name: String) async -> Bool {
         isLoading = true; errorMessage = nil
         do {
@@ -40,7 +33,6 @@ class AuthService: ObservableObject {
             req.displayName = name
             try await req.commitChanges()
 
-            // Send verification email
             try await result.user.sendEmailVerification()
 
             currentUser = result.user
@@ -53,8 +45,6 @@ class AuthService: ObservableObject {
             return false
         }
     }
-
-    // MARK: - Sign In
 
     func signIn(email: String, password: String) async -> Bool {
         isLoading = true; errorMessage = nil
@@ -78,8 +68,6 @@ class AuthService: ObservableObject {
         }
     }
 
-    // MARK: - Resend Verification
-
     func resendVerification() async -> Bool {
         do {
             try await currentUser?.sendEmailVerification()
@@ -89,8 +77,6 @@ class AuthService: ObservableObject {
             return false
         }
     }
-
-    // MARK: - Check Verification
 
     func checkVerification() async -> Bool {
         do {
@@ -103,15 +89,11 @@ class AuthService: ObservableObject {
         }
     }
 
-    // MARK: - Sign Out
-
     func signOut() {
         try? Auth.auth().signOut()
         currentUser = nil
         needsEmailVerification = false
     }
-
-    // MARK: - Reset Password
 
     func resetPassword(email: String) async -> Bool {
         do {

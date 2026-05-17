@@ -1,8 +1,3 @@
-//
-//  OnboardingView.swift
-//  RecipeHelper
-//
-
 import SwiftUI
 
 struct OnboardingView: View {
@@ -44,7 +39,7 @@ struct OnboardingView: View {
 
     var body: some View {
         VStack(spacing: 0) {
-            // Progress dots
+
             HStack(spacing: 8) {
                 ForEach(0..<totalPages, id: \.self) { i in
                     Capsule()
@@ -64,7 +59,6 @@ struct OnboardingView: View {
             .tabViewStyle(.page(indexDisplayMode: .never))
             .animation(.easeInOut, value: page)
 
-            // Bottom button
             Button { handleNext() } label: {
                 HStack {
                     if isSaving { ProgressView().tint(.white) }
@@ -87,7 +81,7 @@ struct OnboardingView: View {
                 let name = newSpiceName.trimmingCharacters(in: .whitespacesAndNewlines)
                 newSpiceName = ""
                 guard !name.isEmpty else { return }
-                // case-insensitive dedupe against both preset & custom
+
                 let existing = Set(
                     (pantryOptions.map { $0.1 } + customPantry).map { $0.lowercased() }
                 )
@@ -97,8 +91,6 @@ struct OnboardingView: View {
             }
         }
     }
-
-    // MARK: - Pages
 
     private var welcomePage: some View {
         VStack(spacing: 24) {
@@ -223,8 +215,6 @@ struct OnboardingView: View {
         }
     }
 
-    // MARK: - Actions
-
     private func handleNext() {
         if page < totalPages - 1 { withAnimation { page += 1 } }
         else { saveAndFinish() }
@@ -248,8 +238,6 @@ struct OnboardingView: View {
         }
     }
 }
-
-// MARK: - Preference Chip
 
 private struct PreferenceChip: View {
     let emoji: String

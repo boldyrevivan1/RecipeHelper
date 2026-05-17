@@ -1,13 +1,5 @@
-//
-//  MealDBService.swift
-//  RecipeHelper
-//
-//  Created by Иван Болдырев on 30.01.2026.
-//
-
 import Foundation
 
-// MARK: - API Models
 struct MealDBResponse: Codable {
     let meals: [MealDTO]?
 }
@@ -20,8 +12,7 @@ struct MealDTO: Codable {
     let strInstructions: String?
     let strMealThumb: String?
     let strTags: String?
-    
-    // Ингредиенты (до 20 возможных)
+
     let strIngredient1: String?
     let strIngredient2: String?
     let strIngredient3: String?
@@ -42,8 +33,7 @@ struct MealDTO: Codable {
     let strIngredient18: String?
     let strIngredient19: String?
     let strIngredient20: String?
-    
-    // Меры (до 20 возможных)
+
     let strMeasure1: String?
     let strMeasure2: String?
     let strMeasure3: String?
@@ -64,25 +54,24 @@ struct MealDTO: Codable {
     let strMeasure18: String?
     let strMeasure19: String?
     let strMeasure20: String?
-    
-    // Вспомогательный метод для извлечения ингредиентов
+
     func getIngredients() -> [(ingredient: String, measure: String)] {
         var ingredients: [(String, String)] = []
-        
+
         let ingredientsList = [
             strIngredient1, strIngredient2, strIngredient3, strIngredient4, strIngredient5,
             strIngredient6, strIngredient7, strIngredient8, strIngredient9, strIngredient10,
             strIngredient11, strIngredient12, strIngredient13, strIngredient14, strIngredient15,
             strIngredient16, strIngredient17, strIngredient18, strIngredient19, strIngredient20
         ]
-        
+
         let measuresList = [
             strMeasure1, strMeasure2, strMeasure3, strMeasure4, strMeasure5,
             strMeasure6, strMeasure7, strMeasure8, strMeasure9, strMeasure10,
             strMeasure11, strMeasure12, strMeasure13, strMeasure14, strMeasure15,
             strMeasure16, strMeasure17, strMeasure18, strMeasure19, strMeasure20
         ]
-        
+
         for i in 0..<ingredientsList.count {
             if let ingredient = ingredientsList[i],
                let measure = measuresList[i],
@@ -92,131 +81,124 @@ struct MealDTO: Codable {
                                   measure.trimmingCharacters(in: .whitespaces)))
             }
         }
-        
+
         return ingredients
     }
 }
 
-// MARK: - Service
 class MealDBService {
     static let shared = MealDBService()
-    
+
     private let baseURL = "https://www.themealdb.com/api/json/v1/1"
-    
+
     private init() {}
-    
-    // Поиск рецептов по названию
+
     func searchMeals(query: String) async throws -> [MealDTO] {
         let urlString = "\(baseURL)/search.php?s=\(query.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed) ?? "")"
-        
+
         guard let url = URL(string: urlString) else {
             throw APIError.invalidURL
         }
-        
+
         let (data, response) = try await URLSession.shared.data(from: url)
-        
+
         guard let httpResponse = response as? HTTPURLResponse,
               httpResponse.statusCode == 200 else {
             throw APIError.invalidResponse
         }
-        
+
         let decoder = JSONDecoder()
         let result = try decoder.decode(MealDBResponse.self, from: data)
-        
+
         return result.meals ?? []
     }
-    
-    // Получить случайный рецепт
+
     func getRandomMeal() async throws -> MealDTO? {
         let urlString = "\(baseURL)/random.php"
-        
+
         guard let url = URL(string: urlString) else {
             throw APIError.invalidURL
         }
-        
+
         let (data, response) = try await URLSession.shared.data(from: url)
-        
+
         guard let httpResponse = response as? HTTPURLResponse,
               httpResponse.statusCode == 200 else {
             throw APIError.invalidResponse
         }
-        
+
         let decoder = JSONDecoder()
         let result = try decoder.decode(MealDBResponse.self, from: data)
-        
+
         return result.meals?.first
     }
-    
-    // Получить рецепт по ID
+
     func getMealDetails(id: String) async throws -> MealDTO? {
         let urlString = "\(baseURL)/lookup.php?i=\(id)"
-        
+
         guard let url = URL(string: urlString) else {
             throw APIError.invalidURL
         }
-        
+
         let (data, response) = try await URLSession.shared.data(from: url)
-        
+
         guard let httpResponse = response as? HTTPURLResponse,
               httpResponse.statusCode == 200 else {
             throw APIError.invalidResponse
         }
-        
+
         let decoder = JSONDecoder()
         let result = try decoder.decode(MealDBResponse.self, from: data)
-        
+
         return result.meals?.first
     }
-    
-    // Получить рецепты по категории
+
     func getMealsByCategory(category: String) async throws -> [MealDTO] {
         let urlString = "\(baseURL)/filter.php?c=\(category.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed) ?? "")"
-        
+
         guard let url = URL(string: urlString) else {
             throw APIError.invalidURL
         }
-        
+
         let (data, response) = try await URLSession.shared.data(from: url)
-        
+
         guard let httpResponse = response as? HTTPURLResponse,
               httpResponse.statusCode == 200 else {
             throw APIError.invalidResponse
         }
-        
+
         let decoder = JSONDecoder()
         let result = try decoder.decode(MealDBResponse.self, from: data)
-        
+
         return result.meals ?? []
     }
-    
-    // Получить рецепты по основному ингредиенту
+
     func getMealsByIngredient(ingredient: String) async throws -> [MealDTO] {
         let urlString = "\(baseURL)/filter.php?i=\(ingredient.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed) ?? "")"
-        
+
         guard let url = URL(string: urlString) else {
             throw APIError.invalidURL
         }
-        
+
         let (data, response) = try await URLSession.shared.data(from: url)
-        
+
         guard let httpResponse = response as? HTTPURLResponse,
               httpResponse.statusCode == 200 else {
             throw APIError.invalidResponse
         }
-        
+
         let decoder = JSONDecoder()
         let result = try decoder.decode(MealDBResponse.self, from: data)
-        
+
         return result.meals ?? []
     }
 }
 
-// MARK: - Errors
 enum APIError: Error, LocalizedError {
     case invalidURL
     case invalidResponse
     case decodingError
-    
+
     var errorDescription: String? {
         switch self {
         case .invalidURL:

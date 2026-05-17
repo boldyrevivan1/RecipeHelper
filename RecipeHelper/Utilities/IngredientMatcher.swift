@@ -1,19 +1,10 @@
-//
-//  IngredientMatcher.swift
-//  RecipeHelper
-//
-
 import Foundation
-
-// MARK: - Match Result
 
 struct IngredientMatch {
     let englishName:  String
     let category:     String
-    let defaultDays:  Int      // дефолтный срок годности в днях
+    let defaultDays:  Int
 }
-
-// MARK: - Matcher
 
 enum IngredientMatcher {
 
@@ -25,15 +16,10 @@ enum IngredientMatcher {
         return nil
     }
 
-    /// Reverse lookup: find a match whose `englishName` equals the given
-    /// English ingredient name (case-insensitive). Used by the shopping list
-    /// to auto-fill category & expiration when moving items into inventory.
     static func match(englishName name: String) -> IngredientMatch? {
         let lower = name.lowercased().trimmingCharacters(in: .whitespaces)
         return entries.values.first { $0.englishName.lowercased() == lower }
     }
-
-    // MARK: - Dictionary
 
     static let entries: [String: IngredientMatch] = {
         func m(_ name: String, _ cat: String, _ days: Int) -> IngredientMatch {
@@ -41,7 +27,7 @@ enum IngredientMatcher {
         }
 
         return [
-            // Dairy (7-14 days)
+
             "молоко":       m("Milk",           "Dairy",   7),
             "молок":        m("Milk",           "Dairy",   7),
             "кефир":        m("Kefir",          "Dairy",   7),
@@ -54,11 +40,9 @@ enum IngredientMatcher {
             "масло слоч":   m("Butter",         "Dairy",   30),
             "сыр":          m("Cheese",         "Dairy",   14),
 
-            // Eggs (21 days)
             "яйц":          m("Eggs",           "Dairy",   21),
             "яйко":         m("Eggs",           "Dairy",   21),
 
-            // Meat (3-5 days fresh)
             "курица":       m("Chicken",        "Meat",    3),
             "куриц":        m("Chicken",        "Meat",    3),
             "куриная":      m("Chicken Breast", "Meat",    3),
@@ -80,7 +64,6 @@ enum IngredientMatcher {
             "индейка":      m("Turkey",         "Meat",    3),
             "утка":         m("Duck",           "Meat",    3),
 
-            // Seafood (2 days fresh)
             "лосось":       m("Salmon",         "Seafood", 2),
             "семга":        m("Salmon",         "Seafood", 2),
             "тунец":        m("Tuna",           "Seafood", 2),
@@ -93,7 +76,6 @@ enum IngredientMatcher {
             "скумбрия":     m("Mackerel",       "Seafood", 3),
             "рыба":         m("Fish",           "Seafood", 2),
 
-            // Vegetables (5-14 days)
             "томат":        m("Tomatoes",       "Vegetables", 7),
             "помидор":      m("Tomatoes",       "Vegetables", 7),
             "лук репч":     m("Onion",          "Vegetables", 30),
@@ -124,7 +106,6 @@ enum IngredientMatcher {
             "свекла":       m("Beets",          "Vegetables", 30),
             "редис":        m("Radish",         "Vegetables", 7),
 
-            // Fruits (5-14 days)
             "яблок":        m("Apples",         "Fruits", 21),
             "банан":        m("Bananas",        "Fruits", 7),
             "апельсин":     m("Oranges",        "Fruits", 14),
@@ -142,7 +123,6 @@ enum IngredientMatcher {
             "вишня":        m("Cherries",       "Fruits", 5),
             "авокадо":      m("Avocado",        "Fruits", 5),
 
-            // Grains & Pasta (180-365 days)
             "рис":          m("Rice",           "Grains", 365),
             "макарон":      m("Pasta",          "Grains", 365),
             "спагетти":     m("Spaghetti",      "Grains", 365),
@@ -157,7 +137,6 @@ enum IngredientMatcher {
             "мука":         m("Flour",          "Grains", 180),
             "хлеб":         m("Bread",          "Bakery", 5),
 
-            // Oils & Sauces (60-365 days)
             "масло олив":   m("Olive Oil",      "Oils",   365),
             "масло подсол": m("Sunflower Oil",  "Oils",   365),
             "масло растит": m("Vegetable Oil",  "Oils",   365),
@@ -168,7 +147,6 @@ enum IngredientMatcher {
             "соевый соус":  m("Soy Sauce",      "Sauces", 180),
             "уксус":        m("Vinegar",        "Sauces", 365),
 
-            // Spices (365 days)
             "соль":         m("Salt",           "Spices", 1825),
             "перец черн":   m("Black Pepper",   "Spices", 365),
             "паприка":      m("Paprika",        "Spices", 365),
@@ -179,7 +157,6 @@ enum IngredientMatcher {
             "петрушка":     m("Parsley",        "Vegetables", 7),
             "базилик":      m("Basil",          "Vegetables", 7),
 
-            // Baking (90-365 days)
             "сахар":        m("Sugar",          "Baking", 730),
             "мед":          m("Honey",          "Baking", 730),
             "шоколад":      m("Chocolate",      "Baking", 180),
@@ -187,7 +164,6 @@ enum IngredientMatcher {
             "разрыхлит":    m("Baking Powder",  "Baking", 365),
             "сода пищев":   m("Baking Soda",    "Baking", 365),
 
-            // Nuts (90-180 days)
             "миндаль":      m("Almonds",        "Nuts", 180),
             "грецкий орех": m("Walnuts",        "Nuts", 90),
             "орех":         m("Walnuts",        "Nuts", 90),
@@ -196,20 +172,14 @@ enum IngredientMatcher {
             "фисташк":      m("Pistachios",     "Nuts", 180),
             "фундук":       m("Hazelnuts",      "Nuts", 180),
 
-            // Legumes (365 days)
             "нут":          m("Chickpeas",      "Legumes", 365),
             "чечевица":     m("Lentils",        "Legumes", 365),
             "горох":        m("Peas",           "Legumes", 365),
             "фасоль":       m("Beans",          "Legumes", 365),
 
-            // Other
             "тофу":         m("Tofu",           "Legumes", 7),
             "бульон":       m("Stock",          "Other", 3),
 
-            // ==== English aliases — for reverse lookup & shopping list auto-match ====
-            // Keys must be lowercase. Longer, more specific keys win (sorted by length).
-
-            // Cheeses (specific types → Dairy)
             "cheddar":         m("Cheddar",        "Dairy", 21),
             "mozzarella":      m("Mozzarella",     "Dairy", 10),
             "parmesan":        m("Parmesan",       "Dairy", 60),
@@ -220,17 +190,13 @@ enum IngredientMatcher {
             "cottage cheese":  m("Cottage Cheese", "Dairy", 5),
             "sour cream":      m("Sour Cream",     "Dairy", 10),
 
-            // Butter variants (fat → Dairy, nut butters → Nuts)
             "peanut butter":   m("Peanut Butter",  "Nuts",  180),
             "almond butter":   m("Almond Butter",  "Nuts",  180),
             "butter":          m("Butter",         "Dairy", 30),
 
-            // Eggs category (separate from Dairy in grocery reality,
-            // но у нас категории Eggs нет, оставляем Dairy)
             "eggs":            m("Eggs",           "Dairy", 21),
             "egg":             m("Eggs",           "Dairy", 21),
 
-            // Meat aliases
             "ground beef":     m("Ground Beef",    "Meat", 2),
             "minced meat":     m("Minced Meat",    "Meat", 2),
             "chicken breast":  m("Chicken Breast", "Meat", 3),
@@ -247,7 +213,6 @@ enum IngredientMatcher {
             "turkey":          m("Turkey",         "Meat", 3),
             "duck":            m("Duck",           "Meat", 3),
 
-            // Seafood aliases
             "salmon":          m("Salmon",         "Seafood", 2),
             "tuna":            m("Tuna",           "Seafood", 2),
             "cod":             m("Cod",            "Seafood", 2),
@@ -259,7 +224,6 @@ enum IngredientMatcher {
             "mackerel":        m("Mackerel",       "Seafood", 3),
             "fish":            m("Fish",           "Seafood", 2),
 
-            // Vegetables & herbs (herbs → Vegetables if fresh, Spices if dried)
             "bell pepper":     m("Bell Pepper",    "Vegetables", 10),
             "green onion":     m("Green Onion",    "Vegetables", 7),
             "oyster mushrooms":m("Oyster Mushrooms","Vegetables", 5),
@@ -290,7 +254,6 @@ enum IngredientMatcher {
             "dill":            m("Dill",           "Vegetables", 7),
             "cilantro":        m("Cilantro",       "Vegetables", 7),
 
-            // Fruits
             "apples":          m("Apples",         "Fruits", 21),
             "bananas":          m("Bananas",       "Fruits", 7),
             "oranges":         m("Oranges",        "Fruits", 14),
@@ -309,7 +272,6 @@ enum IngredientMatcher {
             "watermelon":      m("Watermelon",     "Fruits", 7),
             "avocado":         m("Avocado",        "Fruits", 5),
 
-            // Grains & pasta
             "basmati rice":    m("Basmati Rice",   "Grains", 365),
             "rice":            m("Rice",           "Grains", 365),
             "pasta":           m("Pasta",          "Grains", 365),
@@ -322,7 +284,6 @@ enum IngredientMatcher {
             "pearl barley":    m("Pearl Barley",   "Grains", 365),
             "bread":           m("Bread",          "Bakery", 5),
 
-            // Legumes
             "black beans":     m("Black Beans",    "Legumes", 365),
             "kidney beans":    m("Kidney Beans",   "Legumes", 365),
             "red lentils":     m("Red Lentils",    "Legumes", 365),
@@ -331,7 +292,6 @@ enum IngredientMatcher {
             "beans":           m("Beans",          "Legumes", 365),
             "tofu":            m("Tofu",           "Legumes", 7),
 
-            // Oils (fats → Oils)
             "olive oil":       m("Olive Oil",      "Oils", 365),
             "coconut oil":     m("Coconut Oil",    "Oils", 365),
             "sesame oil":      m("Sesame Oil",     "Oils", 365),
@@ -339,7 +299,6 @@ enum IngredientMatcher {
             "vegetable oil":   m("Vegetable Oil",  "Oils", 365),
             "cooking oil":     m("Cooking Oil",    "Oils", 365),
 
-            // Sauces / condiments
             "tomato sauce":    m("Tomato Sauce",   "Sauces", 30),
             "bbq sauce":       m("BBQ Sauce",      "Sauces", 180),
             "soy sauce":       m("Soy Sauce",      "Sauces", 180),
@@ -347,16 +306,14 @@ enum IngredientMatcher {
             "ketchup":         m("Ketchup",        "Sauces", 60),
             "mustard":         m("Mustard",        "Sauces", 60),
             "vinegar":         m("Vinegar",        "Sauces", 365),
-            "red wine":        m("Red Wine",       "Sauces", 30),     // cooking wine
+            "red wine":        m("Red Wine",       "Sauces", 30),
             "white wine":      m("White Wine",     "Sauces", 30),
 
-            // Stocks (broths)
             "chicken stock":   m("Chicken Stock",  "Sauces", 7),
             "beef stock":      m("Beef Stock",     "Sauces", 7),
             "vegetable stock": m("Vegetable Stock","Sauces", 7),
             "stock":           m("Stock",          "Sauces", 7),
 
-            // Spices (dried herbs & powders)
             "black pepper":    m("Black Pepper",   "Spices", 365),
             "paprika":         m("Paprika",        "Spices", 365),
             "cumin":           m("Cumin",          "Spices", 365),
@@ -367,7 +324,6 @@ enum IngredientMatcher {
             "cinnamon":        m("Cinnamon",       "Spices", 365),
             "salt":            m("Salt",           "Spices", 1825),
 
-            // Nuts
             "pine nuts":       m("Pine Nuts",      "Nuts", 90),
             "walnuts":         m("Walnuts",        "Nuts", 90),
             "almonds":         m("Almonds",        "Nuts", 180),
@@ -376,7 +332,6 @@ enum IngredientMatcher {
             "pistachios":      m("Pistachios",     "Nuts", 180),
             "hazelnuts":       m("Hazelnuts",      "Nuts", 180),
 
-            // Baking
             "baking powder":   m("Baking Powder",  "Baking", 365),
             "baking soda":     m("Baking Soda",    "Baking", 365),
             "cocoa powder":    m("Cocoa Powder",   "Baking", 365),
@@ -384,7 +339,6 @@ enum IngredientMatcher {
             "sugar":           m("Sugar",          "Baking", 730),
             "honey":           m("Honey",          "Baking", 730),
 
-            // Dairy (generic names, also reachable via russian keys)
             "milk":            m("Milk",           "Dairy", 7),
             "cream":           m("Cream",          "Dairy", 7),
             "yogurt":          m("Yogurt",         "Dairy", 10),

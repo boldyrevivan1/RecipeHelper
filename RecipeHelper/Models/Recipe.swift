@@ -1,10 +1,3 @@
-//
-//  Recipe.swift
-//  RecipeHelper
-//
-//  Created by Иван Болдырев on 30.01.2026.
-//
-
 import Foundation
 import SwiftData
 
@@ -12,7 +5,7 @@ import SwiftData
 final class Recipe {
     @Attribute(.unique) var id: UUID
     var title: String
-    var recipeDescription: String  // ← ПЕРЕИМЕНОВАЛИ
+    var recipeDescription: String
     var preparationTime: Int
     var difficulty: DifficultyLevel
     var servings: Int
@@ -22,13 +15,13 @@ final class Recipe {
     var dietaryTags: [String]?
     var allergens: [String]?
     var isFavorite: Bool = false
-    
+
     @Relationship(deleteRule: .cascade) var ingredients: [RecipeIngredient]?
-    
+
     init(title: String, recipeDescription: String, preparationTime: Int, difficulty: DifficultyLevel, servings: Int, instructions: [String], imageURL: String? = nil, dietaryTags: [String]? = nil, allergens: [String]? = nil) {
         self.id = UUID()
         self.title = title
-        self.recipeDescription = recipeDescription  // ← ПЕРЕИМЕНОВАЛИ
+        self.recipeDescription = recipeDescription
         self.preparationTime = preparationTime
         self.difficulty = difficulty
         self.servings = servings

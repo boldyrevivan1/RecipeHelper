@@ -1,18 +1,5 @@
-//
-//  ReceiptOCRService.swift
-//  RecipeHelper
-//
-//  FIX:
-//  1. Парсинг цены стал мягче — принимает запятую, пробелы, trailing whitespace
-//  2. isServiceLine стал точнее — не режет продуктовые строки
-//  3. Строки без цены тоже показываются (price = nil) — пользователь сам решает
-//  4. Мэтчинг переехал в IngredientMatcher с полным русско-английским словарём
-//
-
 import Vision
 import UIKit
-
-// MARK: - Errors
 
 enum OCRError: LocalizedError {
     case invalidImage
@@ -26,22 +13,16 @@ enum OCRError: LocalizedError {
     }
 }
 
-// MARK: - Models
-
 struct ReceiptProduct: Identifiable {
     let id    = UUID()
     let name:  String
-    let price: Double?   // nil если цена не распозналась
+    let price: Double?
 }
-
-// MARK: - Service
 
 final class ReceiptOCRService: Sendable {
 
     static let shared = ReceiptOCRService()
     private init() {}
-
-    // MARK: - Public
 
     func recognizeProducts(from image: UIImage) async throws -> [ReceiptProduct] {
         let text     = try await recognizeText(from: image)
@@ -49,8 +30,6 @@ final class ReceiptOCRService: Sendable {
         guard !products.isEmpty else { throw OCRError.noTextFound }
         return products
     }
-
-    // MARK: - Vision
 
     private func recognizeText(from image: UIImage) async throws -> String {
         guard let cgImage = image.cgImage else { throw OCRError.invalidImage }
@@ -79,8 +58,6 @@ final class ReceiptOCRService: Sendable {
         }
     }
 
-    // MARK: - Parsing
-
     private func extractProducts(from text: String) -> [ReceiptProduct] {
         let lines = text.components(separatedBy: "\n")
             .map { $0.trimmingCharacters(in: .whitespaces) }
@@ -91,7 +68,6 @@ final class ReceiptOCRService: Sendable {
             .compactMap { parseLine($0) }
     }
 
-    // Только явные служебные строки — не трогаем продуктовые
     private func isServiceLine(_ line: String) -> Bool {
         let exact = ["ИТОГО", "ИТОГ", "СУММА", "TOTAL", "SUBTOTAL",
                      "НДС 20%", "НДС 10%", "НАЛОГ", "TAX",
@@ -106,7 +82,6 @@ final class ReceiptOCRService: Sendable {
         if exact.contains(where: { upper == $0 }) { return true }
         if prefixes.contains(where: { upper.hasPrefix($0) }) { return true }
 
-        // Строки только из цифр, знаков и пробелов — служебные
         let letters = line.unicodeScalars.filter { CharacterSet.letters.contains($0) }
         if letters.isEmpty { return true }
 
@@ -114,18 +89,16 @@ final class ReceiptOCRService: Sendable {
     }
 
     private func parseLine(_ line: String) -> ReceiptProduct? {
-        // Нормализуем: убираем лишние символы OCR-артефактов
-        var cleaned = line
-            .replacingOccurrences(of: ",", with: ".")   // 89,90 → 89.90
-            .replacingOccurrences(of: " .", with: ".")  // "89 .90" → "89.90"
-            .replacingOccurrences(of: ". ", with: ".")  // "89. 90" → "89.90"
 
-        // Пробуем найти цену: число с точкой в конце строки
-        // Принимаем: 89.90  1250.00  1 250.00  12345.67
+        var cleaned = line
+            .replacingOccurrences(of: ",", with: ".")
+            .replacingOccurrences(of: " .", with: ".")
+            .replacingOccurrences(of: ". ", with: ".")
+
         let pricePatterns = [
-            #"(\d[\d\s]{0,6}\.\d{2})\s*[АВ]?\s*$"#,  // стандарт + иногда "А" или "В" в конце (OCR артефакт)
+            #"(\d[\d\s]{0,6}\.\d{2})\s*[АВ]?\s*$"#,
             #"(\d[\d\s]{0,6}\.\d{2})\s*$"#,
-            #"(\d+)\s*р\.?\s*$"#,                      // "250р" или "250 р."
+            #"(\d+)\s*р\.?\s*$"#,
         ]
 
         var price: Double? = nil
@@ -139,7 +112,7 @@ final class ReceiptOCRService: Sendable {
                     .replacingOccurrences(of: " ", with: "")
                 if let val = Double(priceStr), val > 0.5, val < 100_000 {
                     price = val
-                    // Обрезаем цену из имени
+
                     let nameEnd = cleaned.index(cleaned.startIndex, offsetBy: match.range.location)
                     nameStr = String(cleaned[..<nameEnd])
                     break
@@ -147,11 +120,10 @@ final class ReceiptOCRService: Sendable {
             }
         }
 
-        // Чистим имя от мусора OCR
         nameStr = nameStr
-            .replacingOccurrences(of: #"^\d+\s+"#,         with: "", options: .regularExpression) // ведущие числа
-            .replacingOccurrences(of: #"\s*х\s*\d+.*$"#,   with: "", options: .regularExpression) // "х2" количество
-            .replacingOccurrences(of: #"\s*\*\s*\d+.*$"#,  with: "", options: .regularExpression) // "*2"
+            .replacingOccurrences(of: #"^\d+\s+"#,         with: "", options: .regularExpression)
+            .replacingOccurrences(of: #"\s*х\s*\d+.*$"#,   with: "", options: .regularExpression)
+            .replacingOccurrences(of: #"\s*\*\s*\d+.*$"#,  with: "", options: .regularExpression)
             .replacingOccurrences(of: #"[=|\\]"#,           with: "", options: .regularExpression)
             .replacingOccurrences(of: #"\s{2,}"#,           with: " ", options: .regularExpression)
             .trimmingCharacters(in: .whitespaces)

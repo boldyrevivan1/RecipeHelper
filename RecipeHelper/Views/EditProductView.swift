@@ -1,8 +1,3 @@
-//
-//  EditProductView.swift
-//  RecipeHelper
-//
-
 import SwiftUI
 
 struct EditProductView: View {

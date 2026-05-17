@@ -1,8 +1,3 @@
-//
-//  ProfileView.swift
-//  RecipeHelper
-//
-
 import SwiftUI
 
 struct ProfileView: View {
@@ -23,7 +18,7 @@ struct ProfileView: View {
     var body: some View {
         NavigationStack {
             List {
-                // Header
+
                 Section {
                     HStack(spacing: 16) {
                         ZStack {
@@ -38,7 +33,6 @@ struct ProfileView: View {
                     .padding(.vertical, 8)
                 }
 
-                // Dietary preferences
                 if let profile = fs.profile {
                     if !profile.dietaryPreferences.isEmpty {
                         Section("Dietary Preferences") {
@@ -75,7 +69,6 @@ struct ProfileView: View {
                     }
                 }
 
-                // Preferences button
                 Section("Settings") {
                     Button {
                         showEditPreferences = true
@@ -92,7 +85,6 @@ struct ProfileView: View {
                     .foregroundStyle(.primary)
                 }
 
-                // Activity
                 Section("Activity") {
                     NavigationLink {
                         CookingHistoryView()
@@ -108,7 +100,6 @@ struct ProfileView: View {
                     }
                 }
 
-                // Sign out
                 Section {
                     Button(role: .destructive) {
                         showSignOutAlert = true

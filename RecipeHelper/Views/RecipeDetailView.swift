@@ -1,19 +1,3 @@
-//
-//  RecipeDetailView.swift
-//  RecipeHelper
-//
-//  Created by Иван Болдырев on 30.01.2026.
-//
-
-//
-//  RecipeDetailView.swift
-//  RecipeHelper
-//
-//  Created by Иван Болдырев on 30.01.2026.
-//
-
-
-
 import SwiftUI
 import SwiftData
 
@@ -31,8 +15,7 @@ struct RecipeDetailView: View {
     @ObservedObject private var cookingManager = CookingSessionManager.shared
 
     private let mealDBService = MealDBService.shared
-    
-    // Check if this recipe needs detail loading
+
     private var needsDetailLoad: Bool {
         let hasIngredients = !(recipe.ingredients?.isEmpty ?? true)
         let hasInstructions = !(recipe.instructions.isEmpty)
@@ -41,8 +24,8 @@ struct RecipeDetailView: View {
 
     var body: some View {
         ScrollView {
-            VStack(alignment: .leading, spacing: 16) {
-                // Recipe Image
+            VStack(alignment: .leading, spacing: 0) {
+
                 if let imageURL = recipe.imageURL {
                     CachedAsyncImage(url: imageURL) { image in
                         image
@@ -51,20 +34,20 @@ struct RecipeDetailView: View {
                     } placeholder: {
                         Color.gray.opacity(0.3)
                     }
+                    .frame(maxWidth: .infinity)
                     .frame(height: 250)
-                    .clipShape(RoundedRectangle(cornerRadius: 0))
+                    .clipped()
+                    .contentShape(Rectangle())
                 }
-                
+
                 VStack(alignment: .leading, spacing: 12) {
-                    // Title
+
                     Text(recipe.title)
-                        .font(.largeTitle)
+                        .font(.title)
                         .fontWeight(.bold)
-                        .lineLimit(2)
-                        .minimumScaleFactor(0.7)
-                        .fixedSize(horizontal: false, vertical: true)
-                    
-                    // Metadata
+                        .frame(maxWidth: .infinity, alignment: .leading)
+                        .textSelection(.enabled)
+
                     HStack(spacing: 16) {
                         Label("\(recipe.preparationTime) min", systemImage: "clock")
                         Label(recipe.difficulty.rawValue, systemImage: "chart.bar")
@@ -72,8 +55,7 @@ struct RecipeDetailView: View {
                     }
                     .font(.subheadline)
                     .foregroundStyle(.secondary)
-                    
-                    // Cuisine Type
+
                     if let cuisine = recipe.cuisineType {
                         Text(cuisine)
                             .font(.subheadline)
@@ -83,10 +65,9 @@ struct RecipeDetailView: View {
                             .foregroundStyle(.blue)
                             .clipShape(Capsule())
                     }
-                    
+
                     Divider()
-                    
-                    // Ingredients with availability indicator
+
                     VStack(alignment: .leading, spacing: 12) {
                         HStack {
                             Text("Ingredients")
@@ -95,7 +76,6 @@ struct RecipeDetailView: View {
 
                             Spacer(minLength: 8)
 
-                            // Match indicator
                             let match = calculateMatch()
                             HStack(spacing: 4) {
                                 Image(systemName: match.percentage >= 70 ? "checkmark.circle.fill" : "exclamationmark.circle.fill")
@@ -124,8 +104,7 @@ struct RecipeDetailView: View {
                             }
                         }
                     }
-                    
-                    // Add to Shopping List Button
+
                     if hasMissingIngredients() {
                         Button {
                             addMissingToShoppingList()
@@ -143,10 +122,7 @@ struct RecipeDetailView: View {
                         }
                         .padding(.vertical, 8)
                     }
-                    
-                    // Start Cooking button — disabled until user has every
-                    // non-pantry ingredient in stock (water and pantry spices
-                    // are automatically excluded, see isIngredientAvailable).
+
                     let canCook = !hasMissingIngredients()
                     Button {
                         let session = cookingManager.startSession(recipe: recipe)
@@ -168,12 +144,11 @@ struct RecipeDetailView: View {
 
                     Divider()
 
-                    // Instructions
                     VStack(alignment: .leading, spacing: 12) {
                         Text("Instructions")
                             .font(.title2)
                             .fontWeight(.bold)
-                        
+
                         ForEach(Array(recipe.instructions.enumerated()), id: \.offset) { index, instruction in
                             HStack(alignment: .top, spacing: 12) {
                                 Text("\(index + 1)")
@@ -182,9 +157,10 @@ struct RecipeDetailView: View {
                                     .frame(width: 28, height: 28)
                                     .background(Color.blue)
                                     .clipShape(Circle())
-                                
+
                                 Text(instruction)
                                     .font(.body)
+                                    .textSelection(.enabled)
                             }
                         }
                     }
@@ -231,14 +207,10 @@ struct RecipeDetailView: View {
             Text("Added \(addedItemsCount) missing ingredients to your shopping list")
         }
     }
-    
-    // MARK: - Helper Methods
-    
+
     private func calculateMatch() -> (percentage: Double, available: Int, total: Int) {
         guard let all = recipe.ingredients, !all.isEmpty else { return (0, 0, 0) }
         let pantry = FirestoreService.shared.pantry
-        // Exclude both "always-free" ingredients (water) AND spices the user has
-        // in pantry — they shouldn't be part of the denominator either.
         let ingredients = all.filter {
             !RecipeMatchService.isIgnored($0.ingredientName)
             && !RecipeMatchService.isInPantry($0.ingredientName, pantry: pantry)
@@ -249,10 +221,10 @@ struct RecipeDetailView: View {
         let percentage = (Double(available) / Double(total)) * 100.0
         return (percentage, available, total)
     }
-    
+
     private func isIngredientAvailable(_ recipeIngredient: RecipeIngredient) -> Bool {
         let name = recipeIngredient.ingredientName
-        if RecipeMatchService.isIgnored(name) { return true }   // water, etc.
+        if RecipeMatchService.isIgnored(name) { return true }
         if RecipeMatchService.isInPantry(name, pantry: FirestoreService.shared.pantry) { return true }
 
         let ingredientName = name.lowercased().trimmingCharacters(in: .whitespaces)
@@ -269,7 +241,7 @@ struct RecipeDetailView: View {
         guard let ingredients = recipe.ingredients else { return false }
         return ingredients.contains { !isIngredientAvailable($0) }
     }
-    
+
     private func addMissingToShoppingList() {
         guard let ingredients = recipe.ingredients else { return }
         let fs = FirestoreService.shared
@@ -300,11 +272,10 @@ struct RecipeDetailView: View {
             }
         }
     }
+
     private func toggleFavorite() {
         recipe.isFavorite.toggle()
     }
-
-    // MARK: - Lazy detail loading
 
     private func loadDetail() async {
         guard needsDetailLoad else { return }
@@ -340,36 +311,33 @@ struct RecipeDetailView: View {
     }
 }
 
-// MARK: - Ingredient Row
-
 struct IngredientRowView: View {
     let recipeIngredient: RecipeIngredient
     let isAvailable: Bool
-    
+
     var body: some View {
         HStack(spacing: 12) {
-            // Availability indicator
             Image(systemName: isAvailable ? "checkmark.circle.fill" : "circle")
                 .foregroundStyle(isAvailable ? .green : .gray.opacity(0.3))
                 .font(.title3)
-            
-            // Ingredient info
+
             VStack(alignment: .leading, spacing: 2) {
                 Text(recipeIngredient.ingredientName)
                     .font(.body)
                     .strikethrough(isAvailable, color: .secondary)
                     .foregroundStyle(isAvailable ? .secondary : .primary)
-                
-                // Show unit/measure only — quantity is always 1.0 from MealDB
+                    .textSelection(.enabled)
+
                 if !recipeIngredient.unit.isEmpty {
                     Text(recipeIngredient.unit)
                         .font(.caption)
                         .foregroundStyle(.secondary)
+                        .textSelection(.enabled)
                 }
             }
-            
+
             Spacer()
-            
+
             if !isAvailable {
                 Text("Need")
                     .font(.caption)

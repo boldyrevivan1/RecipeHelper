@@ -1,8 +1,3 @@
-//
-//  RootView.swift
-//  RecipeHelper
-//
-
 import SwiftUI
 
 struct RootView: View {
@@ -36,7 +31,7 @@ struct RootView: View {
             if loggedIn {
                 isLoadingProfile = true
                 fs.startListening()
-                // Give Firestore time to load profile
+
                 DispatchQueue.main.asyncAfter(deadline: .now() + 1.5) {
                     isLoadingProfile = false
                 }
@@ -57,8 +52,6 @@ struct RootView: View {
         }
     }
 }
-
-// MARK: - Splash
 
 struct SplashView: View {
     @State private var scale: CGFloat = 0.8

@@ -1,18 +1,9 @@
-//
-//  InventoryView.swift
-//  RecipeHelper
-//
-
 import SwiftUI
-
-// MARK: - Filter
 
 enum InventoryFilter: String, CaseIterable {
     case all     = "All"
     case expired = "Expired"
 }
-
-// MARK: - Category helpers
 
 private let categoryOrder: [String] = [
     "Meat", "Seafood", "Dairy", "Vegetables", "Fruits",
@@ -47,8 +38,6 @@ extension Color {
         self.init(red: r, green: g, blue: b)
     }
 }
-
-// MARK: - InventoryView
 
 struct InventoryView: View {
     @ObservedObject private var fs = FirestoreService.shared
@@ -110,8 +99,6 @@ struct InventoryView: View {
         }
     }
 
-    // MARK: - Filter Bar
-
     private var filterBar: some View {
         ScrollView(.horizontal, showsIndicators: false) {
             HStack(spacing: 8) {
@@ -132,8 +119,6 @@ struct InventoryView: View {
         case .expired: return expiredCount > 0 ? "🔴 Expired (\(expiredCount))" : "Expired"
         }
     }
-
-    // MARK: - Content
 
     @ViewBuilder
     private var contentGroup: some View {
@@ -248,8 +233,6 @@ struct InventoryView: View {
     }
 }
 
-// MARK: - Product Row
-
 struct FSProductRow: View {
     let product:   FSProduct
     let isExpired: Bool
@@ -290,8 +273,6 @@ struct FSProductRow: View {
         return "Exp: \(date.formatted(date: .abbreviated, time: .omitted))"
     }
 }
-
-// MARK: - Category Header
 
 private struct FSCategoryHeader: View {
     let title: String; let icon: String; let count: Int

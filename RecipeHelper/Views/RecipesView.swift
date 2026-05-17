@@ -1,20 +1,11 @@
-//
-//  RecipesView.swift
-//  RecipeHelper
-//
-
 import SwiftUI
 import SwiftData
-
-// MARK: - Filters
 
 enum RecipeFilter: String, CaseIterable {
     case all      = "All"
     case canCook  = "Can Cook"
     case favorite = "Favorites"
 }
-
-// MARK: - RecipesView
 
 struct RecipesView: View {
     @Query(sort: \Recipe.title) private var allRecipes: [Recipe]
@@ -29,8 +20,6 @@ struct RecipesView: View {
     @State private var isLoading       = false
     @State private var loadingStatus   = ""
     @State private var loadingProgress = 0.0
-
-    // MARK: Computed
 
     private var matches: [RecipeMatch] {
         RecipeMatchService.findMatchingRecipes(recipes: allRecipes, inventory: fs.products, pantry: fs.pantry)
@@ -51,13 +40,13 @@ struct RecipesView: View {
                 search = true
             } else {
                 let q = searchText
-                // match in title
+
                 let titleHit = match.recipe.title.localizedCaseInsensitiveContains(q)
-                // match in any ingredient name
+
                 let ingredientHit = (match.recipe.ingredients ?? []).contains {
                     $0.ingredientName.localizedCaseInsensitiveContains(q)
                 }
-                // match in cuisine ("italian", "indian", …)
+
                 let cuisineHit = match.recipe.cuisineType?
                     .localizedCaseInsensitiveContains(q) ?? false
                 search = titleHit || ingredientHit || cuisineHit
@@ -73,12 +62,10 @@ struct RecipesView: View {
             let cuisineOK = selectedCuisine == nil ||
                 match.recipe.cuisineType == selectedCuisine
 
-            // Dietary filter
             let tags = match.recipe.dietaryTags ?? []
             let dietaryOK = userDietary.isEmpty ||
                 userDietary.allSatisfy { tags.contains($0) }
 
-            // Allergy filter — hide recipes with allergens the user has
             let recipeAllergens = match.recipe.allergens ?? []
             let allergyOK = userAllergies.isEmpty ||
                 !userAllergies.contains(where: { recipeAllergens.contains($0) })
@@ -88,8 +75,6 @@ struct RecipesView: View {
     }
 
     private var canCookCount: Int { matches.filter { $0.canCook }.count }
-
-    // MARK: Body
 
     var body: some View {
         NavigationStack {
@@ -107,8 +92,6 @@ struct RecipesView: View {
 
         }
     }
-
-    // MARK: - Filter Bar
 
     private var filterBar: some View {
         ScrollView(.horizontal, showsIndicators: false) {
@@ -195,8 +178,6 @@ struct RecipesView: View {
         }
     }
 
-    // MARK: - Content
-
     @ViewBuilder
     private var contentGroup: some View {
         if allRecipes.isEmpty {
@@ -236,8 +217,6 @@ struct RecipesView: View {
         }
     }
 }
-
-// MARK: - Recipe Row
 
 struct RecipeRowView: View {
     let match: RecipeMatch
@@ -317,8 +296,6 @@ struct RecipeRowView: View {
         .padding(.vertical, 4)
     }
 }
-
-// MARK: - Filter Chip
 
 struct FilterChipView: View {
     enum Style { case primary, secondary }

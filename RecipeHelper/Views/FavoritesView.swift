@@ -1,10 +1,3 @@
-//
-//  FavoritesView.swift
-//  RecipeHelper
-//
-//  Created by Иван Болдырев on 18.03.2026.
-//
-
 import SwiftUI
 import SwiftData
 
@@ -12,7 +5,7 @@ struct FavoritesView: View {
     @Environment(\.modelContext) private var modelContext
     @Query(filter: #Predicate<Recipe> { $0.isFavorite == true }, sort: \Recipe.title)
     private var favoriteRecipes: [Recipe]
-    
+
     var body: some View {
         NavigationStack {
             Group {
@@ -25,7 +18,7 @@ struct FavoritesView: View {
             .navigationTitle("Favorites")
         }
     }
-    
+
     private var emptyStateView: some View {
         ContentUnavailableView(
             "No Favorite Recipes",
@@ -33,7 +26,7 @@ struct FavoritesView: View {
             description: Text("Tap the heart icon on any recipe to add it to favorites")
         )
     }
-    
+
     private var recipesList: some View {
         List {
             ForEach(favoriteRecipes) { recipe in
@@ -44,7 +37,7 @@ struct FavoritesView: View {
             .onDelete(perform: removeFromFavorites)
         }
     }
-    
+
     private func removeFromFavorites(at offsets: IndexSet) {
         for index in offsets {
             favoriteRecipes[index].isFavorite = false
@@ -52,14 +45,12 @@ struct FavoritesView: View {
     }
 }
 
-// MARK: - Recipe Row
-
 struct FavoriteRecipeRow: View {
     let recipe: Recipe
-    
+
     var body: some View {
         HStack(spacing: 12) {
-            // Image
+
             AsyncImage(url: URL(string: recipe.imageURL ?? "")) { image in
                 image
                     .resizable()
@@ -69,23 +60,22 @@ struct FavoriteRecipeRow: View {
             }
             .frame(width: 80, height: 80)
             .clipShape(RoundedRectangle(cornerRadius: 12))
-            
-            // Info
+
             VStack(alignment: .leading, spacing: 6) {
                 Text(recipe.title)
                     .font(.headline)
                     .lineLimit(2)
-                
+
                 HStack(spacing: 12) {
                     Label("\(recipe.preparationTime) min", systemImage: "clock")
                         .font(.caption)
                         .foregroundStyle(.secondary)
-                    
+
                     Label(recipe.difficulty.rawValue, systemImage: "chart.bar")
                         .font(.caption)
                         .foregroundStyle(.secondary)
                 }
-                
+
                 if let cuisine = recipe.cuisineType {
                     Text(cuisine)
                         .font(.caption)
@@ -96,9 +86,9 @@ struct FavoriteRecipeRow: View {
                         .clipShape(Capsule())
                 }
             }
-            
+
             Spacer()
-            
+
             Image(systemName: "heart.fill")
                 .foregroundStyle(.red)
                 .font(.title3)

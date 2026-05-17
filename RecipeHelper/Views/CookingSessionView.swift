@@ -1,8 +1,3 @@
-//
-//  CookingSessionView.swift
-//  RecipeHelper
-//
-
 import SwiftUI
 import SwiftData
 
@@ -36,8 +31,6 @@ struct CookingSessionView: View {
             .onAppear { if rows.isEmpty { buildRows() } }
         }
     }
-
-    // MARK: - Timer Phase
 
     private var timerPhase: some View {
         VStack(spacing: 32) {
@@ -101,8 +94,6 @@ struct CookingSessionView: View {
         }
     }
 
-    // MARK: - Review Phase
-
     private var reviewPhase: some View {
         VStack(spacing: 0) {
             List {
@@ -134,8 +125,6 @@ struct CookingSessionView: View {
         }
     }
 
-    // MARK: - Build Rows
-
     private func buildRows() {
         guard let ingredients = recipe.ingredients else { return }
         let pantry = fs.pantry
@@ -159,8 +148,6 @@ struct CookingSessionView: View {
             return n == lower || n.contains(lower) || lower.contains(n)
         }
     }
-
-    // MARK: - Apply
 
     private func applyChanges() {
         Task {
@@ -187,16 +174,12 @@ struct CookingSessionView: View {
     }
 }
 
-// MARK: - Row Model
-
 struct CookingIngredientRow: Identifiable {
     let id = UUID()
     let product: FSProduct
     var action: CookAction
     enum CookAction { case skip, toMedium, remove }
 }
-
-// MARK: - Row View
 
 private struct FSCookingRowView: View {
     @Binding var row: CookingIngredientRow

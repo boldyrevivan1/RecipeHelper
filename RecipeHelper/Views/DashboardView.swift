@@ -1,8 +1,3 @@
-//
-//  DashboardView.swift
-//  RecipeHelper
-//
-
 import SwiftUI
 import SwiftData
 
@@ -13,7 +8,9 @@ struct DashboardView: View {
     @Binding var selectedTab: Int
     @State private var showAddProduct = false
     @State private var showQRScanner  = false
-    @State private var surpriseSeed   = 0   // incrementing this shuffles the pick
+    @State private var surpriseSeed      = 0
+    @State private var surpriseRecipeID: UUID? = nil
+    @State private var navigateToRecipe: Recipe? = nil
 
     private var expiredProducts: [FSProduct] { fs.products.filter { isExpired($0) } }
     private var expiringSoon:    [FSProduct] { fs.products.filter { isExpiringSoon($0) } }
@@ -23,15 +20,18 @@ struct DashboardView: View {
         return matches.first(where: { $0.canCook })?.recipe ?? matches.first?.recipe
     }
 
-    /// Random recipe from those the user CAN actually cook.
-    /// Falls back to any recipe if none are cookable.
-    /// `surpriseSeed` lets SwiftUI re-evaluate when the user taps "Surprise me".
-    private var surpriseRecipe: Recipe? {
-        _ = surpriseSeed   // depend on seed so button taps produce a new pick
-        let matches = RecipeMatchService.findMatchingRecipes(recipes: recipes, inventory: fs.products, pantry: fs.pantry)
-        let cookable = matches.filter { $0.canCook }.map { $0.recipe }
-        if let pick = cookable.randomElement() { return pick }
-        return recipes.randomElement()
+    private var featuredRecipe: Recipe? {
+        if surpriseSeed > 0, let id = surpriseRecipeID {
+            return recipes.first(where: { $0.id == id }) ?? topRecipe
+        }
+        return topRecipe
+    }
+
+    private func pickSurpriseRecipe() {
+        let others = recipes.filter { $0.id != surpriseRecipeID }
+        let pool = others.isEmpty ? Array(recipes) : others
+        surpriseRecipeID = pool.randomElement()?.id
+        surpriseSeed += 1
     }
 
     private func isExpired(_ p: FSProduct) -> Bool {
@@ -70,10 +70,11 @@ struct DashboardView: View {
             }
             .navigationTitle("Home")
             .navigationBarTitleDisplayMode(.large)
+            .navigationDestination(item: $navigateToRecipe) { recipe in
+                RecipeDetailView(recipe: recipe)
+            }
         }
     }
-
-    // MARK: - Greeting
 
     private var greetingHeader: some View {
         HStack {
@@ -98,8 +99,6 @@ struct DashboardView: View {
         }
     }
 
-    // MARK: - Stats Row
-
     private var statsRow: some View {
         HStack(spacing: 12) {
             StatCard(value: "\(fs.products.count)", label: "Products",
@@ -110,8 +109,6 @@ struct DashboardView: View {
                      icon: "xmark.circle.fill", color: .red)
         }
     }
-
-    // MARK: - Alerts
 
     private var alertsSection: some View {
         VStack(alignment: .leading, spacing: 12) {
@@ -132,24 +129,15 @@ struct DashboardView: View {
         .cornerRadius(16)
     }
 
-    // MARK: - Recipe of the Day
-
-    /// Which recipe to show — top match by default, random one if user
-    /// has tapped "Surprise me" (seed > 0).
-    private var featuredRecipe: Recipe? {
-        surpriseSeed > 0 ? surpriseRecipe : topRecipe
-    }
-
     private var recipeOfTheDay: some View {
         VStack(alignment: .leading, spacing: 12) {
+
             HStack {
                 Text(surpriseSeed > 0 ? "🎲 Surprise Recipe" : "🍽️ Recipe of the Day")
                     .font(.headline)
                 Spacer()
                 Button {
-                    withAnimation(.spring(response: 0.3)) {
-                        surpriseSeed += 1
-                    }
+                    pickSurpriseRecipe()
                     UIImpactFeedbackGenerator(style: .light).impactOccurred()
                 } label: {
                     HStack(spacing: 4) {
@@ -161,21 +149,24 @@ struct DashboardView: View {
                     .background(Color.blue.opacity(0.12))
                     .foregroundStyle(.blue)
                     .clipShape(Capsule())
+                    .contentShape(Capsule())
                 }
                 .buttonStyle(.plain)
+                .zIndex(10)
             }
+            .zIndex(10)
 
             if let recipe = featuredRecipe {
                 let match = RecipeMatchService.calculateMatch(recipe: recipe, inventory: fs.products, pantry: fs.pantry)
-                NavigationLink(destination: RecipeDetailView(recipe: recipe)) {
+                Button {
+                    navigateToRecipe = recipe
+                } label: {
                     recipeCard(recipe: recipe, match: match)
                 }
                 .buttonStyle(.plain)
-                .id(surpriseSeed)   // re-trigger transition on shuffle
-                .transition(.asymmetric(
-                    insertion: .opacity.combined(with: .scale(scale: 0.96)),
-                    removal:   .opacity
-                ))
+                .zIndex(0)
+                .id(surpriseRecipeID ?? UUID())
+                .animation(.spring(response: 0.3), value: surpriseRecipeID)
             } else {
                 ContentUnavailableView("No Recipes Yet", systemImage: "book",
                     description: Text("Open Recipes tab to load recipes"))
@@ -238,8 +229,6 @@ struct DashboardView: View {
         .cornerRadius(16).clipped()
     }
 
-    // MARK: - Quick Actions
-
     private var quickActions: some View {
         VStack(alignment: .leading, spacing: 12) {
             Text("Quick Actions").font(.headline)
@@ -260,8 +249,6 @@ struct DashboardView: View {
     }
 }
 
-// MARK: - Stat Card
-
 private struct StatCard: View {
     let value: String; let label: String; let icon: String; let color: Color
     var body: some View {
@@ -275,8 +262,6 @@ private struct StatCard: View {
     }
 }
 
-// MARK: - Alert Row
-
 private struct AlertRow: View {
     let icon: String; let color: Color; let title: String; let subtitle: String
     var body: some View {
@@ -289,8 +274,6 @@ private struct AlertRow: View {
         }
     }
 }
-
-// MARK: - Quick Action Button
 
 private struct QuickActionButton: View {
     let label: String; let icon: String; let color: Color; let action: () -> Void

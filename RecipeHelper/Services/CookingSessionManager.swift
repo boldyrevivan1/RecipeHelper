@@ -1,12 +1,5 @@
-//
-//  CookingSessionManager.swift
-//  RecipeHelper
-//
-
 import Foundation
 import SwiftUI
-
-// MARK: - Active Session
 
 struct ActiveCookingSession: Identifiable {
     let id          = UUID()
@@ -17,7 +10,7 @@ struct ActiveCookingSession: Identifiable {
     var remainingSeconds: Int
     var isRunning:  Bool = false
     var startedAt:  Date = Date()
-    var backgroundedAt: Date? = nil  // when app went to background
+    var backgroundedAt: Date? = nil
 
     var progress: Double {
         guard totalSeconds > 0 else { return 0 }
@@ -33,22 +26,18 @@ struct ActiveCookingSession: Identifiable {
     var isFinished: Bool { remainingSeconds <= 0 }
 }
 
-// MARK: - Manager
-
 @MainActor
 class CookingSessionManager: ObservableObject {
     static let shared = CookingSessionManager()
 
     @Published var sessions: [ActiveCookingSession] = []
-    @Published var selectedSessionId: UUID? = nil  // which session sheet is open
+    @Published var selectedSessionId: UUID? = nil
 
     private var timers: [UUID: Timer] = [:]
     private init() {}
 
-    // MARK: - Session Control
-
     func startSession(recipe: Recipe) -> ActiveCookingSession {
-        // Check if already cooking this recipe
+
         if let existing = sessions.first(where: { $0.recipeId == recipe.id }) {
             return existing
         }
@@ -100,17 +89,14 @@ class CookingSessionManager: ObservableObject {
         sessions.first { $0.id == id }
     }
 
-    // MARK: - Background Support
-
     func appDidBackground() {
-        // Record when each running session went to background
         for i in sessions.indices where sessions[i].isRunning {
             sessions[i].backgroundedAt = Date()
         }
     }
 
     func appDidForeground() {
-        // Calculate elapsed time while in background
+
         let now = Date()
         for i in sessions.indices {
             guard sessions[i].isRunning,

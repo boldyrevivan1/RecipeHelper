@@ -1,12 +1,3 @@
-//
-//  PantryView.swift
-//  RecipeHelper
-//
-//  Staples the user always has at home (salt, pepper, sugar, …).
-//  Items here do NOT show an expiration date, don't count as "expired",
-//  and are NOT deducted from stock after cooking.
-//
-
 import SwiftUI
 
 struct PantryView: View {
@@ -70,14 +61,12 @@ struct PantryView: View {
     private func deleteCustom(at offsets: IndexSet) {
         for idx in offsets {
             let item = fs.pantry[idx]
-            // only user-added items can be deleted; defaults are kept (can be toggled off)
+
             guard item.isCustom, let id = item.id else { continue }
             Task { try? await fs.deletePantryItem(id: id) }
         }
     }
 }
-
-// MARK: - Row
 
 private struct PantryRow: View {
     let item: FSPantryItem

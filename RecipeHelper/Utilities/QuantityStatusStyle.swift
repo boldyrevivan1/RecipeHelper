@@ -1,13 +1,3 @@
-//
-//  QuantityStatusStyle.swift
-//  RecipeHelper
-//
-//  Tiny helper so views can render icon + color for an FSProduct's
-//  quantityStatus string ("Plenty" / "Medium" / ...).
-//  Replaces the old ProductQuantityStatus enum that lived inside the
-//  retired SwiftData Product model.
-//
-
 import SwiftUI
 
 enum QuantityStatusStyle {

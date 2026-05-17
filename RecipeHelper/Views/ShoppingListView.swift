@@ -1,8 +1,3 @@
-//
-//  ShoppingListView.swift
-//  RecipeHelper
-//
-
 import SwiftUI
 
 struct ShoppingListView: View {
@@ -118,8 +113,6 @@ struct ShoppingListView: View {
         }
     }
 
-    // MARK: - Move to Inventory
-
     private var moveToInventoryButton: some View {
         Button {
             showMoveSheet = true
@@ -232,18 +225,13 @@ struct ShareSheet: UIViewControllerRepresentable {
     func updateUIViewController(_ vc: UIActivityViewController, context: Context) {}
 }
 
-// MARK: - Move to Inventory Sheet
-
-/// Shows every purchased shopping-list item with a Plenty/Medium picker.
-/// Tapping "Move" creates or merges FSProducts and removes the items.
 struct MoveToInventorySheet: View {
     let items: [FSShoppingItem]
 
     @Environment(\.dismiss) private var dismiss
     @ObservedObject private var fs = FirestoreService.shared
 
-    /// Per-item chosen quantity. Default: Plenty.
-    @State private var qty: [String: String] = [:]   // itemId → "Plenty" | "Medium"
+    @State private var qty: [String: String] = [:]
     @State private var isSaving = false
 
     var body: some View {
@@ -284,7 +272,7 @@ struct MoveToInventorySheet: View {
                 }
             }
             .onAppear {
-                // Initialize defaults for any new items
+
                 for item in items {
                     if let id = item.id, qty[id] == nil { qty[id] = "Plenty" }
                 }
@@ -340,7 +328,6 @@ struct MoveToInventorySheet: View {
         .padding(.vertical, 4)
     }
 
-    /// Find an existing FSProduct matching the same name (case-insensitive).
     private func existingProduct(for name: String) -> FSProduct? {
         let lower = name.lowercased().trimmingCharacters(in: .whitespaces)
         return fs.products.first { $0.name.lowercased() == lower }
@@ -359,14 +346,14 @@ struct MoveToInventorySheet: View {
 
             if let existing = existingProduct(for: item.ingredientName),
                let existingId = existing.id {
-                // Merge: refresh status + expiration date (new purchase = fresh)
+
                 var updated = existing
                 updated.quantityStatus = chosenStatus
                 updated.expirationDate = expiration ?? existing.expirationDate
                 updated.addedDate      = Date()
                 try? await fs.updateProduct(updated)
             } else {
-                // Brand-new product in inventory
+
                 let product = FSProduct(
                     name:           item.ingredientName,
                     quantityStatus: chosenStatus,

@@ -1,13 +1,4 @@
-//
-//  FNSReceiptService.swift
-//  RecipeHelper
-//
-//  Created by Иван Болдырев on 15.03.2026.
-//
-
 import Foundation
-
-// MARK: - Models
 
 struct FNSReceiptData: Codable {
     let date: String
@@ -16,7 +7,7 @@ struct FNSReceiptData: Codable {
     let fsId: String
     let documentId: Int
     let fiscalSign: String
-    
+
     enum CodingKeys: String, CodingKey {
         case date = "t"
         case operationType = "operationType"
@@ -50,8 +41,6 @@ struct FNSReceiptItem: Codable {
     let sum: Int
 }
 
-// MARK: - Matched Product
-
 struct MatchedProduct {
     let originalName: String
     let matchedIngredient: String
@@ -61,60 +50,48 @@ struct MatchedProduct {
 }
 
 enum MatchConfidence {
-    case exact      // 100% - точное совпадение
-    case high       // 80-99% - частичное совпадение
-    case medium     // 50-79% - похожее слово
-    case low        // <50% - возможное совпадение
+    case exact
+    case high
+    case medium
+    case low
 }
 
-// MARK: - Service
-
 class FNSReceiptService {
-    
+
     static let shared = FNSReceiptService()
-    
+
     private init() {}
-    
-    // MARK: - QR Parsing
-    
-    /// Парсинг данных из QR-кода чека
+
     func parseQRCode(_ qrString: String) -> FNSReceiptData? {
         print("==================================================")
         print("🔍 RAW QR CODE SCANNED:")
         print(qrString)
         print("==================================================")
         print("QR Length: \(qrString.count) characters")
-        
-        // Проверяем разные форматы
-        
-        // Формат 1: Стандартный ФНС (t=...&s=...&fn=...)
+
         if qrString.contains("t=") && qrString.contains("fn=") {
             print("✅ Detected FNS format")
             return parseFNSFormat(qrString)
         }
-        
-        // Формат 2: URL формат (https://...)
+
         if qrString.starts(with: "http") {
             print("✅ Detected URL format")
             return parseURLFormat(qrString)
         }
-        
-        // Формат 3: JSON формат
+
         if qrString.starts(with: "{") {
             print("✅ Detected JSON format")
             return parseJSONFormat(qrString)
         }
-        
+
         print("❌ Unknown QR format")
         print("QR starts with: \(String(qrString.prefix(50)))")
         return nil
     }
-    
-    // MARK: - Format Parsers
-    
+
     private func parseFNSFormat(_ qrString: String) -> FNSReceiptData? {
         var components: [String: String] = [:]
-        
+
         let pairs = qrString.split(separator: "&")
         for pair in pairs {
             let keyValue = pair.split(separator: "=")
@@ -122,7 +99,7 @@ class FNSReceiptService {
                 components[String(keyValue[0])] = String(keyValue[1])
             }
         }
-        
+
         guard let dateStr = components["t"],
               let sumStr = components["s"],
               let fsId = components["fn"],
@@ -132,26 +109,24 @@ class FNSReceiptService {
             print("❌ Missing required FNS parameters")
             return nil
         }
-        
-        // Парсим сумму (может быть с десятичной точкой в рублях)
+
         let sumDouble = Double(sumStr) ?? 0
-        let sum = Int(sumDouble * 100) // Конвертируем рубли в копейки
-        
-        // Парсим остальные параметры
+        let sum = Int(sumDouble * 100)
+
         let documentId = Int(docIdStr) ?? 0
         let operationType = Int(opTypeStr) ?? 1
-        
+
         if sum == 0 {
             print("❌ Invalid sum value: \(sumStr)")
             return nil
         }
-        
+
         print("✅ Successfully parsed FNS format")
         print("   Sum: \(sumStr) руб = \(sum) коп")
         print("   Date: \(dateStr)")
         print("   FN: \(fsId)")
         print("   Document ID: \(documentId)")
-        
+
         return FNSReceiptData(
             date: dateStr,
             operationType: operationType,
@@ -161,37 +136,33 @@ class FNSReceiptService {
             fiscalSign: String(fiscalSignStr)
         )
     }
-    
+
     private func parseURLFormat(_ qrString: String) -> FNSReceiptData? {
-        // Формат: https://check.ofd.ru/rec/123456...
-        // Извлекаем параметры из URL
-        
+
         guard let url = URL(string: qrString),
               let components = URLComponents(url: url, resolvingAgainstBaseURL: false) else {
             print("❌ Failed to parse URL")
             return nil
         }
-        
+
         print("URL Host: \(url.host ?? "none")")
         print("URL Path: \(url.path)")
         print("Query items: \(components.queryItems?.count ?? 0)")
-        
-        // Извлекаем параметры из query
+
         var params: [String: String] = [:]
         components.queryItems?.forEach { item in
             params[item.name] = item.value
         }
-        
-        // Пытаемся найти нужные параметры
+
         if let dateStr = params["t"],
            let sumStr = params["s"],
            let fsId = params["fn"] {
-            
+
             let sumDouble = Double(sumStr) ?? 0
             let sum = Int(sumDouble * 100)
             let documentId = Int(params["i"] ?? "0") ?? 0
             let operationType = Int(params["n"] ?? "1") ?? 1
-            
+
             return FNSReceiptData(
                 date: dateStr,
                 operationType: operationType,
@@ -201,42 +172,35 @@ class FNSReceiptService {
                 fiscalSign: params["fp"] ?? "0"
             )
         }
-        
+
         print("❌ URL format missing required parameters")
         return nil
     }
-    
+
     private func parseJSONFormat(_ qrString: String) -> FNSReceiptData? {
-        // Если QR содержит JSON
+
         guard let data = qrString.data(using: .utf8) else {
             print("❌ Failed to convert JSON string to data")
             return nil
         }
-        
+
         do {
             if let json = try JSONSerialization.jsonObject(with: data) as? [String: Any] {
                 print("JSON keys: \(json.keys)")
-                // Парсим JSON и ищем нужные поля
+
             }
         } catch {
             print("❌ JSON parsing failed: \(error)")
         }
-        
+
         return nil
     }
-    
-    // MARK: - API Mock (для демо)
-    
-    /// Получение данных чека из API ФНС
-    /// NOTE: В production здесь должен быть настоящий API запрос к ФНС
-    /// Сейчас используем mock данные для демонстрации функционала
+
     func fetchReceipt(data: FNSReceiptData) async throws -> FNSReceipt {
         print("📡 Fetching receipt data...")
-        
-        // Симулируем задержку сети
-        try await Task.sleep(nanoseconds: 1_000_000_000) // 1 секунда
-        
-        // Mock данные для демонстрации
+
+        try await Task.sleep(nanoseconds: 1_000_000_000)
+
         let mockReceipt = FNSReceipt(
             document: FNSDocument(
                 receipt: FNSReceiptDetails(
@@ -262,21 +226,18 @@ class FNSReceiptService {
                 )
             )
         )
-        
+
         print("✅ Receipt fetched: \(mockReceipt.document.receipt.items.count) items")
-        
+
         return mockReceipt
     }
-    
-    // MARK: - Product Matching
-    
-    /// Сопоставление товаров из чека с известными ингредиентами
+
     func matchProducts(receiptItems: [FNSReceiptItem]) -> [MatchedProduct] {
         print("🔄 Matching \(receiptItems.count) receipt items with known ingredients...")
         print("📚 Available ingredients: \(KnownIngredients.all.count)")
-        
+
         var matchedProducts: [MatchedProduct] = []
-        
+
         for item in receiptItems {
             print("\n🔍 Trying to match: '\(item.name)'")
             if let match = findBestMatch(for: item) {
@@ -286,19 +247,18 @@ class FNSReceiptService {
                 print("❌ NO MATCH for: '\(item.name)'")
             }
         }
-        
+
         print("\n📊 ========== MATCHING SUMMARY ==========")
         print("Total items in receipt: \(receiptItems.count)")
         print("Total matched products: \(matchedProducts.count)")
         print("==========================================\n")
-        
+
         return matchedProducts
     }
-    
+
     private func findBestMatch(for item: FNSReceiptItem) -> MatchedProduct? {
         let itemName = item.name.lowercased()
-        
-        // Словарь русских названий → английские из KnownIngredients
+
         let russianToEnglish: [String: String] = [
             "молоко": "Milk",
             "хлеб": "Bread",
@@ -323,8 +283,7 @@ class FNSReceiptService {
             "картофель": "Potato",
             "картошка": "Potato"
         ]
-        
-        // Ищем по русским словам
+
         for (russian, english) in russianToEnglish {
             if itemName.contains(russian) {
                 print("  → Found Russian word '\(russian)' → '\(english)'")
@@ -337,12 +296,10 @@ class FNSReceiptService {
                 )
             }
         }
-        
-        // Если не нашли в словаре, пробуем сопоставить с английскими названиями
+
         for ingredient in KnownIngredients.all {
             let ingredientLower = ingredient.lowercased()
-            
-            // Точное совпадение
+
             if itemName.contains(ingredientLower) {
                 print("  → Exact match with '\(ingredient)'")
                 return MatchedProduct(
@@ -354,19 +311,17 @@ class FNSReceiptService {
                 )
             }
         }
-        
+
         print("  → No match found in dictionary or KnownIngredients")
         return nil
     }
 }
 
-// MARK: - Error
-
 enum FNSError: Error, LocalizedError {
     case invalidQRCode
     case networkError
     case parsingError
-    
+
     var errorDescription: String? {
         switch self {
         case .invalidQRCode:

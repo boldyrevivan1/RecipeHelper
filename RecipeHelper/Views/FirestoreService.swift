@@ -1,28 +1,11 @@
-//
-//  FirestoreService.swift
-//  RecipeHelper
-//
-//  Created by Иван Болдырев on 21.04.2026.
-//
-
-//
-//  FirestoreService.swift
-//  RecipeHelper
-//
-//  Handles all Firestore read/write operations.
-//  User-specific data: products, shoppingList, history, profile.
-//
-
 import Foundation
 import FirebaseFirestore
 import FirebaseAuth
 
-// MARK: - Firestore Models (Codable)
-
 struct FSProduct: Identifiable, Codable {
     @DocumentID var id: String?
     var name: String
-    var quantityStatus: String   // "Plenty" | "Medium"
+    var quantityStatus: String
     var expirationDate: Date?
     var addedDate: Date
     var category: String?
@@ -58,10 +41,8 @@ struct FSPantryItem: Identifiable, Codable {
     @DocumentID var id: String?
     var name: String
     var isAvailable: Bool
-    var isCustom: Bool = false   // true для добавленных пользователем, false для дефолтных
+    var isCustom: Bool = false
 }
-
-// MARK: - Service
 
 @MainActor
 class FirestoreService: ObservableObject {
@@ -85,13 +66,10 @@ class FirestoreService: ObservableObject {
         return db.collection("users").document(uid)
     }
 
-    // MARK: - Start / Stop Listening
-
     func startListening() {
         guard let ref = userRef() else { return }
         stopListening()
 
-        // Products
         let p = ref.collection("products")
             .addSnapshotListener { [weak self] snap, _ in
                 let products = snap?.documents.compactMap {
@@ -101,7 +79,6 @@ class FirestoreService: ObservableObject {
                 Task { await NotificationService.shared.scheduleNotifications(for: products) }
             }
 
-        // Shopping list
         let s = ref.collection("shoppingList")
             .order(by: "addedDate", descending: true)
             .addSnapshotListener { [weak self] snap, _ in
@@ -110,7 +87,6 @@ class FirestoreService: ObservableObject {
                 } ?? []
             }
 
-        // History
         let h = ref.collection("history")
             .order(by: "cookedAt", descending: true)
             .addSnapshotListener { [weak self] snap, _ in
@@ -119,13 +95,11 @@ class FirestoreService: ObservableObject {
                 } ?? []
             }
 
-        // Profile
         let pr = ref.collection("profile").document("data")
             .addSnapshotListener { [weak self] snap, _ in
                 self?.profile = try? snap?.data(as: FSProfile.self)
             }
 
-        // Pantry (specie inventory)
         let pa = ref.collection("pantry")
             .order(by: "name")
             .addSnapshotListener { [weak self] snap, _ in
@@ -143,8 +117,6 @@ class FirestoreService: ObservableObject {
         listeners = []
     }
 
-    // MARK: - Products
-
     func addProduct(_ product: FSProduct) async throws {
         guard let ref = userRef() else { return }
         try ref.collection("products").addDocument(from: product)
@@ -159,8 +131,6 @@ class FirestoreService: ObservableObject {
         guard let ref = userRef() else { return }
         try await ref.collection("products").document(id).delete()
     }
-
-    // MARK: - Shopping List
 
     func addShoppingItem(_ item: FSShoppingItem) async throws {
         guard let ref = userRef() else { return }
@@ -188,8 +158,6 @@ class FirestoreService: ObservableObject {
         }
     }
 
-    // MARK: - Cooking History
-
     func addHistory(recipeTitle: String, imageURL: String?, cuisine: String?) async throws {
         guard let ref = userRef() else { return }
         let entry = FSCookingHistory(
@@ -206,14 +174,10 @@ class FirestoreService: ObservableObject {
         try await ref.collection("history").document(id).delete()
     }
 
-    // MARK: - Profile
-
     func saveProfile(_ profile: FSProfile) async throws {
         guard let ref = userRef() else { return }
         try ref.collection("profile").document("data").setData(from: profile)
     }
-
-    // MARK: - Pantry
 
     private var pantryDidSeed = false
 
@@ -227,21 +191,16 @@ class FirestoreService: ObservableObject {
         }
     }
 
-    /// Used by the onboarding flow: caller provides a final list of spice names
-    /// the user has at home. Any existing pantry entries are wiped first so the
-    /// user's choice is authoritative (and no duplicates sneak in from the seed).
     func replacePantry(with names: [String]) async throws {
         guard let ref = userRef() else { return }
-        // mark seed as done so no auto-seed races with us
+
         pantryDidSeed = true
 
-        // wipe existing
         let snap = try await ref.collection("pantry").getDocuments()
         for doc in snap.documents {
             try await doc.reference.delete()
         }
 
-        // the 3 built-ins we know about; everything else is marked custom
         let builtIns: Set<String> = ["salt", "black pepper", "sugar"]
         for name in names {
             let trimmed = name.trimmingCharacters(in: .whitespacesAndNewlines)
@@ -265,7 +224,7 @@ class FirestoreService: ObservableObject {
         guard let ref = userRef() else { return }
         let trimmed = name.trimmingCharacters(in: .whitespacesAndNewlines)
         guard !trimmed.isEmpty else { return }
-        // anti-duplicate (case-insensitive)
+
         let exists = pantry.contains { $0.name.lowercased() == trimmed.lowercased() }
         guard !exists else { return }
         let item = FSPantryItem(name: trimmed, isAvailable: true, isCustom: true)

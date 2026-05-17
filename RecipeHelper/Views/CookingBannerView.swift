@@ -1,11 +1,3 @@
-//
-//  CookingBannerView.swift
-//  RecipeHelper
-//
-//  Mini pill at the bottom of the screen (above tab bar).
-//  Swipe down to dismiss. Tap to open session.
-//
-
 import SwiftUI
 
 struct CookingBannerView: View {
@@ -25,15 +17,13 @@ struct CookingBannerView: View {
     }
 }
 
-// MARK: - Single Pill
-
 private struct SessionPill: View {
     let session: ActiveCookingSession
     @ObservedObject var manager = CookingSessionManager.shared
 
     var body: some View {
         HStack(spacing: 10) {
-            // Mini timer ring
+
             ZStack {
                 Circle()
                     .stroke(Color.white.opacity(0.3), lineWidth: 2.5)
@@ -46,7 +36,6 @@ private struct SessionPill: View {
             }
             .frame(width: 24, height: 24)
 
-            // Title + time
             VStack(alignment: .leading, spacing: 1) {
                 Text(session.recipeTitle)
                     .font(.caption).fontWeight(.semibold)
@@ -60,7 +49,6 @@ private struct SessionPill: View {
 
             Spacer()
 
-            // Play / Pause
             Button {
                 session.isRunning
                     ? manager.pauseTimer(for: session.id)
@@ -74,7 +62,6 @@ private struct SessionPill: View {
                     .clipShape(Circle())
             }
 
-            // Open session
             Button {
                 manager.selectedSessionId = session.id
             } label: {
@@ -83,7 +70,6 @@ private struct SessionPill: View {
                     .foregroundStyle(.white.opacity(0.9))
             }
 
-            // Stop
             Button {
                 withAnimation { manager.removeSession(session.id) }
             } label: {

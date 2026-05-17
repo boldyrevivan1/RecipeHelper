@@ -1,11 +1,3 @@
-//
-//  CachedAsyncImage.swift
-//  RecipeHelper
-//
-//  Если url выглядит как "recipe_1" — берёт из Assets.
-//  Если это http URL — скачивает из сети с кешем.
-//
-
 import SwiftUI
 
 private actor ImageStore {
@@ -37,32 +29,31 @@ struct CachedAsyncImage<Content: View, Placeholder: View>: View {
     }
 
     var body: some View {
-        Group {
+        ZStack {
             if let img = uiImage {
                 content(Image(uiImage: img))
+                    .clipped()
             } else {
                 placeholder()
-                    .task(id: urlString) { await load() }
             }
         }
+        .clipped()
+        .task(id: urlString) { await load() }
     }
 
     private func load() async {
         guard let str = urlString, !str.isEmpty else { return }
 
-        // 1. Check cache
         if let cached = await ImageStore.shared.get(str) {
             uiImage = cached; return
         }
 
-        // 2. Try Assets.xcassets first (works offline, no URL needed)
         if let img = UIImage(named: str) {
             await ImageStore.shared.set(img, for: str)
             uiImage = img
             return
         }
 
-        // 3. Download from network
         guard let url = URL(string: str) else { return }
         for attempt in 1...3 {
             do {

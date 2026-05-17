@@ -1,12 +1,5 @@
-//
-//  QRScannerView.swift
-//  RecipeHelper
-//
-
 import SwiftUI
 import PhotosUI
-
-// MARK: - Camera Picker
 
 struct CameraPicker: UIViewControllerRepresentable {
     @Binding var image: UIImage?
@@ -32,8 +25,6 @@ struct CameraPicker: UIViewControllerRepresentable {
         func imagePickerControllerDidCancel(_ picker: UIImagePickerController) { parent.dismiss() }
     }
 }
-
-// MARK: - QRScannerView
 
 @MainActor
 struct QRScannerView: View {
@@ -121,8 +112,6 @@ struct QRScannerView: View {
         }
     }
 
-    // MARK: - Processing
-
     private func processImage(_ image: UIImage) {
         cameraImage = nil; isProcessing = true
         Task { defer { isProcessing = false }; await run(image: image) }
@@ -154,8 +143,6 @@ struct QRScannerView: View {
         } catch { errorMessage = error.localizedDescription; showError = true }
     }
 }
-
-// MARK: - Product Selection Sheet
 
 struct ProductSelectionSheet: View {
     let products:  [ReceiptProduct]
@@ -196,8 +183,7 @@ struct ProductSelectionSheet: View {
             let existing = FirestoreService.shared.products
             for row in rows where row.isSelected {
                 let name = row.match.englishName
-                // Refresh existing entry instead of creating a duplicate.
-                // Fresh receipt = fresh expiration date, so override previous.
+
                 if var match = existing.first(where: {
                     $0.name.lowercased().trimmingCharacters(in: .whitespaces)
                         == name.lowercased().trimmingCharacters(in: .whitespaces)
@@ -223,8 +209,6 @@ struct ProductSelectionSheet: View {
     }
 }
 
-// MARK: - Row State
-
 struct ProductRowState: Identifiable {
     let product: ReceiptProduct
     let match:   IngredientMatch
@@ -239,8 +223,6 @@ struct ProductRowState: Identifiable {
         self.expDate = Calendar.current.date(byAdding: .day, value: match.defaultDays, to: Date()) ?? Date()
     }
 }
-
-// MARK: - Row View
 
 struct ReceiptProductRowView: View {
     @Binding var row: ProductRowState

@@ -1,8 +1,3 @@
-//
-//  MainTabView.swift
-//  RecipeHelper
-//
-
 import SwiftUI
 import SwiftData
 
@@ -32,10 +27,9 @@ struct MainTabView: View {
                     .tabItem { Label("Profile",   systemImage: "person") }.tag(4)
             }
 
-            // Mini pill above tab bar
             if !cookingManager.sessions.isEmpty {
                 CookingBannerView()
-                    .padding(.bottom, 60) // above tab bar
+                    .padding(.bottom, 60)
             }
         }
         .onChange(of: cookingManager.selectedSessionId) { _, sessionId in

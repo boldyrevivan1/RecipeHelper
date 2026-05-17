@@ -1,8 +1,3 @@
-//
-//  RecipeHelperApp.swift
-//  RecipeHelper
-//
-
 import SwiftUI
 import SwiftData
 import FirebaseCore
@@ -13,9 +8,7 @@ struct RecipeHelperApp: App {
     @UIApplicationDelegateAdaptor(AppDelegate.self) var delegate
 
     var sharedModelContainer: ModelContainer = {
-        // Recipe catalog (seeded from recipes.json) is the only SwiftData store.
-        // All user-specific data (inventory, shopping list, cooking history,
-        // pantry, profile) lives in Firestore.
+
         let schema = Schema([
             Recipe.self,
             RecipeIngredient.self,
